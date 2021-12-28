@@ -16,9 +16,11 @@ var swiper = new Swiper(".mySwiper", {
 });
 ///////////////////////FUNZIONE SWIPER///////////////////////////
 
-const URL = "http://localhost:9010/sharing/api/veicoli/banner/true";
+
+///////////////////////FUNZIONE BANNER DINAMICO///////////////////////////
+const URLbanner = "http://localhost:9010/sharing/api/veicoli/banner/true";
 var divSwiper = document.getElementById("swiper")
-fetch(URL)
+fetch(URLbanner)
     .then(dati => {
         return dati.json()
     })
@@ -42,39 +44,6 @@ fetch(URL)
             '</div>';
     }
 });
-///////////////////////FUNZIONE BANNER DINAMICO///////////////////////////
-// var objVeicolo = {};
-// objVeicolo.nome = document.getElementById("nomeVe").value;
-// objVeicolo.autonomia = document.getElementById("autonom").value;
-// objVeicolo.stazione = document.getElementById("staz").value;
-// objVeicolo.categoria = document.getElementById("categoria").value;
-
-// var btnAddVehicle = document.getElementById("btnAddVehicle");
-
-
-// btnAddVehicle.addEventListener("click", () => {
-    // $('#form').submit(function (e) {
-    //     e.preventDefault();
-    //     console.log("hey!");
-
-    //         function costruttoreVeicolo() {
-    //             this.nome = document.getElementById("nomeVe").value;
-    //             this.tipo = document.getElementById("categoria").value;
-    //             this.autonomia = document.getElementById("autonom").value;
-    //             this.posizioneAttuale = document.getElementById("staz").value;
-    //         }
-    //         var objVeicolo = new costruttoreVeicolo();
-    //         var objJsonVeicoli = JSON.stringify(objVeicolo);
-    //         console.log(objVeicolo);
-
-    //         fetch("http://localhost:9077/sharing/api_veicoli", {
-    //             method: "POST",
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: objJsonVeicoli
-    //         })
-    //     });
 ///////////////////////FUNZIONE BANNER DINAMICO///////////////////////////
 
 
