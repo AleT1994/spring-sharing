@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="Description" content="Enter your description here" />
-    <title>Home</title>
+    <title>Prenota Veicolo</title>
 
     <!--BOOTSTRAP-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
@@ -16,15 +16,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!--FONT-AWESOME-->
 
-    <!--SWIPER-JS-->
+    <!--SWIPER-->
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <!--SWIPER-JS-->
+    <!--SWIPER-->
+
+    <!--LEAFLET-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <!--LEAFLET-->
 
     <!--MIO-CSS-->
     <link rel="stylesheet" href="css/style.css">
     <!--MIO-CSS-->
 </head>
-
 
 <body>
 
@@ -48,12 +53,13 @@
                         <a style="text-align: center;" class="nav-link" href="#">Veicoli disponibili</a>
                     </li>
 
+                    <li class="nav-item">
+                        <a style="text-align: center;" class="nav-link" href="about-us.html">About Us</a>
+                    </li>
+
                     <li class="nav-item" id="loginPadre">
                         <a style="text-align: center; cursor: pointer;" class="nav-link" data-bs-toggle="modal"
                             data-bs-target="#myModal" id="login">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a style="text-align: center;" class="nav-link" href="abautas.html">About Us</a>
                     </li>
                 </ul>
             </div>
@@ -61,107 +67,36 @@
     </nav>
     <!--NAVBAR-->
 
-    <!-- INIZIO SWIPER -->
-    <div class="row mt-4">
-        <div class="col">
-            <div class="swiper mySwiper">
-                <div id="swiper" class="swiper-wrapper"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </div>
-    </div>
-    <!-- FINE SWIPER -->
 
     <div class="container">
 
-        <!-- INIZIO SEZIONE OFFERTE -->
-        <div class="mt-4 row">
-            <div class=" col-md-4">
-                <div>
-                    <div class="card">
-                        <img src="http://placekitten.com/800/900" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">OFFERTA 1</h5>
-                            <p class="card-text">Scegli noi e bla bla bla, prezzo dell'offerta bla bla bla, oddio che
-                                bello bla bla bla, sto leggendo tutto bla bla bla, easter egg per dario, bla bla bla,
-                                fine.</p>
-                            <a href="#" class="btn btn-primary">Abbonati ora, solo 19,99€</a>
-                        </div>
+        <!--SCHEDA VEICOLO-->
+        <div class="py-3 py-lg-5 featuredArticle">
+            <div class="row">
+
+                <div class="col-sm-6 col-lg-3 pe-5">
+                    <img id="imgVeicolo" src="http://placekitten.com/300/300" class="img-fluid img-thumbnail"
+                        alt="articleImage1">
+                </div>
+
+                <div class="col-sm-6 col-lg-9 ps-5 d-flex flex-column justify-content-center align-items-start">
+                    <div class="articleIntro">
+                        <h2 id="nomeVeicolo">Lorem, ipsum dolor.</h2>
+                        <p id="tipoVeicolo">Lorem ipsum dolor.</p>
+                        <p id="autonomiaVeicolo">Lorem ipsum dolor.</p>
+                    </div>
+                    <div class="articleCta">
+                        <a href="" class="btn btn-primary">Prenota</a>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div>
-                    <div class="card">
-                        <img src="http://placekitten.com/800/900" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">OFFERTA 2</h5>
-                            <p class="card-text">Scegli noi e bla bla bla, prezzo dell'offerta bla bla bla, oddio che
-                                bello bla bla bla, sto leggendo tutto bla bla bla, easter egg per dario, bla bla bla,
-                                fine.</p>
-                            <a href="#" class="btn btn-primary">Abbonati ora, solo 39,99€</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div>
-                    <div class="card">
-                        <img src="http://placekitten.com/800/900" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">OFFERTA 3</h5>
-                            <p class="card-text">Scegli noi e bla bla bla, prezzo dell'offerta bla bla bla, oddio che
-                                bello bla bla bla, sto leggendo tutto bla bla bla, easter egg per dario, bla bla bla,
-                                fine.</p>
-                            <a href="#" class="btn btn-primary">Abbonati ora, solo 49,99€</a>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
-        <!-- FINE SEZIONE OFFERTE -->
+        <!--SCHEDA VEICOLO-->
 
-
-        <!-- INIZIO SEZIONE GRAFICO -->
-        <div class=" row mt-4">
-            <div class="col-md-6">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lorem lectus, facilisis quis sagittis
-                    sed,
-                    commodo eget lorem. Pellentesque scelerisque tellus lacus, a maximus urna hendrerit in. Nullam
-                    vehicula
-                    sagittis mi id luctus. Fusce ultrices fringilla felis, sit amet euismod velit faucibus at. Cras
-                    mollis
-                    dictum posuere. In imperdiet ante eget pulvinar mattis. Quisque dapibus est vitae sem sollicitudin,
-                    at
-                    suscipit nulla egestas. Maecenas ac eros vel turpis feugiat cursus.
-
-                    Aliquam molestie malesuada dolor, sed semper nunc dictum id. Donec cursus tellus nec tortor semper
-                    rutrum. Nunc diam lacus, eleifend sed sodales a, rhoncus eu ipsum. Quisque justo purus, cursus non
-                    metus
-                    et, dictum feugiat felis. Aenean id eros vulputate neque tempor commodo ultricies id dolor. Nullam
-                    quis
-                    venenatis diam. Nullam a arcu est. Etiam eu vestibulum ipsum. Sed pharetra non lacus eget tempus.
-                    Nam
-                    sollicitudin et purus vel porta. Nunc dignissim aliquet nunc, nec bibendum dui vehicula eget.
-                    Curabitur
-                    laoreet orci eu neque vehicula, nec venenatis nulla consectetur. Etiam non lorem nec enim vulputate
-                    cursus. Duis volutpat efficitur hendrerit.
-
-                    Cras facilisis magna ac tincidunt eleifend. Curabitur eget velit nec augue lacinia accumsan ac at
-                    justo.
-                    Proin pretium eros diam, in imperdiet odio placerat vel. Aliquam quis condimentum tortor. Aliquam id
-                    commodo eros, ut auctor diam. Pellentesque fermentum, diam in blandit interdum, diam est vulputate
-                    mauris, a blandit nulla ex quis lacus. Vivamus ac felis a erat maximus pretium quis aliquet est.
-                    Nunc
-                    mattis congue ex eget tempus.</p>
-            </div>
-            <div class="col-md-6">
-                <canvas id="myChart"></canvas>
-            </div>
-        </div>
-        <!-- FINE SEZIONE GRAFICO -->
+        <!--POSIZIONE VEICOLO SULLA MAPPA-->
+        <div id="map"></div>
+        <!--POSIZIONE VEICOLO SULLA MAPPA-->
 
     </div>
 
@@ -276,7 +211,8 @@
     </footer>
     <!-- Footer -->
 
-<!-- Popper JS -->
+
+    <!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <!-- Popper JS -->
 
@@ -291,6 +227,12 @@
     <!-- Chart JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Chart JS -->
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <!-- Leaflet JS -->
 
     <!-- Modernizr -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"
@@ -315,7 +257,6 @@
     <script src="js/scriptAdmin.js"></script>
     <script src="js/scriptPrentaVeicolo.js"></script>
     <!-- MIEI SCRIPT -->
-
 </body>
 
 </html>

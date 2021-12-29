@@ -71,6 +71,7 @@ fetch(linkRisorsa)
 }
 ///////////////////////FUNZIONE INSERIMENTO VEICOLO NEL DB///////////////////////////
 
+
 ///////////////////CONTROLLO FORM INSERIMENTO VEICOLIO/////////////////////////
 $().ready(function () {
     $('#form').validate({

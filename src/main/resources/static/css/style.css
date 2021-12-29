@@ -1,8 +1,5 @@
 body {
-    width: 98vw;
-    height: auto;
-    margin-left: 0.6rem;
-    
+	overflow-x: hidden; /* nascondere scrollbar orizzontale */
     background-color:rgb(253, 253, 253);
 }
 
@@ -11,14 +8,11 @@ img{
     height: auto;
 }
 
+
 /*----------------SWIPER----------------*/
 .swiper {
     width: 100%;
     height: 100%;
-}
-
-#swiper {
-    position: relative;
 }
 
 .swiper-slide {
@@ -46,6 +40,10 @@ img{
     width: 100vw;
     height: 100vh;
     object-fit: cover;
+}
+
+#swiper {
+    position: relative;
 }
 
 .wrapperDettaglio {
@@ -81,9 +79,38 @@ img{
 }
 /*----------------SWIPER----------------*/
 
+
+/*----------------LIFLET----------------*/
+#map { 
+    width: 372px;
+    height: 372px;
+}
+/*----------------LIFLET----------------*/
+
+
+/*----------------VALIDATION----------------*/
+span.error{
+    display: block;
+    color: red;
+}
+/*----------------VALIDATION----------------*/
+
+
+/*----------------FOOTER----------------*/
 .coloreFooter {
     background-color: rgb(248, 209, 117);
     color: rgb(66, 66, 66);
+}
+/*----------------FOOTER----------------*/
+
+
+/*----------------FORM INSERIMENTO VEICOLO----------------*/
+.btnicon{
+    text-align: center;
+}
+
+.btnicon i {
+    min-width: 18px;
 }
 
 #listaVeicoli img {
@@ -93,17 +120,4 @@ img{
 .centrato{
     text-align: center;
 }
-
-span.error{
-    display: block;
-    color: red;
-}
-
-.btnicon{
-    text-align: center;
-}
-
-.btnicon i {
-    min-width: 18px;
-}
-
+/*----------------FORM INSERIMENTO VEICOLO----------------*/
