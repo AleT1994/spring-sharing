@@ -1,4 +1,5 @@
 body {
+    height: 100%;
 	overflow-x: hidden; /* nascondere scrollbar orizzontale */
     background-color:rgb(253, 253, 253);
 }
@@ -37,7 +38,7 @@ img{
 
 .swiper-slide img {
     display: block;
-    width: 100vw;
+    width: 70vw;
     height: 100vh;
     object-fit: cover;
 }
@@ -59,18 +60,18 @@ img{
 
     z-index:1;
 
-    display: flex;
-    justify-content: start;
+    /*display: flex;
+    justify-content: start;*/
 }
 
 .dettagliVeicolo {
-    width: 30%; 
+    /*width: 30%; 
     height:100%;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-start;*/
 
     background-color: rgba(0, 0, 0, 0.5);
     color: white;   
@@ -80,12 +81,42 @@ img{
 /*----------------SWIPER----------------*/
 
 
-/*----------------LIFLET----------------*/
-#map { 
-    width: 372px;
-    height: 372px;
+/*----------------DETTAGLIO VEICOLO----------------*/
+.banner {
+    width: 100%;
+    height: 100%;
 }
-/*----------------LIFLET----------------*/
+
+#map { 
+    width: 600px;
+    height: 400px;
+}
+
+#imgVeicolo {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.datepicker td, .datepicker th {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.85rem;
+}
+
+.datepicker {
+    margin-bottom: 3rem;
+}
+
+.timepicker td, .timepicker th {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.85rem;
+    border: none;
+}
+
+/*----------------DETTAGLIO VEICOLO----------------*/
 
 
 /*----------------VALIDATION----------------*/

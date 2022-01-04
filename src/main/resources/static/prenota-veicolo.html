@@ -68,35 +68,42 @@
     <!--NAVBAR-->
 
 
-    <div class="container">
+    <!--SCHEDA VEICOLO-->
+    <div class="banner">
 
-        <!--SCHEDA VEICOLO-->
-        <div class="py-3 py-lg-5 featuredArticle">
-            <div class="row">
+        <img id="imgVeicolo" src="http://placekitten.com/300/300" class="img-fluid img-thumbnail" alt="articleImage1">
 
-                <div class="col-sm-6 col-lg-3 pe-5">
-                    <img id="imgVeicolo" src="http://placekitten.com/300/300" class="img-fluid img-thumbnail"
-                        alt="articleImage1">
-                </div>
-
-                <div class="col-sm-6 col-lg-9 ps-5 d-flex flex-column justify-content-center align-items-start">
-                    <div class="articleIntro">
-                        <h2 id="nomeVeicolo">Lorem, ipsum dolor.</h2>
-                        <p id="tipoVeicolo">Lorem ipsum dolor.</p>
-                        <p id="autonomiaVeicolo">Lorem ipsum dolor.</p>
-                    </div>
-                    <div class="articleCta">
-                        <a href="" class="btn btn-primary">Prenota</a>
-                    </div>
-                </div>
-
+        <div class="row wrapperDettaglio">
+            <div
+                class="col-12 col-md-7 col-lg-5 d-flex flex-column justify-content-center align-items-flex-start dettagliVeicolo">
+                <h2 id="nomeVeicolo">Lorem, ipsum dolor.</h2>
+                <p id="tipoVeicolo">Lorem ipsum dolor.</p>
+                <p id="autonomiaVeicolo">Lorem ipsum dolor.</p>
             </div>
         </div>
-        <!--SCHEDA VEICOLO-->
 
-        <!--POSIZIONE VEICOLO SULLA MAPPA-->
-        <div id="map"></div>
-        <!--POSIZIONE VEICOLO SULLA MAPPA-->
+    </div>
+    <!--SCHEDA VEICOLO-->
+
+    <div class="container">
+
+        <!--POSIZIONE VEICOLO SULLA MAPPA E FORM PRENOTAZIONE-->
+        <div class="row">
+
+            <div class="wrapperMap col-lg-6">
+                <div id="map"></div>
+            </div>
+
+            <div class="form-group col-lg-6">
+                <h2>Prenota</h2>
+                <div class='input-group datetime'>
+                    <input type="date" id="dataPrenotazione" class="form-control" name="dataPrenotazione">
+                    <input type="time" id="oraPrenotazione" class="form-control" name="oraPrenotazione">
+                </div>
+            </div>
+        </div>
+        <!--POSIZIONE VEICOLO SULLA MAPPA E FORM PRENOTAZIONE-->
+
 
     </div>
 
@@ -189,8 +196,8 @@
 
                 <div class="modal-footer">
                     <a style="text-align: center; cursor: pointer;" href="#" data-bs-toggle="modal"
-                        data-bs-target="#myModal1" onclick="openModalLogin()">Hai già un account? Clicca qui per fare
-                        login al sito</a>
+                        data-bs-target="#myModal1" onclick="openModalLogin()">Hai già un account? Clicca qui per
+                        fare login al sito</a>
                 </div>
 
             </div>
@@ -212,27 +219,27 @@
     <!-- Footer -->
 
 
-    <!-- Popper JS -->
+    <!-- Popper-JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
-    <!-- Popper JS -->
+    <!-- Popper-JS -->
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap-JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap-JS -->
 
-    <!-- Swiper JS -->
+    <!-- Swiper-JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <!-- Swiper JS-->
+    <!-- Swiper-JS-->
 
-    <!-- Chart JS -->
+    <!-- Chart-JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Chart JS -->
+    <!-- Chart-JS -->
 
-    <!-- Leaflet JS -->
+    <!-- Leaflet-JS -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
-    <!-- Leaflet JS -->
+    <!-- Leaflet-JS -->
 
     <!-- Modernizr -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"
@@ -249,7 +256,6 @@
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- jQuery -->
-
 
     <!-- MIEI SCRIPT -->
     <script src="js/scriptLogin.js"></script>

@@ -17,6 +17,7 @@ public class UtenteServiceImpl implements UtenteService {
 	@Override
 	public void addUtente(Utente utente) {
 		this.repoUtente.save(utente);
+		utente.setRuolo("utente");
 	}
 
 	@Override

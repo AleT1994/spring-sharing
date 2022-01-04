@@ -12,57 +12,61 @@
     <title>AdminPage/Gestione</title>
 </head>
 
-<body style="background-color:rgb(253, 253, 253);">
+<body>
+
+    <!--NAVBAR-->
+    <nav class=" navbar navbar-expand-lg navbar-light bg-light row">
+        <div class="container-fluid" style="position: relative;">
+            <a class="navbar-brand" href="#">
+                <img src="http://placekitten.com/100/100" alt="" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a style="text-align: center;" class="nav-link active" aria-current="page"
+                            href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="text-align: center;" class="nav-link" href="#">Veicoli disponibili</a>
+                    </li>
+                    <li style="text-align: center;" class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Azioni Admin
+                        </a>
+                        <ul style="text-align: center;" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="InserimentoVeicoli.html">Inserisci Veicolo</a></li>
+                            <li><a class="dropdown-item" href="TabellaVeicoliMK1.html">Gestisci Veicoli</a></li>
+                        </ul>
+                    <li class="nav-item">
+                        <a style="text-align: center;" class="nav-link" data-bs-toggle="modal" data-bs-target="#myModal"
+                            id="login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="text-align: center;" class="nav-link" href="Prenotazione.html">Veicoli
+                            Disponibili</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="text-align: center;" class="nav-link" href="abautas.html">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--NAVBAR-->
+
+
 
     <div class="container">
-        <!--NAVBAR-->
-        <nav class=" navbar navbar-expand-lg navbar-light bg-light row">
-            <div class="container-fluid" style="position: relative;">
-                <a class="navbar-brand" href="#">
-                    <img src="http://placekitten.com/100/100" alt="" class="d-inline-block align-text-top">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a style="text-align: center;" class="nav-link active" aria-current="page" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a style="text-align: center;" class="nav-link" href="#">Veicoli disponibili</a>
-                        </li>
-                        <li style="text-align: center;" class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Azioni Admin
-                            </a>
-                            <ul style="text-align: center;" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a  class="dropdown-item" href="InserimentoVeicoli.html">Inserisci Veicolo</a></li>
-                            <li><a class="dropdown-item" href="TabellaVeicoliMK1.html">Gestisci Veicoli</a></li>
-                            </ul>
-                        <li class="nav-item">
-                            <a style="text-align: center;" class="nav-link" data-bs-toggle="modal" data-bs-target="#myModal" id="login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a style="text-align: center;" class="nav-link" href="Prenotazione.html">Veicoli Disponibili</a>
-                        </li>
-                        <li class="nav-item">
-                            <a style="text-align: center;" class="nav-link" href="abautas.html">About Us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!--NAVBAR-->
-
-
-
 
         <div class="row">
             <div class="col-md-6 mt-4">
                 <h1>Qui compariranno i veicoli dentro ad una tabella, si spera...</h1>
-                
+
                 <div class="accordion" id="accordionExample">
 
                 </div>
@@ -70,23 +74,6 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-    </div>
-
-
-    <!-- Modal footer -->
-    <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Chiudi</button>
-    </div>
-
-    </div>
-    </div>
     </div>
 
     <footer class="coloreFooter">
@@ -106,7 +93,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
 
     <!-- nostro script -->
-    <script src="js/javascript.js"></script>
+    <script src="js/scriptAdmin.js"></script>
 </body>
 
 </html>

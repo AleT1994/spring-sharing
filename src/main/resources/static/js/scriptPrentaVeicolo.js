@@ -33,15 +33,50 @@
 ///////////////////////FUNZIONE PRENDI DATI///////////////////////////
 
 
-///////////////////////FUNZIONE MAPPA///////////////////////////
-var map = L.map('map').setView([51.505, -0.09], 13);
+///////////////////////FUNZIONE MAPPA///////////////////////////45.0712087,7.6034829
+var map = L.map('map').setView([objVeicolo.posizioneAttuale.latitudine, objVeicolo.posizioneAttuale.longitudine], 15);
 
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+var tiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
     maxZoom: 18,
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     id: 'mapbox/streets-v11',
     tileSize: 512,
-    zoomOffset: -1,
-    accessToken: 'your.mapbox.access.token'
+    zoomOffset: -1
 }).addTo(map);
+
+var URLIcona;
+switch (objVeicolo.tipo) {
+    case "bicicletta":
+        URLIcona = "img/iconeMappa/bicicletta.svg";
+        break;
+    case "monopattino":
+        URLIcona = "img/iconeMappa/monopattino.svg";
+        break;
+    case "autoElettrica":
+        URLIcona = "img/iconeMappa/auto.svg";
+        break;
+    case "autoIbrida":
+        URLIcona = "img/iconeMappa/auto.svg";
+        break;
+    case "autoBenzinaDiesel":
+        URLIcona = "img/iconeMappa/auto.svg";
+        break;
+}
+
+var myIcon = L.icon({
+    iconUrl: URLIcona,
+    iconSize: [38, 38],
+    iconAnchor: [22, 22],
+    popupAnchor: [-3, -22],
+});
+
+var marker = L.marker([objVeicolo.posizioneAttuale.latitudine, objVeicolo.posizioneAttuale.longitudine], {icon: myIcon}).addTo(map);
+marker.bindPopup(objVeicolo.posizioneAttuale.descrizione).openPopup();
 ///////////////////////FUNZIONE MAPPA///////////////////////////
+
+
+///////////////////////FUNZIONE FORM PRENOTAZIONE///////////////////////////
+
+///////////////////////FUNZIONE FORM PRENOTAZIONE///////////////////////////
+

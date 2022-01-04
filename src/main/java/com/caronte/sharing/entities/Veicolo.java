@@ -1,10 +1,13 @@
 package com.caronte.sharing.entities;
 
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.caronte.sharing.util.PosizioneJsonConverter;
 
 @Entity
 @Table(name="veicoli")
@@ -16,7 +19,8 @@ public class Veicolo {
 	private String nome;
 	private String tipo;
 	private String autonomia;
-	private String posizioneAttuale;
+	@Convert(converter = PosizioneJsonConverter.class)
+	private Posizione posizioneAttuale;
 	private String disponibile;
 	private String vistaBanner;
 	private String immagine;
@@ -45,13 +49,12 @@ public class Veicolo {
 	public void setAutonomia(String autonomia) {
 		this.autonomia = autonomia;
 	}
-	public String getPosizioneAttuale() {
+	public Posizione getPosizioneAttuale() {
 		return posizioneAttuale;
 	}
-	public void setPosizioneAttuale(String posizioneAttuale) {
+	public void setPosizioneAttuale(Posizione posizioneAttuale) {
 		this.posizioneAttuale = posizioneAttuale;
 	}
-	
 	public String getDisponibile() {
 		return disponibile;
 	}
