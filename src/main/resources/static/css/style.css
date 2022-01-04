@@ -1,12 +1,17 @@
 body {
-    height: 100%;
 	overflow-x: hidden; /* nascondere scrollbar orizzontale */
     background-color:rgb(253, 253, 253);
 }
 
 img{
-    max-width: 100%;
+    width: 100%;
     height: auto;
+}
+
+footer {
+    background-color: #8CDF97;
+    color: rgb(66, 66, 66);
+    height: 10rem;
 }
 
 
@@ -38,7 +43,7 @@ img{
 
 .swiper-slide img {
     display: block;
-    width: 70vw;
+    width: 100vw;
     height: 100vh;
     object-fit: cover;
 }
@@ -59,20 +64,9 @@ img{
     margin: auto;
 
     z-index:1;
-
-    /*display: flex;
-    justify-content: start;*/
 }
 
 .dettagliVeicolo {
-    /*width: 30%; 
-    height:100%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;*/
-
     background-color: rgba(0, 0, 0, 0.5);
     color: white;   
     padding: 4rem;
@@ -119,22 +113,6 @@ img{
 /*----------------DETTAGLIO VEICOLO----------------*/
 
 
-/*----------------VALIDATION----------------*/
-span.error{
-    display: block;
-    color: red;
-}
-/*----------------VALIDATION----------------*/
-
-
-/*----------------FOOTER----------------*/
-.coloreFooter {
-    background-color: rgb(248, 209, 117);
-    color: rgb(66, 66, 66);
-}
-/*----------------FOOTER----------------*/
-
-
 /*----------------FORM INSERIMENTO VEICOLO----------------*/
 .btnicon{
     text-align: center;
@@ -152,3 +130,11 @@ span.error{
     text-align: center;
 }
 /*----------------FORM INSERIMENTO VEICOLO----------------*/
+
+
+/*----------------VALIDATION----------------*/
+span.error{
+    display: block;
+    color: red;
+}
+/*----------------VALIDATION----------------*/

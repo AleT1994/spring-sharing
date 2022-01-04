@@ -28,34 +28,17 @@ $().ready(function () {
             for (var i = 0; i < response.length; i++) {
                 var nome = response[i].nome;
                 var img = response[i].immagine;
-                var tipo;
-                switch (response[i].tipo) {
-                    case "bicicletta":
-                        tipo = "Bicicletta Elettrica";
-                        break;
-                    case "monopattino":
-                        tipo = "Monopattino Elettrico";
-                        break;
-                    case "autoElettrica":
-                        tipo = "Auto Elettrica";
-                        break;
-                    case "autoIbrida":
-                        tipo = "Auto Ibrida";
-                        break;
-                }
-                var autonomia = response[i].autonomia;
+                var descrizione = response[i].descrizione;
 
                 var tastoId = "btnPrenota-" + i;
 
                 //scrivo nell'HTML i dati dell'auto
                 divSwiper.innerHTML += '<div class="swiper-slide">' +
                     '<img src=' + img + ' alt="slide_' + i + '">' +
-                    '' +
                     '<div class="row wrapperDettaglio">' +
                     '<div class="col-12 col-md-7 col-lg-5 d-flex flex-column justify-content-center align-items-flex-start dettagliVeicolo">' +
                     '<h2>' + nome + '</h2>' +
-                    '<p>' + "Tipologia: " + tipo + '</p>' +
-                    '<p>' + "Autonomia: " + autonomia + '</p>' +
+                    '<p>' + descrizione + '</p>' +
                     '<a href="prenota-veicolo.html">' +
                     '<button type="button" id="' + tastoId + '" class="btn btn-primary"  onclick="getDati(' + i + ')" >Prenota</button>' +
                     '</a>' +

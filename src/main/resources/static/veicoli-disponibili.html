@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="Description" content="Enter your description here" />
-    <title>Prenota Veicolo</title>
+    <title>Veicoli disponibili</title>
 
     <!--BOOTSTRAP-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
@@ -16,20 +16,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!--FONT-AWESOME-->
 
-    <!--SWIPER-->
+    <!--SWIPER-JS-->
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <!--SWIPER-->
-
-    <!--LEAFLET-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin="" />
-    <!--LEAFLET-->
+    <!--SWIPER-JS-->
 
     <!--MIO-CSS-->
     <link rel="stylesheet" href="css/style.css">
     <!--MIO-CSS-->
 </head>
+
 
 <body>
 
@@ -48,8 +43,9 @@
                     <li class="nav-item">
                         <a style="text-align: center;" class="nav-link" href="index.html">Home</a>
                     </li>
+
                     <li class="nav-item" id="veicolidispo">
-                        <a style="text-align: center;" class="nav-link" href="veicoli-disponibili.html">Veicoli disponibili</a>
+                        <a style="text-align: center;" class="nav-link active" aria-current="page" href="veicoli-disponibili.html">Veicoli disponibili</a>
                     </li>
 
                     <li class="nav-item">
@@ -57,54 +53,13 @@
                     </li>
 
                     <li class="nav-item" id="loginPadre">
-                        <a style="text-align: center; cursor: pointer;" class="nav-link" data-bs-toggle="modal"
-                            data-bs-target="#myModal" id="login">Login</a>
+                        <a style="text-align: center; cursor: pointer;" class="nav-link" data-bs-toggle="modal" data-bs-target="#myModal" id="login">Login</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <!--NAVBAR-->
-
-
-    <!--SCHEDA VEICOLO-->
-    <div class="banner">
-
-        <img id="imgVeicolo" src="http://placekitten.com/300/300" class="img-fluid img-thumbnail" alt="articleImage1">
-
-        <div class="row wrapperDettaglio">
-            <div
-                class="col-12 col-md-7 col-lg-5 d-flex flex-column justify-content-center align-items-flex-start dettagliVeicolo">
-                <h2 id="nomeVeicolo">Lorem, ipsum dolor.</h2>
-                <p id="tipoVeicolo">Lorem ipsum dolor.</p>
-                <p id="autonomiaVeicolo">Lorem ipsum dolor.</p>
-            </div>
-        </div>
-
-    </div>
-    <!--SCHEDA VEICOLO-->
-
-    <div class="container">
-
-        <!--POSIZIONE VEICOLO SULLA MAPPA E FORM PRENOTAZIONE-->
-        <div class="row">
-
-            <div class="wrapperMap col-lg-6">
-                <div id="map"></div>
-            </div>
-
-            <div class="form-group col-lg-6">
-                <h2>Prenota</h2>
-                <div class='input-group datetime'>
-                    <input type="date" id="dataPrenotazione" class="form-control" name="dataPrenotazione">
-                    <input type="time" id="oraPrenotazione" class="form-control" name="oraPrenotazione">
-                </div>
-            </div>
-        </div>
-        <!--POSIZIONE VEICOLO SULLA MAPPA E FORM PRENOTAZIONE-->
-
-
-    </div>
 
     <!-- Modale Login -->
     <div class="modal fade" id="myModal">
@@ -195,8 +150,8 @@
 
                 <div class="modal-footer">
                     <a style="text-align: center; cursor: pointer;" href="#" data-bs-toggle="modal"
-                        data-bs-target="#myModal1" onclick="openModalLogin()">Hai già un account? Clicca qui per
-                        fare login al sito</a>
+                        data-bs-target="#myModal1" onclick="openModalLogin()">Hai già un account? Clicca qui per fare
+                        login al sito</a>
                 </div>
 
             </div>
@@ -217,28 +172,21 @@
     </footer>
     <!-- Footer -->
 
-
-    <!-- Popper-JS -->
+<!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
-    <!-- Popper-JS -->
+    <!-- Popper JS -->
 
-    <!-- Bootstrap-JS -->
+    <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
-    <!-- Bootstrap-JS -->
+    <!-- Bootstrap JS -->
 
-    <!-- Swiper-JS -->
+    <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <!-- Swiper-JS-->
+    <!-- Swiper JS-->
 
-    <!-- Chart-JS -->
+    <!-- Chart JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Chart-JS -->
-
-    <!-- Leaflet-JS -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
-    <!-- Leaflet-JS -->
+    <!-- Chart JS -->
 
     <!-- Modernizr -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"
@@ -256,12 +204,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- jQuery -->
 
+
     <!-- MIEI SCRIPT -->
     <script src="js/scriptLogin.js"></script>
     <script src="js/scriptHome.js"></script>
     <script src="js/scriptAdmin.js"></script>
     <script src="js/scriptPrentaVeicolo.js"></script>
     <!-- MIEI SCRIPT -->
+
 </body>
 
 </html>

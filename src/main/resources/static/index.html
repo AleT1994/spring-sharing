@@ -25,50 +25,53 @@
     <!--MIO-CSS-->
 </head>
 
-
 <body>
 
-    <!--NAVBAR-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light row sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="http://localhost:9010/sharing/index.html">
-                <img src="http://placekitten.com/100/100" alt="" class="ps-sm-3 ps-lg-5 d-inline-block align-text-top">
-            </a>
-            <button class="pe-3 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="pe-lg-5 collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a style="text-align: center;" class="nav-link active" aria-current="page"
-                            href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item" id="veicolidispo">
-                        <a style="text-align: center;" class="nav-link" href="#">Veicoli disponibili</a>
-                    </li>
+    <header>
+        <!--NAVBAR-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light row sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="http://placekitten.com/100/100" alt=""
+                        class="ps-sm-3 ps-lg-5 d-inline-block align-text-top">
+                </a>
+                <button class="pe-3 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="pe-lg-5 collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a style="text-align: center;" class="nav-link active" aria-current="page"
+                                href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item" id="veicolidispo">
+                            <a style="text-align: center;" class="nav-link" href="veicoli-disponibili.html">Veicoli
+                                disponibili</a>
+                        </li>
 
-                    <li class="nav-item" id="loginPadre">
-                        <a style="text-align: center; cursor: pointer;" class="nav-link" data-bs-toggle="modal"
-                            data-bs-target="#myModal" id="login">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a style="text-align: center;" class="nav-link" href="abautas.html">About Us</a>
-                    </li>
-                </ul>
+                        <li class="nav-item">
+                            <a style="text-align: center;" class="nav-link" href="about-us.html">About Us</a>
+                        </li>
+
+                        <li class="nav-item" id="loginPadre">
+                            <a style="text-align: center; cursor: pointer;" class="nav-link" data-bs-toggle="modal"
+                                data-bs-target="#myModal" id="login">Login</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-    <!--NAVBAR-->
+        </nav>
+        <!--NAVBAR-->
+    </header>
 
     <!-- INIZIO SWIPER -->
-    <div class="row mt-4">
+    <div class="row mb-3 mb-md-5">
         <div class="col">
             <div class="swiper mySwiper">
                 <div id="swiper" class="swiper-wrapper"></div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
             </div>
         </div>
     </div>
@@ -76,9 +79,50 @@
 
     <div class="container">
 
+
+        <!-- INIZIO SEZIONE "COME FUNZIONA CARonte" -->
+        <h1 class="display-1">Come funziona CARonte</h1>
+        <div class="row">
+
+            <div class="col-md-4">
+                <div>
+                    <h3>Registrati o accedi</h3>
+                </div>
+                <div>
+                    <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_gjmecwii.json"
+                        background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay>
+                    </lottie-player>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div>
+                    <h3>Scegli il veicolo che preferisci</h3>
+                </div>
+                <div>
+                    <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_GTEqBh.json"
+                        background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay>
+                    </lottie-player>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div>
+                    <h3>Prenotalo e inizia a guidare</h3>
+                </div>
+                <div>
+                    <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_nSTCPQ.json"
+                        background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay>
+                    </lottie-player>
+                </div>
+            </div>
+        </div>
+        <!-- FINE SEZIONE "COME FUNZIONA CARonte" -->
+
+
         <!-- INIZIO SEZIONE OFFERTE -->
-        <div class="mt-4 row">
-            <div class=" col-md-4">
+        <div class="row">
+            <div class="col-md-4 py-3 py-md-5">
                 <div>
                     <div class="card">
                         <img src="http://placekitten.com/800/900" class="card-img-top" alt="...">
@@ -92,7 +136,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 py-3 py-md-5">
                 <div>
                     <div class="card">
                         <img src="http://placekitten.com/800/900" class="card-img-top" alt="...">
@@ -106,7 +150,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 py-3 py-md-5">
                 <div>
                     <div class="card">
                         <img src="http://placekitten.com/800/900" class="card-img-top" alt="...">
@@ -125,8 +169,8 @@
 
 
         <!-- INIZIO SEZIONE GRAFICO -->
-        <div class=" row mt-4">
-            <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6 py-3 py-md-5">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lorem lectus, facilisis quis sagittis
                     sed,
                     commodo eget lorem. Pellentesque scelerisque tellus lacus, a maximus urna hendrerit in. Nullam
@@ -157,13 +201,26 @@
                     Nunc
                     mattis congue ex eget tempus.</p>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 py-3 py-md-5">
                 <canvas id="myChart"></canvas>
             </div>
         </div>
         <!-- FINE SEZIONE GRAFICO -->
 
     </div>
+
+    <!-- Footer -->
+    <footer class="mt-3 mt-md-5">
+        <div class="row ms-3 py-3 py-md-5">
+            <div class="col-md-6 text-start text-md-center">
+                <p>Lorem ipsum dolor</p>
+            </div>
+            <div class="col-md-6 text-start text-md-center">
+                <p>© 2021 My Team.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer -->
 
     <!-- Modale Login -->
     <div class="modal fade" id="myModal">
@@ -263,20 +320,7 @@
     </div>
     <!-- Modale Registrazione -->
 
-    <!-- Footer -->
-    <footer class="coloreFooter">
-        <div class="row g-0">
-            <div class="col-md-6 text-center text-md-start">
-                <p class="text">Lorem ipsum dolor</p>
-            </div>
-            <div class="col-md-6 text-center text-md-end">
-                <p>© 2021 My Team.</p>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer -->
-
-<!-- Popper JS -->
+    <!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <!-- Popper JS -->
 
@@ -307,6 +351,10 @@
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- jQuery -->
+
+    <!-- Lottie -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!-- Lottie -->
 
 
     <!-- MIEI SCRIPT -->

@@ -18,7 +18,12 @@ public class Veicolo {
 	private int id;
 	private String nome;
 	private String tipo;
+	private String modello;
+	private String capacita;
+	private String potenza;
+	private String velocitaMassima;
 	private String autonomia;
+	private String descrizione;
 	@Convert(converter = PosizioneJsonConverter.class)
 	private Posizione posizioneAttuale;
 	private String disponibile;
@@ -43,11 +48,41 @@ public class Veicolo {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
+	public String getModello() {
+		return modello;
+	}
+	public void setModello(String modello) {
+		this.modello = modello;
+	}
+	public String getCapacita() {
+		return capacita;
+	}
+	public void setCapacita(String capacita) {
+		this.capacita = capacita;
+	}
+	public String getPotenza() {
+		return potenza;
+	}
+	public void setPotenza(String potenza) {
+		this.potenza = potenza;
+	}
+	public String getVelocitaMassima() {
+		return velocitaMassima;
+	}
+	public void setVelocitaMassima(String velocitaMassima) {
+		this.velocitaMassima = velocitaMassima;
+	}
 	public String getAutonomia() {
 		return autonomia;
 	}
 	public void setAutonomia(String autonomia) {
 		this.autonomia = autonomia;
+	}
+	public String getDescrizione() {
+		return descrizione;
+	}
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
 	}
 	public Posizione getPosizioneAttuale() {
 		return posizioneAttuale;
@@ -73,6 +108,7 @@ public class Veicolo {
 	public void setImmagine(String immagine) {
 		this.immagine = immagine;
 	}
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -82,8 +118,18 @@ public class Veicolo {
 		builder.append(nome);
 		builder.append(", tipo=");
 		builder.append(tipo);
+		builder.append(", modello=");
+		builder.append(modello);
+		builder.append(", capacita=");
+		builder.append(capacita);
+		builder.append(", potenza=");
+		builder.append(potenza);
+		builder.append(", velocitaMassima=");
+		builder.append(velocitaMassima);
 		builder.append(", autonomia=");
 		builder.append(autonomia);
+		builder.append(", descrizione=");
+		builder.append(descrizione);
 		builder.append(", posizioneAttuale=");
 		builder.append(posizioneAttuale);
 		builder.append(", disponibile=");
@@ -95,5 +141,4 @@ public class Veicolo {
 		builder.append("]");
 		return builder.toString();
 	}
-	
 }
