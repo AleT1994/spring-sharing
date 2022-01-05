@@ -15,9 +15,9 @@ public class UtenteServiceImpl implements UtenteService {
 	private UtenteDAO repoUtente;
 	
 	@Override
-	public void addUtente(Utente utente) {
-		this.repoUtente.save(utente);
+	public Utente addUtente(Utente utente) {
 		utente.setRuolo("utente");
+		return this.repoUtente.save(utente);
 	}
 
 	@Override

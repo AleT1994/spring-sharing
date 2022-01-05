@@ -6,7 +6,7 @@ import com.caronte.sharing.entities.Utente;
 
 public interface UtenteService {
 
-	void addUtente(Utente utente);
+	Utente addUtente(Utente utente);
 	Utente getByEmail(String email);
 	List<Utente> getAll();
 	Utente updateUtente(Utente utente);

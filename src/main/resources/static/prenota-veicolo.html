@@ -37,7 +37,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light row sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="http://placekitten.com/100/100" alt="" class="ps-sm-3 ps-lg-5 d-inline-block align-text-top">
+                <img id="logo" src="img/logo.jpg" alt="" class="ps-sm-3 ps-lg-5 d-inline-block align-text-top">
             </a>
             <button class="pe-3 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +49,8 @@
                         <a style="text-align: center;" class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item" id="veicolidispo">
-                        <a style="text-align: center;" class="nav-link" href="veicoli-disponibili.html">Veicoli disponibili</a>
+                        <a style="text-align: center;" class="nav-link" href="veicoli-disponibili.html">Veicoli
+                            disponibili</a>
                     </li>
 
                     <li class="nav-item">
@@ -68,19 +69,20 @@
 
 
     <!--SCHEDA VEICOLO-->
-    <div class="banner">
+    <div class="banner mb-5">
+        <div id="banner">
+            <img id="imgVeicolo" src="http://placekitten.com/300/300" class="img-fluid img-thumbnail"
+                alt="articleImage1">
 
-        <img id="imgVeicolo" src="http://placekitten.com/300/300" class="img-fluid img-thumbnail" alt="articleImage1">
-
-        <div class="row wrapperDettaglio">
-            <div
-                class="col-12 col-md-7 col-lg-5 d-flex flex-column justify-content-center align-items-flex-start dettagliVeicolo">
-                <h2 id="nomeVeicolo">Lorem, ipsum dolor.</h2>
-                <p id="tipoVeicolo">Lorem ipsum dolor.</p>
-                <p id="autonomiaVeicolo">Lorem ipsum dolor.</p>
+            <div class="row wrapperDettaglio">
+                <div
+                    class="col-12 col-md-7 col-lg-5 d-flex flex-column justify-content-center align-items-flex-start dettagliVeicolo">
+                    <h2 id="nomeVeicolo">Lorem, ipsum dolor.</h2>
+                    <p id="tipoVeicolo">Lorem ipsum dolor.</p>
+                    <p id="autonomiaVeicolo">Lorem ipsum dolor.</p>
+                </div>
             </div>
         </div>
-
     </div>
     <!--SCHEDA VEICOLO-->
 
@@ -89,19 +91,25 @@
         <!--POSIZIONE VEICOLO SULLA MAPPA E FORM PRENOTAZIONE-->
         <div class="row">
 
-            <div class="wrapperMap col-lg-6">
+            <div class="wrapperMap my-5 col-lg-6 d-flex justify-content-center">
                 <div id="map"></div>
             </div>
 
-            <div class="form-group col-lg-6">
-                <h2>Prenota</h2>
-                <div class='input-group datetime'>
-                    <input type="date" id="dataPrenotazione" class="form-control" name="dataPrenotazione">
-                    <input type="time" id="oraPrenotazione" class="form-control" name="oraPrenotazione">
-                </div>
+            <div class="card m-5 col-lg-6">
+                <h4 class="card-header text-center">Prenota ora il tuo veicolo</h4>
+                <form>
+                    <h5 class="card-title mt-3">Inserisci la data e l'ora della prenotazione</h5>
+                    <div class="form-group col-6">
+                        <input type="datetime-local" id="dataOraPrenotazione" class="form-control mt-3"
+                            name="dataOraPrenotazione">
+                        <button type="submit" class="btn btn-primary mt-3">Prosegui</button>
+                    </div>
+                </form>
             </div>
+
         </div>
-        <!--POSIZIONE VEICOLO SULLA MAPPA E FORM PRENOTAZIONE-->
+    </div>
+    <!--POSIZIONE VEICOLO SULLA MAPPA E FORM PRENOTAZIONE-->
 
 
     </div>

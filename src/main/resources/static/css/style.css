@@ -8,17 +8,30 @@ img{
     height: auto;
 }
 
+nav {
+    background-color: rgb(248, 249, 250, 0.8);    
+}
+
 footer {
-    background-color: #8CDF97;
+    background-color: #55A646;
     color: rgb(66, 66, 66);
     height: 10rem;
 }
 
+#logo {
+    border-radius: 50%;
+    width: 10rem;
+    height: auto;
+}
 
-/*----------------SWIPER----------------*/
+/*----------------SWIPER - HOME----------------*/
 .swiper {
     width: 100%;
     height: 100%;
+}
+
+#swiper {
+    position: relative;
 }
 
 .swiper-slide {
@@ -48,10 +61,6 @@ footer {
     object-fit: cover;
 }
 
-#swiper {
-    position: relative;
-}
-
 .wrapperDettaglio {
     width: 100%; 
     height:100%;
@@ -72,7 +81,46 @@ footer {
     padding: 4rem;
     text-align: left;
 }
-/*----------------SWIPER----------------*/
+/*----------------SWIPER - HOME----------------*/
+
+
+/*----------------COME FUNZIONA - HOME----------------*/
+.asymmetric {
+	position: relative;
+	background-color: #55A646;
+}
+
+.asymmetric::before {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: #55A646;
+	transform-origin: top left;
+	transform: skewY(-4deg);
+	z-index: -10;
+}
+
+.asymmetric::after {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: #55A646;
+	transform-origin: bottom left;
+	transform: skewY(4deg);
+	z-index: -10;
+}
+
+.blank-space {
+	height: 8rem;
+}
+
+/*----------------COME FUNZIONA - HOME----------------*/
 
 
 /*----------------DETTAGLIO VEICOLO----------------*/
@@ -81,9 +129,8 @@ footer {
     height: 100%;
 }
 
-#map { 
-    width: 600px;
-    height: 400px;
+#banner {
+    position: relative;
 }
 
 #imgVeicolo {
@@ -93,23 +140,10 @@ footer {
     object-fit: cover;
 }
 
-.datepicker td, .datepicker th {
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 0.85rem;
+#map { 
+    width: 300px;
+    height: 200px;
 }
-
-.datepicker {
-    margin-bottom: 3rem;
-}
-
-.timepicker td, .timepicker th {
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 0.85rem;
-    border: none;
-}
-
 /*----------------DETTAGLIO VEICOLO----------------*/
 
 

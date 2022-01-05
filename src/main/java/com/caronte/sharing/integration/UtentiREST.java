@@ -23,8 +23,8 @@ public class UtentiREST {
 	private UtenteService utenteService;
 	
 	@PostMapping
-	public void add(@RequestBody Utente utente) {
-		utenteService.addUtente(utente);
+	public Utente add(@RequestBody Utente utente) {
+		return utenteService.addUtente(utente);
 	}
 	
 	@GetMapping

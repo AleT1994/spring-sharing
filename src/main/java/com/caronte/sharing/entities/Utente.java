@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name="utenti")
 public class Utente {
@@ -16,6 +18,7 @@ public class Utente {
 	private String ruolo; 
 	private String nome; 
 	private String cognome;
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate nascita;
 	
 	public String getEmail() {

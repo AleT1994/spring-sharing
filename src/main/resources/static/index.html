@@ -27,43 +27,40 @@
 
 <body>
 
-    <header>
-        <!--NAVBAR-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light row sticky-top">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <img src="http://placekitten.com/100/100" alt=""
-                        class="ps-sm-3 ps-lg-5 d-inline-block align-text-top">
-                </a>
-                <button class="pe-3 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="pe-lg-5 collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a style="text-align: center;" class="nav-link active" aria-current="page"
-                                href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item" id="veicolidispo">
-                            <a style="text-align: center;" class="nav-link" href="veicoli-disponibili.html">Veicoli
-                                disponibili</a>
-                        </li>
+    <!--NAVBAR-->
+    <nav class="navbar navbar-expand-lg navbar-light row sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img id="logo" src="img/logo.jpg" alt="" class="ps-sm-3 ps-lg-5 d-inline-block align-text-top">
+            </a>
+            <button class="pe-3 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="pe-lg-5 collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a style="text-align: center;" class="nav-link active" aria-current="page"
+                            href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item" id="veicolidispo">
+                        <a style="text-align: center;" class="nav-link" href="veicoli-disponibili.html">Veicoli
+                            disponibili</a>
+                    </li>
 
-                        <li class="nav-item">
-                            <a style="text-align: center;" class="nav-link" href="about-us.html">About Us</a>
-                        </li>
+                    <li class="nav-item">
+                        <a style="text-align: center;" class="nav-link" href="about-us.html">About Us</a>
+                    </li>
 
-                        <li class="nav-item" id="loginPadre">
-                            <a style="text-align: center; cursor: pointer;" class="nav-link" data-bs-toggle="modal"
-                                data-bs-target="#myModal" id="login">Login</a>
-                        </li>
-                    </ul>
-                </div>
+                    <li class="nav-item" id="loginPadre">
+                        <a style="text-align: center; cursor: pointer;" class="nav-link" data-bs-toggle="modal"
+                            data-bs-target="#myModal" id="login">Login</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-        <!--NAVBAR-->
-    </header>
+        </div>
+    </nav>
+    <!--NAVBAR-->
 
     <!-- INIZIO SWIPER -->
     <div class="row mb-3 mb-md-5">
@@ -77,36 +74,33 @@
     </div>
     <!-- FINE SWIPER -->
 
-    <div class="container">
-
-
-        <!-- INIZIO SEZIONE "COME FUNZIONA CARonte" -->
-        <h1 class="display-1">Come funziona CARonte</h1>
+    <!-- INIZIO SEZIONE "COME FUNZIONA CARonte" -->
+    <section class="blank-space"></section>
+    <section class="asymmetric">
+        <h1 class="display-1 text-center fw-bolder">Come funziona CARonte</h1>
         <div class="row">
 
-            <div class="col-md-4">
+            <div class="col-md-4 d-flex flex-column align-items-center">
                 <div>
                     <h3>Registrati o accedi</h3>
                 </div>
                 <div>
-                    <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_gjmecwii.json"
+                    <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_pounvezv.json"
                         background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay>
                     </lottie-player>
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 d-flex flex-column align-items-center">
                 <div>
                     <h3>Scegli il veicolo che preferisci</h3>
                 </div>
-                <div>
-                    <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_GTEqBh.json"
-                        background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay>
-                    </lottie-player>
-                </div>
+                <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_ebcdufdk.json"
+                    background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay>
+                </lottie-player>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 d-flex flex-column align-items-center">
                 <div>
                     <h3>Prenotalo e inizia a guidare</h3>
                 </div>
@@ -117,8 +111,11 @@
                 </div>
             </div>
         </div>
-        <!-- FINE SEZIONE "COME FUNZIONA CARonte" -->
+    </section>
+    <section class="blank-space"></section>
+    <!-- FINE SEZIONE "COME FUNZIONA CARonte" -->
 
+    <div class="container">
 
         <!-- INIZIO SEZIONE OFFERTE -->
         <div class="row">
@@ -222,7 +219,7 @@
     </footer>
     <!-- Footer -->
 
-    <!-- Modale Login -->
+    <!-- Inizio Modale Login -->
     <div class="modal fade" id="myModal">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -258,17 +255,19 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
+
                     <a style="text-align: center; cursor: pointer;" href="#" data-bs-toggle="modal"
                         data-bs-target="#myModal1" onclick="registration()">Non sei registrato? Clicca qui per
                         iscriverti al sito</a>
+
                 </div>
 
             </div>
         </div>
     </div>
-    <!-- Modale Login -->
+    <!-- Fine Modale Login -->
 
-    <!-- Modale Registrazione -->
+    <!-- Inizio Modale Registrazione -->
     <div class="modal fade" id="myModal1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -292,8 +291,7 @@
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="nascita" class="form-label" id="nascitaLabel">Data di nascita:</label>
-                            <input type="date" class="form-control" id="nascita" min="1899-01-01" max="2000-13-13"
-                                name="nascita">
+                            <input type="date" class="form-control" id="nascita" name="nascita">
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="email1" class="form-label" id="email1Label">Email:</label>
@@ -310,15 +308,16 @@
                 </div>
 
                 <div class="modal-footer">
+
                     <a style="text-align: center; cursor: pointer;" href="#" data-bs-toggle="modal"
                         data-bs-target="#myModal1" onclick="openModalLogin()">Hai già un account? Clicca qui per fare
                         login al sito</a>
-                </div>
 
+                </div>
             </div>
         </div>
     </div>
-    <!-- Modale Registrazione -->
+    <!-- Fine Modale Registrazione -->
 
     <!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>

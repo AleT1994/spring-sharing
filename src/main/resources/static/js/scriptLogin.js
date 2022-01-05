@@ -1,6 +1,7 @@
 //Cosa succede quando viene caricata la pagina
 window.onload = (event) => {
 
+
   //Login automatico dopo registrazione
   if (localStorage.getItem('autenticazione')) {
 
@@ -12,7 +13,9 @@ window.onload = (event) => {
     localStorage.removeItem('autenticazione');
 
     $("#accedi").click();
+
   }
+
 
   //Se sei già loggato
   if (localStorage.getItem('tokenLogin')) {
@@ -59,14 +62,20 @@ window.onload = (event) => {
 
 };
 
+
+
+
 //Login
 $('#login-form').submit(function (e) {
+
 
   e.preventDefault();
 
   var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
   var email = document.getElementById("email").value
   var psw = document.getElementById("pwd").value
+
 
   //Validazione Login_Form
   $(".error").remove();
@@ -83,10 +92,17 @@ $('#login-form').submit(function (e) {
     $('#pwd').after('<span class="error">Inserisci una password</span>');
   }
 
+
+
+
+
   if ((email.length > 0) && (psw.length > 0) && (email.match(regEx))) {
 
-    linkRisorsa = "http://localhost:9077/sharing/api/utenti/"
+
+
+    linkRisorsa = "http://localhost:9010/sharing/api/utenti/"
     linkRisorsa += email;
+
 
     //Controlla su db i dati se sono giusti
     fetch(linkRisorsa)
@@ -94,7 +110,9 @@ $('#login-form').submit(function (e) {
         return dati.json()
       })
       .then(res => {
+
         if ((res.email == email) && (res.password == psw)) {
+
 
           //Creo il token per mantenere il login anche se ricarico la pagina
           function costruttore() {
@@ -107,6 +125,8 @@ $('#login-form').submit(function (e) {
           var token_uJson = JSON.stringify(token_utente);
 
           localStorage.setItem('tokenLogin', token_uJson);
+
+
 
           //Se il check su ricordarmi è presente creo un token per auto-compilare il form di login per le volte successive
           if ($('#ricordamiDati').is(':checked')) {
@@ -148,14 +168,21 @@ $('#login-form').submit(function (e) {
 
 //Logout Funzione
 function loggingOut() {
+
+
+
   localStorage.removeItem('tokenLogin');
   location.reload();
+
+
+
 }
 
 //Registrazione Form
 function registration() {
 
   $('#myModal').modal('toggle');
+
 
   //Impostare il form date mettendo come Massimo la data odierna
   var today = new Date();
@@ -234,8 +261,11 @@ function registration() {
 
 
     //Controllo se la mail esiste già
-    linkRisorsa = "http://localhost:9077/sharing/api/utenti/"
+    linkRisorsa = "http://localhost:9010/sharing/api/utenti/"
     linkRisorsa += email;
+
+
+
 
     //Controlla su db i dati se sono giusti
     fetch(linkRisorsa)
@@ -246,16 +276,22 @@ function registration() {
 
         if (res.email == email) {
 
+
           $('#email1').after('<span class="error">Mail già registrata per un account!</span>');
 
+
         }
+
 
       })
       .catch(emailgood => {
 
         if ((30 >= email.length > 0) && (30 >= psw.length > 0) && (email.match(regEx)) && (40 >= nome.length > 0) && (40 >= cognome.length > 0)) {
 
-          linkApiAdd = "http://localhost:9077/sharing/api/utenti"
+
+          linkApiAdd = "http://localhost:9010/sharing/api/utenti"
+
+
 
           //Creo l'oggetto utente
           function costruttore() {
@@ -268,6 +304,7 @@ function registration() {
           }
 
           var utente = new costruttore();
+
 
           var utenteJSON = JSON.stringify(utente);
 
@@ -297,15 +334,23 @@ function registration() {
 
           localStorage.setItem('autenticazione', token_meJson);
 
+
           location.reload()
+
+
 
         }
 
 
       })
+
+
   });
+
 }
 
 function openModalLogin() {
+
   $('#myModal').modal('toggle');
+  
 }
