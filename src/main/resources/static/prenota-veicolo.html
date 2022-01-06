@@ -37,7 +37,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light row sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img id="logo" src="img/logo.jpg" alt="" class="ps-sm-3 ps-lg-5 d-inline-block align-text-top">
+                <img id="logo" src="img/logo.png" alt="" class="ps-sm-3 ps-lg-5 d-inline-block align-text-top">
             </a>
             <button class="pe-3 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,16 +95,18 @@
                 <div id="map"></div>
             </div>
 
-            <div class="card m-5 col-lg-6">
-                <h4 class="card-header text-center">Prenota ora il tuo veicolo</h4>
-                <form>
-                    <h5 class="card-title mt-3">Inserisci la data e l'ora della prenotazione</h5>
-                    <div class="form-group col-6">
-                        <input type="datetime-local" id="dataOraPrenotazione" class="form-control mt-3"
-                            name="dataOraPrenotazione">
-                        <button type="submit" class="btn btn-primary mt-3">Prosegui</button>
-                    </div>
-                </form>
+            <div class="wrapperCard my-5 col-lg-6 d-flex justify-content-center align-items-center">
+                <div class="card">
+                    <h4 class="card-header text-center">Prenota ora il tuo veicolo</h4>
+                    <form>
+                        <h5 class="card-title mt-3 ms-3">Inserisci data e ora</h5>
+                        <div class="form-group col-8">
+                            <input type="datetime-local" id="dataOraPrenotazione" class="form-control mt-3 ms-3"
+                                name="dataOraPrenotazione">
+                            <button type="submit" class="btn my-3 ms-3">Prosegui</button>
+                        </div>
+                    </form>
+                </div>
             </div>
 
         </div>

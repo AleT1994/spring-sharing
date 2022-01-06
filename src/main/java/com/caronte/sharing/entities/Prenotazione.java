@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name="prenotazioni")
 public class Prenotazione {
@@ -18,7 +20,9 @@ public class Prenotazione {
 	private String utenteEmail;
 	private int veicoloId; 
 	private String tipo;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
 	private LocalDateTime InizioPrenotazione;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
 	private LocalDateTime FinePrenotazione;
 	
 	public int getId() {

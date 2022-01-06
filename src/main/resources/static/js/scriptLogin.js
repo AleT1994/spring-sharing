@@ -33,7 +33,7 @@ window.onload = (event) => {
     //Se c'è l'admin permetti di vedere il pannello admin
     if (ruolo == "amministratore") {
 
-      var stringaAdmin = '<li class="nav-item dropdown" id="pannelloAdmin"><a style="text-align: center;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Azioni Admin</a><ul class="dropdown-menu" aria-labelledby="navbarDropdown"><li><a style="text-align: center;" class="dropdown-item" href="InserimentoVeicoli.html">Inserisci Veicolo</a></li><li><a style="text-align: center;" class="dropdown-item" href="TabellaVeicoliMK1.html">Gestisci Veicoli</a></li></ul></li>'
+      var stringaAdmin = '<li class="nav-item dropdown" id="pannelloAdmin"><a style="text-align: center;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Azioni Admin</a><ul class="dropdown-menu" aria-labelledby="navbarDropdown"><li><a style="text-align: center;" class="dropdown-item" href="inserisci-veicolo.html">Inserisci Veicolo</a></li><li><a style="text-align: center;" class="dropdown-item" href="amministra-veicoli.html">Modifica Veicoli</a></li></ul></li>'
 
       //Inserisce il pannello admin dopo la lista dei veicoli disponibili
       $(stringaAdmin).insertAfter("#veicolidispo");

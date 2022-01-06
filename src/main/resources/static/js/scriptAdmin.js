@@ -27,7 +27,7 @@
 		method: 'POST',
 		body: formData
 	})
-	// svuoto elementi input veicolo
+	/* svuoto elementi input veicolo
 	.then(veicolo => {
 		document.getElementById("nomeVe").value = "";
 		document.getElementById("categoria").value = "";
@@ -36,6 +36,7 @@
 		let blob = document.getElementById("image");
 		blob.value = "";
 	});
+    */
 }
 ///////////////////////FUNZIONE INSERIMENTO VEICOLO NEL DB///////////////////////////
 
@@ -84,7 +85,7 @@ fetch(linkRisorsa)
             var img = res[i].immagine;
             var autonomia = res[i].autonomia;
             var posiz = res[i].posizioneAttuale;
-            listaVeicoli.innerHTML +='<div class="accordion-item">' +
+            listaVeicoli.innerHTML += '<div class="accordion-item">' +
             '<h2 class="accordion-header" id="heading'+ i +'">' +
             '<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse'+ i +'" aria-expanded="false" aria-controls="collapse'+ i +'">' + nome + '</button>' +
             '</h2>' +

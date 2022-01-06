@@ -16,8 +16,8 @@ public class PrenotazioneServiceImpl implements PrenotazioneService {
 	private PrenotazioneDAO repoPrenotazione;
 
 	@Override
-	public void addPrenotazione(Prenotazione prenotazione) {
-		this.repoPrenotazione.save(prenotazione);		
+	public Prenotazione addPrenotazione(Prenotazione prenotazione) {
+		return this.repoPrenotazione.save(prenotazione);		
 	}
 
 	@Override

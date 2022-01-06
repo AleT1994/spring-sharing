@@ -24,6 +24,12 @@ footer {
     height: auto;
 }
 
+.btn {
+    background-color: #00A6EC;
+    color: #fff;
+    border: none;
+}
+
 /*----------------SWIPER - HOME----------------*/
 .swiper {
     width: 100%;
@@ -140,6 +146,11 @@ footer {
     object-fit: cover;
 }
 
+.card {
+    width: 24rem;
+    height: auto;
+}
+
 #map { 
     width: 300px;
     height: 200px;
@@ -172,3 +183,17 @@ span.error{
     color: red;
 }
 /*----------------VALIDATION----------------*/
+
+@media screen and (min-width: 500px) {
+    #map {
+        width: 420px;
+        height: 280px;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    #map {
+        width: 600px;
+        height: 400px;
+    }
+}
