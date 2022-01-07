@@ -7,7 +7,7 @@ import com.caronte.sharing.entities.Veicolo;
 
 public interface VeicoloService {
 
-	void addVeicolo(Veicolo veicolo);
+	Veicolo addVeicolo(Veicolo veicolo);
 	Veicolo getOne(int id);
 	List<Veicolo> getAll();
 	List<Veicolo> getByTipo(String tipo);

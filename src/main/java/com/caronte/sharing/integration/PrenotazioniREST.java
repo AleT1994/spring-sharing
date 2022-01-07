@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.caronte.sharing.entities.Prenotazione;
+import com.caronte.sharing.entities.Veicolo;
 import com.caronte.sharing.services.PrenotazioneService;
+import com.caronte.sharing.services.VeicoloService;
 
 @RestController
 @RequestMapping("/api/prenotazioni")
@@ -22,9 +24,15 @@ public class PrenotazioniREST {
 	@Autowired
 	private PrenotazioneService prenotazioneService;
 	
+	@Autowired
+	private VeicoloService veicoloService;
+	
 	@PostMapping
-	public void add(@RequestBody Prenotazione prenotazione) {
-		prenotazioneService.addPrenotazione(prenotazione);
+	public Prenotazione add(@RequestBody Prenotazione prenotazione) {
+		Veicolo veicolo = veicoloService.getOne(prenotazione.getVeicoloId());
+		veicolo.setDisponibile("false");
+		veicoloService.updateVeicolo(veicolo);
+		return prenotazioneService.addPrenotazione(prenotazione);
 	}
 	
 	@GetMapping

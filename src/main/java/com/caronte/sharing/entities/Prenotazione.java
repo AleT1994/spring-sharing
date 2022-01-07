@@ -9,6 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
 @Entity
 @Table(name="prenotazioni")
@@ -20,10 +24,16 @@ public class Prenotazione {
 	private String utenteEmail;
 	private int veicoloId; 
 	private String tipo;
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
-	private LocalDateTime InizioPrenotazione;
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
-	private LocalDateTime FinePrenotazione;
+	
+	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+	@JsonSerialize(using = LocalDateTimeSerializer.class)
+	@JsonDeserialize(using = LocalDateTimeDeserializer.class)
+	private LocalDateTime inizioPrenotazione;
+	
+	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+	@JsonSerialize(using = LocalDateTimeSerializer.class)
+	@JsonDeserialize(using = LocalDateTimeDeserializer.class)
+	private LocalDateTime finePrenotazione;
 	
 	public int getId() {
 		return id;
@@ -50,16 +60,16 @@ public class Prenotazione {
 		this.tipo = tipo;
 	}
 	public LocalDateTime getInizioPrenotazione() {
-		return InizioPrenotazione;
+		return inizioPrenotazione;
 	}
 	public void setInizioPrenotazione(LocalDateTime inizioPrenotazione) {
-		InizioPrenotazione = inizioPrenotazione;
+		this.inizioPrenotazione = inizioPrenotazione;
 	}
 	public LocalDateTime getFinePrenotazione() {
-		return FinePrenotazione;
+		return finePrenotazione;
 	}
 	public void setFinePrenotazione(LocalDateTime finePrenotazione) {
-		FinePrenotazione = finePrenotazione;
+		this.finePrenotazione = finePrenotazione;
 	}
 	
 	@Override
@@ -74,9 +84,9 @@ public class Prenotazione {
 		builder.append(", tipo=");
 		builder.append(tipo);
 		builder.append(", InizioPrenotazione=");
-		builder.append(InizioPrenotazione);
+		builder.append(inizioPrenotazione);
 		builder.append(", FinePrenotazione=");
-		builder.append(FinePrenotazione);
+		builder.append(finePrenotazione);
 		builder.append("]");
 		return builder.toString();
 	}

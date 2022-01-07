@@ -1,34 +1,29 @@
 body {
-	overflow-x: hidden; /* nascondere scrollbar orizzontale */
-    background-color:rgb(253, 253, 253);
+    overflow-x: hidden;
+    /* nascondere scrollbar orizzontale */
+    background-color: rgb(253, 253, 253);
 }
 
-img{
+nav {
+    background-color: rgb(253, 253, 253, 0.8);
+}
+
+img {
     width: 100%;
     height: auto;
 }
 
-nav {
-    background-color: rgb(248, 249, 250, 0.8);    
-}
-
 footer {
-    background-color: #55A646;
-    color: rgb(66, 66, 66);
+    background-color: #86FCBE;
+    color: #212228;
     height: 10rem;
 }
 
 #logo {
-    border-radius: 50%;
     width: 10rem;
     height: auto;
 }
 
-.btn {
-    background-color: #00A6EC;
-    color: #fff;
-    border: none;
-}
 
 /*----------------SWIPER - HOME----------------*/
 .swiper {
@@ -40,26 +35,6 @@ footer {
     position: relative;
 }
 
-.swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-}
-
 .swiper-slide img {
     display: block;
     width: 100vw;
@@ -68,64 +43,64 @@ footer {
 }
 
 .wrapperDettaglio {
-    width: 100%; 
-    height:100%;
+    width: 100%;
+    height: 100%;
 
-    position:absolute; 
-    bottom:0;
+    position: absolute;
+    bottom: 0;
     left: 0;
-    right:0;
-    top:0;
+    right: 0;
+    top: 0;
     margin: auto;
 
-    z-index:1;
+    z-index: 1;
 }
 
 .dettagliVeicolo {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;   
+    background-color: rgb(33, 34, 40, 0.5);
+    color: #fdfdfd;
     padding: 4rem;
     text-align: left;
 }
+
 /*----------------SWIPER - HOME----------------*/
 
 
 /*----------------COME FUNZIONA - HOME----------------*/
 .asymmetric {
-	position: relative;
-	background-color: #55A646;
+    position: relative;
+    background-color: #86FCBE;
 }
 
 .asymmetric::before {
-	position: absolute;
-	content: "";
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	background-color: #55A646;
-	transform-origin: top left;
-	transform: skewY(-4deg);
-	z-index: -10;
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #86FCBE;
+    transform-origin: top left;
+    transform: skewY(-4deg);
+    z-index: -10;
 }
 
 .asymmetric::after {
-	position: absolute;
-	content: "";
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	background-color: #55A646;
-	transform-origin: bottom left;
-	transform: skewY(4deg);
-	z-index: -10;
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #86FCBE;
+    transform-origin: bottom left;
+    transform: skewY(4deg);
+    z-index: -10;
 }
 
 .blank-space {
-	height: 8rem;
+    height: 8rem;
 }
-
 /*----------------COME FUNZIONA - HOME----------------*/
 
 
@@ -151,15 +126,16 @@ footer {
     height: auto;
 }
 
-#map { 
+#map {
     width: 300px;
     height: 200px;
 }
+
 /*----------------DETTAGLIO VEICOLO----------------*/
 
 
 /*----------------FORM INSERIMENTO VEICOLO----------------*/
-.btnicon{
+.btnicon {
     text-align: center;
 }
 
@@ -171,19 +147,21 @@ footer {
     max-width: 20%;
 }
 
-.centrato{
+.centrato {
     text-align: center;
 }
 /*----------------FORM INSERIMENTO VEICOLO----------------*/
 
 
 /*----------------VALIDATION----------------*/
-span.error{
+span.error {
     display: block;
     color: red;
 }
 /*----------------VALIDATION----------------*/
 
+
+/*----------------MEDIA QUERIES----------------*/
 @media screen and (min-width: 500px) {
     #map {
         width: 420px;
@@ -197,3 +175,4 @@ span.error{
         height: 400px;
     }
 }
+/*----------------MEDIA QUERIES----------------*/

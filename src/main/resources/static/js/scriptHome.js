@@ -126,11 +126,10 @@ fetch(URLgrafico)
                         label: 'Risparmio di Co2 per Km',
                         data: listaData,
                         backgroundColor: [
-                            'rgb(255, 99, 132)',
-                            'rgb(54, 162, 235)',
-                            'rgb(255, 205, 86)',
-                            'rgb(255, 205, 200)',
-                            'rgb(137, 177, 173)'
+                            'rgb(255, 89, 148)',
+                            'rgb(255, 150, 104)',
+                            'rgb(237, 255, 143)',
+                            'rgb(130, 182, 255)'
                         ],
                         hoverOffset: 4
                     }]

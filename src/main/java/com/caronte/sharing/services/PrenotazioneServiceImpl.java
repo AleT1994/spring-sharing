@@ -17,6 +17,7 @@ public class PrenotazioneServiceImpl implements PrenotazioneService {
 
 	@Override
 	public Prenotazione addPrenotazione(Prenotazione prenotazione) {
+		prenotazione.setTipo("standard");
 		return this.repoPrenotazione.save(prenotazione);		
 	}
 
@@ -39,7 +40,5 @@ public class PrenotazioneServiceImpl implements PrenotazioneService {
 	public void deletePrenotazione(int id) {
 		this.repoPrenotazione.deleteById(id);		
 	}
-
-	
 	
 }

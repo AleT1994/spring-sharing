@@ -18,10 +18,10 @@ public class VeicoloServiceImpl implements VeicoloService {
 	private VeicoloDAO repoVeicoli;
 
 	@Override
-	public void addVeicolo(Veicolo veicolo) {
+	public Veicolo addVeicolo(Veicolo veicolo) {
 		veicolo.setDisponibile("true");
 		veicolo.setVistaBanner("false");
-		this.repoVeicoli.save(veicolo);
+		return this.repoVeicoli.save(veicolo);
 	}
 
 	@Override

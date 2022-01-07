@@ -16,10 +16,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!--FONT-AWESOME-->
 
-    <!--SWIPER-->
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <!--SWIPER-->
-
     <!--LEAFLET-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -34,7 +30,7 @@
 <body>
 
     <!--NAVBAR-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light row sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light row sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <img id="logo" src="img/logo.png" alt="" class="ps-sm-3 ps-lg-5 d-inline-block align-text-top">
@@ -71,6 +67,7 @@
     <!--SCHEDA VEICOLO-->
     <div class="banner mb-5">
         <div id="banner">
+
             <img id="imgVeicolo" src="http://placekitten.com/300/300" class="img-fluid img-thumbnail"
                 alt="articleImage1">
 
@@ -82,39 +79,40 @@
                     <p id="autonomiaVeicolo">Lorem ipsum dolor.</p>
                 </div>
             </div>
+
         </div>
     </div>
     <!--SCHEDA VEICOLO-->
 
-    <div class="container">
 
-        <!--POSIZIONE VEICOLO SULLA MAPPA E FORM PRENOTAZIONE-->
+    <div class="container">
         <div class="row">
 
+            <!--POSIZIONE VEICOLO SULLA MAPPA-->
             <div class="wrapperMap my-5 col-lg-6 d-flex justify-content-center">
                 <div id="map"></div>
             </div>
+            <!--POSIZIONE VEICOLO SULLA MAPPA-->
 
+
+            <!--FORM PRENOTAZIONE-->
             <div class="wrapperCard my-5 col-lg-6 d-flex justify-content-center align-items-center">
                 <div class="card">
                     <h4 class="card-header text-center">Prenota ora il tuo veicolo</h4>
-                    <form>
+                    <form id="formPrenotazione" action="#">
                         <h5 class="card-title mt-3 ms-3">Inserisci data e ora</h5>
                         <div class="form-group col-8">
-                            <input type="datetime-local" id="dataOraPrenotazione" class="form-control mt-3 ms-3"
-                                name="dataOraPrenotazione">
-                            <button type="submit" class="btn my-3 ms-3">Prosegui</button>
+                            <input type="datetime-local" id="dataOraPrenotazione" class="form-control mt-3 ms-3" name="dataOraPrenotazione">
+                            <button id="prenota" type="submit" class="btn btn-primary my-3 ms-3">Prosegui</button>
                         </div>
                     </form>
                 </div>
             </div>
+            <!--FORM PRENOTAZIONE-->
 
         </div>
     </div>
-    <!--POSIZIONE VEICOLO SULLA MAPPA E FORM PRENOTAZIONE-->
 
-
-    </div>
 
     <!-- Modale Login -->
     <div class="modal fade" id="myModal">
@@ -166,12 +164,14 @@
     <div class="modal fade" id="myModal1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
+
+                <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Registrazione</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
-
+                <!-- Modal body -->
                 <div class="modal-body">
                     <form action="#" id="registration-form">
                         <div class="mb-3 mt-3">
@@ -203,6 +203,7 @@
                     </form>
                 </div>
 
+                <!-- Modal footer -->
                 <div class="modal-footer">
                     <a style="text-align: center; cursor: pointer;" href="#" data-bs-toggle="modal"
                         data-bs-target="#myModal1" onclick="openModalLogin()">Hai già un account? Clicca qui per
@@ -226,6 +227,9 @@
         </div>
     </footer>
     <!-- Footer -->
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- jQuery -->
 
 
     <!-- Popper-JS -->
@@ -235,14 +239,6 @@
     <!-- Bootstrap-JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
     <!-- Bootstrap-JS -->
-
-    <!-- Swiper-JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <!-- Swiper-JS-->
-
-    <!-- Chart-JS -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Chart-JS -->
 
     <!-- Leaflet-JS -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
@@ -262,15 +258,10 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- jQuery-Validate -->
 
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- jQuery -->
 
     <!-- MIEI SCRIPT -->
     <script src="js/scriptLogin.js"></script>
-    <script src="js/scriptHome.js"></script>
-    <script src="js/scriptAdmin.js"></script>
-    <script src="js/scriptPrentaVeicolo.js"></script>
+    <script src="js/scriptPrenotaVeicolo.js"></script>
     <!-- MIEI SCRIPT -->
 </body>
 
