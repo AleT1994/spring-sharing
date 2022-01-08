@@ -153,6 +153,17 @@ footer {
 /*----------------FORM INSERIMENTO VEICOLO----------------*/
 
 
+/*----------------AMMINISTRA VEICOLO----------------*/
+/*.filterDiv{
+    display: none; di default non mostro nessun veicolo nella lista
+}
+
+.show {
+    display: block;
+}*/
+/*----------------AMMINISTRA VEICOLO----------------*/
+
+
 /*----------------VALIDATION----------------*/
 span.error {
     display: block;

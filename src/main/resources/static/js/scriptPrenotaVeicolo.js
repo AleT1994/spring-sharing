@@ -1,15 +1,18 @@
 ///////////////////////FUNZIONE PRENDI DATI///////////////////////////
+//recupero gli elementi dall'HMTL
 var imgVeicolo = document.getElementById("imgVeicolo");
 var nomeVeicolo = document.getElementById("nomeVeicolo");
 var tipoVeicolo = document.getElementById("tipoVeicolo");
 var autonomiaVeicolo = document.getElementById("autonomiaVeicolo");
 
+//creo un oggetto per salvare i dati dalla Session Storage
 var objVeicolo = {};
 
 if (Modernizr.sessionstorage) {
     objVeicolo = JSON.parse(sessionStorage.getItem("datiVeicolo"));
 }
 
+//setto gli elementi HTML secondo i contenuti del mio objVeicolo
 imgVeicolo.setAttribute("src", objVeicolo.immagine);
 nomeVeicolo.innerText = objVeicolo.nome;
 switch (objVeicolo.tipo) {
@@ -33,7 +36,8 @@ autonomiaVeicolo.innerText = "Autonomia: " + objVeicolo.autonomia;
 ///////////////////////FUNZIONE PRENDI DATI///////////////////////////
 
 
-///////////////////////FUNZIONE MAPPA///////////////////////////45.0712087,7.6034829
+///////////////////////FUNZIONE MAPPA///////////////////////////
+//inizializzazione della mappa
 var map = L.map('map').setView([objVeicolo.posizioneAttuale.latitudine, objVeicolo.posizioneAttuale.longitudine], 15);
 
 var tiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
@@ -45,6 +49,7 @@ var tiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}
     zoomOffset: -1
 }).addTo(map);
 
+//imposto un'iconcina sulla mappa diversa a seconda del tipo di veicolo
 var URLIcona;
 switch (objVeicolo.tipo) {
     case "bicicletta":
@@ -64,6 +69,7 @@ switch (objVeicolo.tipo) {
         break;
 }
 
+
 var myIcon = L.icon({
     iconUrl: URLIcona,
     iconSize: [38, 38],
@@ -71,6 +77,7 @@ var myIcon = L.icon({
     popupAnchor: [-3, -22],
 });
 
+//conferisco le coordinate della posizione del veicolo per definire il marker sulla mappa
 var marker = L.marker([objVeicolo.posizioneAttuale.latitudine, objVeicolo.posizioneAttuale.longitudine], {
     icon: myIcon
 }).addTo(map);
@@ -104,7 +111,6 @@ $().ready(function () {
             dataOraPrenotazione: {
                 required: true,
                 date: true
-                //dateGreaterThan (sviluppare custom method per controllare data)
             }
         },
         messages: {

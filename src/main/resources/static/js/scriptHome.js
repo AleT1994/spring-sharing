@@ -40,7 +40,7 @@ $().ready(function () {
                     '<h2>' + nome + '</h2>' +
                     '<p>' + descrizione + '</p>' +
                     '<a href="prenota-veicolo.html">' +
-                    '<button type="button" id="' + tastoId + '" class="btn btn-primary"  onclick="getDati(' + i + ')" >Prenota</button>' +
+                    '<button type="button" id="' + tastoId + '" class="btn btn-primary" onclick="getDati(' + i + ')">Prenota</button>' +
                     '</a>' +
                     '</div>' +
                     '</div>' +
