@@ -22,6 +22,14 @@
         crossorigin="" />
     <!--LEAFLET-->
 
+    <!--GOOGLE FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600&display=swap"
+        rel="stylesheet">
+    <!--GOOGLE FONT-->
+
     <!--MIO-CSS-->
     <link rel="stylesheet" href="css/style.css">
     <!--MIO-CSS-->
@@ -42,7 +50,8 @@
             <div class="pe-lg-5 collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a style="text-align: center;" class="nav-link" href="index.html">Home</a>
+                        <a style="text-align: center;" class="nav-link active" aria-current="page"
+                            href="index.html">Home</a>
                     </li>
                     <li class="nav-item" id="veicolidispo">
                         <a style="text-align: center;" class="nav-link" href="veicoli-disponibili.html">Veicoli
@@ -102,7 +111,8 @@
                     <form id="formPrenotazione" action="#">
                         <h5 class="card-title mt-3 ms-3">Inserisci data e ora</h5>
                         <div class="form-group col-8">
-                            <input type="datetime-local" id="dataOraPrenotazione" class="form-control mt-3 ms-3" name="dataOraPrenotazione">
+                            <input type="datetime-local" id="dataOraPrenotazione" class="form-control mt-3 ms-3"
+                                name="dataOraPrenotazione">
                             <button id="prenota" type="submit" class="btn btn-primary my-3 ms-3">Prosegui</button>
                         </div>
                     </form>
@@ -114,7 +124,7 @@
     </div>
 
 
-    <!-- Modale Login -->
+    <!-- LOGIN-MODAL -->
     <div class="modal fade" id="myModal">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -150,28 +160,29 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
+
                     <a style="text-align: center; cursor: pointer;" href="#" data-bs-toggle="modal"
                         data-bs-target="#myModal1" onclick="registration()">Non sei registrato? Clicca qui per
                         iscriverti al sito</a>
+
                 </div>
 
             </div>
         </div>
     </div>
-    <!-- Modale Login -->
+    <!-- LOGIN-MODAL -->
 
-    <!-- Modale Registrazione -->
+
+    <!-- REGISTRATION-MODAL -->
     <div class="modal fade" id="myModal1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-
-                <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Registrazione</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
-                <!-- Modal body -->
+
                 <div class="modal-body">
                     <form action="#" id="registration-form">
                         <div class="mb-3 mt-3">
@@ -186,8 +197,7 @@
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="nascita" class="form-label" id="nascitaLabel">Data di nascita:</label>
-                            <input type="date" class="form-control" id="nascita" min="1899-01-01" max="2000-13-13"
-                                name="nascita">
+                            <input type="date" class="form-control" id="nascita" name="nascita">
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="email1" class="form-label" id="email1Label">Email:</label>
@@ -203,34 +213,36 @@
                     </form>
                 </div>
 
-                <!-- Modal footer -->
                 <div class="modal-footer">
-                    <a style="text-align: center; cursor: pointer;" href="#" data-bs-toggle="modal"
-                        data-bs-target="#myModal1" onclick="openModalLogin()">Hai già un account? Clicca qui per
-                        fare login al sito</a>
-                </div>
 
+                    <a style="text-align: center; cursor: pointer;" href="#" data-bs-toggle="modal"
+                        data-bs-target="#myModal1" onclick="openModalLogin()">Hai già un account? Clicca qui per fare
+                        login al sito</a>
+
+                </div>
             </div>
         </div>
     </div>
-    <!-- Modale Registrazione -->
+    <!-- REGISTRATION-MODAL -->
 
-    <!-- Footer -->
-    <footer class="coloreFooter">
-        <div class="row g-0">
-            <div class="col-md-6 text-center text-md-start">
-                <p class="text">Lorem ipsum dolor</p>
+
+    <!-- FOOTER -->
+    <footer class="mt-3 mt-md-5">
+        <div class="row ms-3 py-3 py-md-5">
+            <div class="col-md-6 text-start text-md-center">
+                <p>Lorem ipsum dolor</p>
             </div>
-            <div class="col-md-6 text-center text-md-end">
+            <div class="col-md-6 text-start text-md-center">
                 <p>© 2021 My Team.</p>
             </div>
         </div>
     </footer>
-    <!-- Footer -->
+    <!-- FOOTER -->
+
+
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- jQuery -->
-
 
     <!-- Popper-JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>

@@ -19,7 +19,7 @@ public class Utente {
 	private String nome; 
 	private String cognome;
 
-	@JsonFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "dd-MM-yyyy")
 	private LocalDate nascita;
 	
 	private String patente;

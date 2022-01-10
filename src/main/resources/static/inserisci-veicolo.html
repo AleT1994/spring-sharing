@@ -16,9 +16,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!--FONT-AWESOME-->
 
-    <!--SWIPER-JS-->
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <!--SWIPER-JS-->
+    <!--GOOGLE FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600&display=swap"
+        rel="stylesheet">
+    <!--GOOGLE FONT-->
 
     <!--MIO-CSS-->
     <link rel="stylesheet" href="css/style.css">
@@ -63,7 +67,7 @@
     <!--NAVBAR-->
 
 
-    <!-- Form Inserisci Veicolo -->
+    <!-- BODY -->
     <div class="row justify-content-center">
         <div class="col-md-4 align-self-center">
             <form class="centrato" id="form">
@@ -95,10 +99,112 @@
             </form>
         </div>
     </div>
-    <!-- Form Inserisci Veicolo -->
+    <!-- BODY -->
 
 
-    <!-- Footer -->
+    <!-- LOGIN-MODAL -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Login</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form action="#" id="login-form">
+                        <div class="mb-3 mt-3">
+                            <label for="email" class="form-label" id="emailLabel">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="Scrivi la tua email" name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="pwd" class="form-label" id="pwdLabel">Password:</label>
+                            <input type="password" class="form-control" id="pwd" name="pwd"
+                                placeholder="Scrivi la password" name="pswd">
+                        </div>
+                        <div class="form-check mb-3">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember" id="ricordamiDati">
+                                Ricordami
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="accedi">Accedi</button>
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+
+                    <a style="text-align: center; cursor: pointer;" href="#" data-bs-toggle="modal"
+                        data-bs-target="#myModal1" onclick="registration()">Non sei registrato? Clicca qui per
+                        iscriverti al sito</a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- LOGIN-MODAL -->
+
+
+    <!-- REGISTRATION-MODAL -->
+    <div class="modal fade" id="myModal1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Registrazione</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+
+                <div class="modal-body">
+                    <form action="#" id="registration-form">
+                        <div class="mb-3 mt-3">
+                            <label for="nome" class="form-label" id="nomeLabel">Nome:</label>
+                            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome"
+                                name="nome">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="cognome" class="form-label" id="cognomeLabel">Cognome:</label>
+                            <input type="text" class="form-control" id="cognome" name="cognome" placeholder="Cognome"
+                                name="cognome">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="nascita" class="form-label" id="nascitaLabel">Data di nascita:</label>
+                            <input type="date" class="form-control" id="nascita" name="nascita">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="email1" class="form-label" id="email1Label">Email:</label>
+                            <input type="email" class="form-control" id="email1" name="email1"
+                                placeholder="Scrivi la tua email" name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="pwd1" class="form-label" id="pwd1Label">Password:</label>
+                            <input type="password" class="form-control" id="pwd1" name="pwd1"
+                                placeholder="Scrivi la password" name="pswd">
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="regitrati">Registrati</button>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+
+                    <a style="text-align: center; cursor: pointer;" href="#" data-bs-toggle="modal"
+                        data-bs-target="#myModal1" onclick="openModalLogin()">Hai già un account? Clicca qui per fare
+                        login al sito</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- REGISTRATION-MODAL -->
+
+    
+    <!-- FOOTER -->
     <footer class="mt-3 mt-md-5">
         <div class="row ms-3 py-3 py-md-5">
             <div class="col-md-6 text-start text-md-center">
@@ -109,27 +215,20 @@
             </div>
         </div>
     </footer>
-    <!-- Footer -->
+    <!-- FOOTER -->
+    
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- jQuery -->
 
-    <!-- Popper JS -->
+    <!-- Popper-JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
-    <!-- Popper JS -->
+    <!-- Popper-JS -->
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap-JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
-    <!-- Bootstrap JS -->
-
-    <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <!-- Swiper JS-->
-
-    <!-- Chart JS -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Chart JS -->
+    <!-- Bootstrap-JS -->
 
     <!-- Modernizr -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"
@@ -142,10 +241,6 @@
         integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- jQuery-Validate -->
-
-    <!-- Lottie -->
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <!-- Lottie -->
 
 
     <!-- MIEI SCRIPT -->
