@@ -25,21 +25,49 @@ img {
     height: auto;
 }
 
-nav {
+.navbar {
     background-color: rgb(253, 253, 253, 0.8);
     font-family: 'Roboto', sans-serif;
-}
-
-footer {
-    background-color: #86FCBE;
-    color: #212228;
-    height: 10rem;
 }
 
 #logo {
     width: 10rem;
     height: auto;
 }
+
+
+/*----------------FOOTER----------------*/
+.coloreFooter {
+    background-color: rgb(33, 34, 40);
+    color: rgb(233, 233, 233);
+}
+
+ footer a:link {
+    color: whitesmoke;
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+  footer a:visited {
+    color: whitesmoke;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+footer a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+/*----------------FOOTER----------------*/
+
+
 
 /*----------------SWIPER - HOME----------------*/
 .swiper {
@@ -119,6 +147,8 @@ footer {
 }
 /*----------------COME FUNZIONA - HOME----------------*/
 
+
+/*----------------VEICOLI DISPONIBILI----------------*/
 .sezione {
     margin-bottom: 5rem;
 }
@@ -126,6 +156,10 @@ footer {
 .immaginina {
     max-width: 80%;
 }
+/*----------------VEICOLI DISPONIBILI----------------*/
+
+
+
 /*----------------DETTAGLIO VEICOLO----------------*/
 .banner {
     width: 100%;
@@ -193,6 +227,10 @@ footer {
 #btn-autoIbrida {
     background-color: rgb(130, 182, 255);
     color: rgb(253, 253, 253);
+}
+
+.hidden {
+    display: none;
 }
 /*----------------AMMINISTRA VEICOLO----------------*/
 

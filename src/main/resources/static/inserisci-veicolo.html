@@ -29,7 +29,7 @@
     <!--MIO-CSS-->
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
     <!--NAVBAR-->
     <nav class="navbar navbar-expand-lg navbar-light row sticky-top">
@@ -70,32 +70,37 @@
     <!-- BODY -->
     <div class="row justify-content-center">
         <div class="col-md-4 align-self-center">
-            <form class="centrato" id="form">
-                <div class="dropdown">
-                    <label for="categoria">Categoria veicolo:</label><br>
-                    <select name="categoria" id="categoria" required>
-                        <option value=""></option>
-                        <option value="autoElettrica">Macchina Elettrica</option>
-                        <option value="monopattino">Monopattino</option>
-                        <option value="autoIbrida">Macchina Ibrida</option>
-                        <option value="bicicletta">Bicicletta</option>
-                    </select>
-                </div>
+            <form class="centrato" id="form" action="#">
+                <label for="categoria">Categoria veicolo:</label><br>
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="categoria"
+                    id="categoria" required>
+                    <option selected></option>
+                    <option value="autoElettrica">Macchina Elettrica</option>
+                    <option value="autoIbrida">Macchina Ibrida</option>
+                    <option value="monopattino">Monopattino</option>
+                    <option value="bicicletta">Bicicletta</option>
+                    <option value="autoBenzina_Diesel">Macchina Diesel/Benzina</option>
+                </select>
                 <div class="form-group">
                     <label for="nomeVe">Nome veicolo:</label><br>
-                    <input type="text" id="nomeVe" name="nomeVe" placeholder="Audi A4"><br>
+                    <input class="form-control" id="nomeVe" type="text" placeholder="Audi A4"
+                        aria-label="default input example" name="nomeVe"><br>
                 </div>
                 <div class="form-group">
                     <label for="autonom">Autonomia:</label><br>
-                    <input type="text" id="autonom" name="autonom" placeholder="130 Km"><br>
+                    <input class="form-control" id="autonom" type="text" placeholder="130 km"
+                        aria-label="default input example" name="autonom"><br>
                 </div>
                 <div class="form-group">
                     <label for="staz">Stazione di appartenenza:</label><br>
-                    <input type="text" id="staz" name="staz" placeholder="Stazione 5"><br>
+                    <input class="form-control" id="staz" type="text" placeholder="Stazione 5"
+                        aria-label="default input example" name="staz"><br>
                 </div>
                 <label for="imgVeicolo">Carica Immagine:</label><br>
-                <input type="file" name="image" id="image" accept="image/png, image/jpeg" /><br>
-                <input type="button" onclick="postVeicolo()" value="salva" id="post-image">
+                <input type="file" name="image" id="image" accept="image/png, image/jpeg"
+                    class="btn btn-secondary" /><br>
+                <!-- <input type="submit" value="Salva" id="post-image" class="btn btn-success"> -->
+                <button onclick="postVeicolo()" class="btn btn-success mt-2 btn-lg" value="Salva" id="post-image">Salva</button>
             </form>
         </div>
     </div>
@@ -203,20 +208,19 @@
     </div>
     <!-- REGISTRATION-MODAL -->
 
-    
+
     <!-- FOOTER -->
-    <footer class="mt-3 mt-md-5">
-        <div class="row ms-3 py-3 py-md-5">
-            <div class="col-md-6 text-start text-md-center">
-                <p>Lorem ipsum dolor</p>
-            </div>
-            <div class="col-md-6 text-start text-md-center">
-                <p>© 2021 My Team.</p>
+    <footer class="coloreFooter g-0 mt-auto">
+        <div class="row g-0">
+            <div class="container centrato">
+                <p>© 2021 All Copyrights Reserved To CARonte.</p>
+                <p>p.iva 00000000000</p>
+                <p><a href="about-us.html">About Us</a></p>
             </div>
         </div>
     </footer>
     <!-- FOOTER -->
-    
+
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

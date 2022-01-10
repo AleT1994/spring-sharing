@@ -76,7 +76,7 @@ function addAccordions() {
         var nome = arrayObjVeicoli[i].nome;
         var img = arrayObjVeicoli[i].immagine;
         var autonomia = arrayObjVeicoli[i].autonomia;
-        var posiz = arrayObjVeicoli[i].posizioneAttuale.descrizione;
+        //var posiz = arrayObjVeicoli[i].posizioneAttuale.descrizione;
 
         var tipoVeicolo;
         switch (arrayObjVeicoli[i].tipo) {
@@ -94,29 +94,26 @@ function addAccordions() {
                 break;
         }
 
-        var cancId = "btnCancella-" + i;
-        var modifId = "btnModifica-" + i;
+        var idVeicolo = arrayObjVeicoli[i].id;
+        var cancId = "btnCancella-" + idVeicolo;
+        var modifId = "btnModifica-" + idVeicolo;
 
-        listaVeicoli.innerHTML += '<div class="accordion-item">' +
+        listaVeicoli.innerHTML += '<div id="accordion-' + idVeicolo + '" class="accordion-item">' +
             '<h2 class="accordion-header" id="heading' + i + '">' +
             '<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse' + i + '" aria-expanded="false" aria-controls="collapse' + i + '">' + nome + '</button>' +
             '</h2>' +
             '<div id="collapse' + i + '" class="accordion-collapse collapse" aria-labelledby="heading' + i + '" data-bs-parent="#accordionExample">' +
             '<div class="accordion-body">' +
             '<p>' + autonomia + '</p>' +
-            '<p>' + posiz + '</p>' +
+            //        '<p>' + posiz + '</p>' +
             '<div class="d-flex mb-3">' +
-            '<button type="button" id="' + cancId + '" class="btn btn-danger" onclick="eliminaDati(' + i + ')"><i class="fa fa-trash"></i></button>' +
-            '<button type="button" id="' + modifId + '" class="btn btn-primary" onclick="modificaDati(' + i + ')"><i class="far fa-edit"></i></button>' +
+            '<button type="button" id="' + cancId + '" class="btn btn-danger" onclick="eliminaDati(' + idVeicolo + ')"><i class="fa fa-trash"></i></button>' +
+            '<button type="button" id="' + modifId + '" class="btn btn-primary" onclick="modificaDati(' + idVeicolo + ')"><i class="far fa-edit"></i></button>' +
             '</div>' +
             '<img src="' + img + '">' +
             '</div>' +
             '</div>' +
             '</div>';
-
-        var btnModifica = document.getElementById(modifId);
-        var stringifiedObj = JSON.stringify(arrayObjVeicoli[i]);
-        btnModifica.setAttribute("obj", stringifiedObj);
 
     }
 }
@@ -165,20 +162,21 @@ function filter(tipo) {
                         break;
                 }
 
-                var cancId = "btnCancella-" + i;
-                var modifId = "btnModifica-" + i;
+                var idVeicolo = arrayObjVeicoli[i].id;
+                var cancId = "btnCancella-" + idVeicolo;
+                var modifId = "btnModifica-" + idVeicolo;
 
-                listaVeicoli.innerHTML += '<div class="accordion-item">' +
+                listaVeicoli.innerHTML += '<div id="accordion-' + idVeicolo + '" class="accordion-item">' +
                     '<h2 class="accordion-header" id="heading' + i + '">' +
                     '<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse' + i + '" aria-expanded="false" aria-controls="collapse' + i + '">' + nome + '</button>' +
                     '</h2>' +
                     '<div id="collapse' + i + '" class="accordion-collapse collapse" aria-labelledby="heading' + i + '" data-bs-parent="#accordionExample">' +
                     '<div class="accordion-body">' +
                     '<p>' + autonomia + '</p>' +
-                    '<p>' + posiz + '</p>' +
+                    //        '<p>' + posiz + '</p>' +
                     '<div class="d-flex mb-3">' +
-                    '<button type="button" id="' + cancId + '" class="btn btn-danger" onclick="eliminaDati(' + i + ')"><i class="fa fa-trash"></i></button>' +
-                    '<button type="button" id="' + modifId + '" class="btn btn-primary" onclick="modificaDati(' + i + ')"><i class="far fa-edit"></i></button>' +
+                    '<button type="button" id="' + cancId + '" class="btn btn-danger" onclick="eliminaDati(' + idVeicolo + ')"><i class="fa fa-trash"></i></button>' +
+                    '<button type="button" id="' + modifId + '" class="btn btn-primary" onclick="modificaDati(' + idVeicolo + ')"><i class="far fa-edit"></i></button>' +
                     '</div>' +
                     '<img src="' + img + '">' +
                     '</div>' +
@@ -186,7 +184,6 @@ function filter(tipo) {
                     '</div>';
 
             }
-
         }
     }
 }
@@ -196,21 +193,35 @@ function eliminaDati(id) {
 
     const URL = "http://localhost:9010/sharing/api/veicoli/id/" + id;
     fetch(URL, {
-        method: 'DELETE'
-    })
-        .then(
-            
-        )
+            method: 'DELETE'
+        })
+        .then(()=>{
+            document.getElementById("accordion-"+id).innerHTML = '';
+            showMessage('<div class="alert alert-success" role="alert">La tua azione è andata a buon fine</div>');
+            setTimeout(hideMessage, 5000);
+        });
 
+}
 
-    
+function showMessage (message) {
+    document.getElementById("apiMessage").innerHTML = message;
+}
+
+function hideMessage () {
+    document.getElementById("apiMessage").innerHTML= '';
 }
 
 function modificaDati(id) {
-    var tastoId = "btnModifica-" + id;
-    var objVeicolo = JSON.parse(document.getElementById(tastoId).getAttribute("obj"));
-    if (Modernizr.sessionstorage) {
-        sessionStorage.setItem("datiVeicolo", JSON.stringify(objVeicolo));
-    }
+
+    arrayObjVeicoli = [];
+        if (Modernizr.sessionstorage) {
+            arrayObjVeicoli = JSON.parse(sessionStorage.getItem("veicoli"));
+        }
+
+        for (var i = 0; i < arrayObjVeicoli.length; i++) {
+
+            if (arrayObjVeicoli[i].id == id) {
+            }
+        }
 }
 //////////////////////////////FUNZIONE ACCORDION//////////////////////////////////

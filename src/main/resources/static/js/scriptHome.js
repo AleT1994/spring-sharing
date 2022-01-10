@@ -88,10 +88,10 @@ fetch(URLgrafico)
             var tipo;
             switch (response[i].tipoVeicolo) {
                 case "bicicletta":
-                    tipo = "Bicicletta Elettrica";
+                    tipo = "Bicicletta";
                     break;
                 case "monopattino":
-                    tipo = "Monopattino Elettrico";
+                    tipo = "Monopattino";
                     break;
                 case "autoElettrica":
                     tipo = "Auto Elettrica";
