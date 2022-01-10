@@ -18,8 +18,12 @@ public class Utente {
 	private String ruolo; 
 	private String nome; 
 	private String cognome;
+
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate nascita;
+	
+	private String patente;
+	private String fotoProfilo;
 	
 	public String getEmail() {
 		return email;
@@ -57,6 +61,18 @@ public class Utente {
 	public void setNascita(LocalDate nascita) {
 		this.nascita = nascita;
 	}
+	public String getPatente() {
+		return patente;
+	}
+	public void setPatente(String patente) {
+		this.patente = patente;
+	}
+	public String getFotoProfilo() {
+		return fotoProfilo;
+	}
+	public void setFotoProfilo(String fotoProfilo) {
+		this.fotoProfilo = fotoProfilo;
+	}
 	
 	@Override
 	public String toString() {
@@ -73,8 +89,13 @@ public class Utente {
 		builder.append(cognome);
 		builder.append(", nascita=");
 		builder.append(nascita);
+		builder.append(", patente=");
+		builder.append(patente);
+		builder.append(", fotoProfilo=");
+		builder.append(fotoProfilo);
 		builder.append("]");
 		return builder.toString();
 	}
+	
 }
 

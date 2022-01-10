@@ -143,10 +143,6 @@ footer {
     min-width: 18px;
 }
 
-#listaVeicoli img {
-    max-width: 20%;
-}
-
 .centrato {
     text-align: center;
 }
@@ -154,13 +150,29 @@ footer {
 
 
 /*----------------AMMINISTRA VEICOLO----------------*/
-/*.filterDiv{
-    display: none; di default non mostro nessun veicolo nella lista
+#listaVeicoli img {
+    max-width: 20%;
 }
 
-.show {
-    display: block;
-}*/
+#btn-bicicletta {
+    background-color: rgb(255, 89, 148);
+    color: rgb(253, 253, 253);
+}
+
+#btn-monopattino {
+    background-color: rgb(255, 150, 104);
+    color: rgb(253, 253, 253);
+}
+
+#btn-autoElettrica {
+    background-color: rgb(110, 206, 178);
+    color: rgb(253, 253, 253);
+}
+
+#btn-autoIbrida {
+    background-color: rgb(130, 182, 255);
+    color: rgb(253, 253, 253);
+}
 /*----------------AMMINISTRA VEICOLO----------------*/
 
 

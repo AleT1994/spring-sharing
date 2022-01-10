@@ -25,47 +25,47 @@ public class VeicoliREST {
 	private VeicoloService veicoloService;
 	
 	@PostMapping
-	public Veicolo add(@RequestBody Veicolo veicolo) {
-		return veicoloService.addVeicolo(veicolo);
+	public void aggiungiVeicolo(@RequestBody Veicolo veicolo) {
+		veicoloService.addVeicolo(veicolo);
 	}
 	
+	@GetMapping("/id/{id}")
+	public Veicolo getVeicolo(@PathVariable("id") int id) {
+			return veicoloService.getOne(id);
+	}
+
 	@GetMapping
 	public List<Veicolo> getVeicoli() {
 		return veicoloService.getAll();
 	}
-	
+
 	@GetMapping("/tipo/{tipo}")
 	public List<Veicolo> getVeicoliByTipo(@PathVariable("tipo") String tipo) {
 		return veicoloService.getByTipo(tipo);
 	}
 	
+	@GetMapping("/tipo/somma")
+	public List<GraficoVeicolo> sommaByTipo() {
+		return veicoloService.sumTipo();
+	}
+
 	@GetMapping("/banner/{vistaBanner}")
 	public List<Veicolo> getVeicoliByBanner(@PathVariable("vistaBanner") String vistaBanner) {
 		return veicoloService.getByBanner(vistaBanner);
 	}
 	
 	@GetMapping("/disponibile/{disponibile}")
-	public List<Veicolo> getVeicoliDisponibilita(@PathVariable("disponibile") String disponibile) {
-		return veicoloService.getByDisponibilita(disponibile);
-	}
-	
-	@GetMapping("/tipo/somma")
-	public List<GraficoVeicolo> sumOfTipo() {
-		return veicoloService.sumTipo();
-	}
-	
-	@GetMapping("/id/{id}")
-	public Veicolo getVeicoloById(@PathVariable("id") int id) {
-			return veicoloService.getOne(id);
+	public List<Veicolo> getVeicoliByDisponibile(@PathVariable("disponibile") String disponibile) {
+		return veicoloService.getByDisponibile(disponibile);
 	}
 	
 	@PutMapping
-	public Veicolo update(@RequestBody Veicolo veicolo) {
-		return veicoloService.updateVeicolo(veicolo);
+	public void modificaVeicolo(@RequestBody Veicolo veicolo) {
+		veicoloService.addVeicolo(veicolo);
 	}
 	
 	@DeleteMapping("/id/{id}")
-	public void delete(@PathVariable("id") int id) {
+	public void eliminaVeicolo(@PathVariable("id") int id) {
 		veicoloService.deleteVeicolo(id);
 	}
 

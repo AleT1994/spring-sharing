@@ -23,8 +23,8 @@ public class UtentiREST {
 	private UtenteService utenteService;
 	
 	@PostMapping
-	public Utente add(@RequestBody Utente utente) {
-		return utenteService.addUtente(utente);
+	public void aggiungiUtente(@RequestBody Utente utente) {
+		utenteService.addUtente(utente);
 	}
 	
 	@GetMapping
@@ -32,18 +32,18 @@ public class UtentiREST {
 		return utenteService.getAll();
 	}
 	
-	@GetMapping("/{email}")
+	@GetMapping("/email/{email}")
 	public Utente getUtenteByEmail(@PathVariable("email") String email) {
-			return utenteService.getByEmail(email);
+			return utenteService.getOne(email);
 	}
 	
 	@PutMapping
-	public Utente update(@RequestBody Utente utente) {
-		return utenteService.updateUtente(utente);
+	public void modificaUtente(@RequestBody Utente utente) {
+		utenteService.updateUtente(utente);
 	}
 	
-	@DeleteMapping 
-	public void delete(@PathVariable("email") String email) {
+	@DeleteMapping("email/{email}")
+	public void eliminaUtente(@PathVariable("email") String email) {
 		utenteService.deleteUtente(email);
 	}
 	

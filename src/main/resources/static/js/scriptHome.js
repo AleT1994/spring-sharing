@@ -1,4 +1,6 @@
-///////////////////////INIZIALIZZAZIONE SWIPER///////////////////////////
+///////////////////////FUNZIONE BANNER DINAMICO///////////////////////////
+
+//inizializzo lo swiper
 const swiper = new Swiper(".mySwiper", {
     cssMode: true,
     keyboard: true,
@@ -11,15 +13,15 @@ const swiper = new Swiper(".mySwiper", {
     },
     rewind: true
 });
-///////////////////////INIZIALIZZAZIONE SWIPER///////////////////////////
 
 
-///////////////////////FUNZIONE BANNER DINAMICO///////////////////////////
+//prendo i dati dei veicoli dall'api/veicoli/banner/true e li stampo nella pagina
 $().ready(function () {
+
     const URLbanner = "http://localhost:9010/sharing/api/veicoli/banner/true";
     var divSwiper = document.getElementById("swiper");
 
-    //prendo i dati da /api/veicoli/banner/true
+
     fetch(URLbanner)
         .then(dati => {
             return dati.json()
@@ -57,6 +59,7 @@ $().ready(function () {
 
 
 ///////////////////////FUNZIONE PULSANTE PRENOTA///////////////////////////
+
 //funzione per recuperare la stringa dei dati dell'auto e salvarla in sessione
 function getDati(id) {
     var tastoId = "btnPrenota-" + id;
@@ -69,9 +72,10 @@ function getDati(id) {
 
 
 ///////////////////////FUNZIONE GRAFICO DINAMICO///////////////////////////
-const URLgrafico = "http://localhost:9010/sharing/api/veicoli/tipo/somma";
 
 //recupero i dati da api/tipo/somma per rendere grafico dinamico in base a DB
+const URLgrafico = "http://localhost:9010/sharing/api/veicoli/tipo/somma";
+
 fetch(URLgrafico)
     .then(dati => {
         return dati.json()

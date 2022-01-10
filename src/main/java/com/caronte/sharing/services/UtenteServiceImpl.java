@@ -15,13 +15,13 @@ public class UtenteServiceImpl implements UtenteService {
 	private UtenteDAO repoUtente;
 	
 	@Override
-	public Utente addUtente(Utente utente) {
+	public void addUtente(Utente utente) {
 		utente.setRuolo("utente");
-		return this.repoUtente.save(utente);
+		this.repoUtente.save(utente);
 	}
 
 	@Override
-	public Utente getByEmail(String email) {
+	public Utente getOne(String email) {
 		return this.repoUtente.findByEmail(email);
 	}
 
@@ -31,8 +31,8 @@ public class UtenteServiceImpl implements UtenteService {
 	}
 
 	@Override
-	public Utente updateUtente(Utente utente) {
-		return this.repoUtente.save(utente);
+	public void updateUtente(Utente utente) {
+		this.repoUtente.save(utente);
 	}
 
 	@Override

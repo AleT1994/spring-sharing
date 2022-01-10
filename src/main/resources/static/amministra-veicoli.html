@@ -59,21 +59,22 @@
     <!--NAVBAR-->
 
     <!-- Lista Veicoli Amministrabili -->
-    <div class="container">
+    <div class="container mt-2 d-flex flex-column align-items-center">
 
-        <div id="btnContainer">
-            <button class="btn btn-all active" onclick="filter('tutti')">Tutti</button>
-        </div>
+        <div class="col-md-6 d-flex flex-column align-items-center">
 
-        <div class="row">
-            <div class="col-md-6 mt-4">
+            <div id="btnContainer">
+                <button class="btn btn-dark" id="btn-tutti" onclick="filter('tutti')">Tutti</button>
+            </div>
+
+            <div class="mt-5">
                 <h1>Qui compariranno i veicoli dentro ad una tabella, si spera...</h1>
 
-                <div class="accordion" id="accordionExample">
-
-                </div>
+                <div class="accordion" id="accordionExample"></div>
             </div>
+
         </div>
+    </div>
 
     </div>
 
@@ -101,18 +102,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
     <!-- Bootstrap JS -->
 
-    <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <!-- Swiper JS-->
-
-    <!-- Chart JS -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Chart JS -->
-
-    <!-- Lottie -->
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <!-- Lottie -->
-
     <!-- Modernizr -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"
         integrity="sha512-3n19xznO0ubPpSwYCRRBgHh63DrV+bdZfHK52b1esvId4GsfwStQNPJFjeQos2h3JwCmZl0/LgLxSKMAI55hgw=="
@@ -131,11 +120,8 @@
 
 
     <!-- MIEI SCRIPT -->
-    <script src="js/scriptLogin.js"></script>
-    <script src="js/scriptHome.js"></script>
     <script src="js/scriptAmministraVeicoli.js"></script>
-    <script src="js/scriptInserisciVeicolo.js"></script>
-    <script src="js/scriptPrentaVeicolo.js"></script>
+    <script src="js/scriptLogin.js"></script>
     <!-- MIEI SCRIPT -->
 
 </body>

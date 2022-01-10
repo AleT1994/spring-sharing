@@ -11,9 +11,12 @@ import com.caronte.sharing.entities.Veicolo;
 
 @Repository
 public interface VeicoloDAO extends JpaRepository<Veicolo, Integer> {
+
 	List<Veicolo> findByTipo(String tipo);
 	List<Veicolo> findByVistaBanner(String vistaBanner);
 	List<Veicolo> findByDisponibile(String disponibile);
-	@Query(value="SELECT tipo as tipoVeicolo, COUNT(tipo) as sommaTipo FROM veicoli GROUP BY tipo", nativeQuery = true)
+
+	@Query(value="SELECT tipo as tipoVeicolo, COUNT(tipo) as sommaTipo FROM veicoli GROUP BY tipo ORDER BY tipo", nativeQuery = true)
     List<Map<String, Integer>> sumTipoGroupByTipo();
+
 }

@@ -25,16 +25,4 @@ public class Posizione {
 		this.longitudine = longitudine;
 	}
 	
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Posizione [descrizione=");
-		builder.append(descrizione);
-		builder.append(", latitudine=");
-		builder.append(latitudine);
-		builder.append(", longitudine=");
-		builder.append(longitudine);
-		builder.append("]");
-		return builder.toString();
-	}
 }

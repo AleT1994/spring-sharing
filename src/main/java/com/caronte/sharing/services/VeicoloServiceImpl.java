@@ -18,10 +18,10 @@ public class VeicoloServiceImpl implements VeicoloService {
 	private VeicoloDAO repoVeicoli;
 
 	@Override
-	public Veicolo addVeicolo(Veicolo veicolo) {
+	public void addVeicolo(Veicolo veicolo) {
 		veicolo.setDisponibile("true");
 		veicolo.setVistaBanner("false");
-		return this.repoVeicoli.save(veicolo);
+		this.repoVeicoli.save(veicolo);
 	}
 
 	@Override
@@ -45,12 +45,13 @@ public class VeicoloServiceImpl implements VeicoloService {
 	}
 
 	@Override
-	public List<Veicolo> getByDisponibilita(String disponibile) {
+	public List<Veicolo> getByDisponibile(String disponibile) {
 		return this.repoVeicoli.findByDisponibile(disponibile);
 	}
 	
 	@Override
 	public List<GraficoVeicolo> sumTipo() {
+
 		List<Map<String, Integer>> respDB = this.repoVeicoli.sumTipoGroupByTipo();
 		List<GraficoVeicolo> toReturn = new ArrayList<GraficoVeicolo>();
 		respDB.forEach((map) -> {
@@ -59,12 +60,13 @@ public class VeicoloServiceImpl implements VeicoloService {
 			graficoVeicolo.setSommaTipo(Integer.valueOf(String.valueOf(map.get("sommaTipo"))));
 			toReturn.add(graficoVeicolo);
 		});
+
 		return toReturn;
 	}
 
 	@Override
-	public Veicolo updateVeicolo(Veicolo veicolo) {
-		return this.repoVeicoli.save(veicolo);
+	public void updateVeicolo(Veicolo veicolo) {
+		this.repoVeicoli.save(veicolo);
 	}
 
 	@Override

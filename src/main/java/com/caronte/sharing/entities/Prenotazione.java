@@ -24,6 +24,7 @@ public class Prenotazione {
 	private String utenteEmail;
 	private int veicoloId; 
 	private String tipo;
+	private String stato;
 	
 	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	@JsonSerialize(using = LocalDateTimeSerializer.class)
@@ -59,6 +60,12 @@ public class Prenotazione {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
+	public String getStato() {
+		return stato;
+	}
+	public void setStato(String stato) {
+		this.stato = stato;
+	}
 	public LocalDateTime getInizioPrenotazione() {
 		return inizioPrenotazione;
 	}
@@ -83,9 +90,11 @@ public class Prenotazione {
 		builder.append(veicoloId);
 		builder.append(", tipo=");
 		builder.append(tipo);
-		builder.append(", InizioPrenotazione=");
+		builder.append(", stato=");
+		builder.append(stato);
+		builder.append(", inizioPrenotazione=");
 		builder.append(inizioPrenotazione);
-		builder.append(", FinePrenotazione=");
+		builder.append(", finePrenotazione=");
 		builder.append(finePrenotazione);
 		builder.append("]");
 		return builder.toString();

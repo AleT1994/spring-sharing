@@ -28,11 +28,12 @@ public class PrenotazioniREST {
 	private VeicoloService veicoloService;
 	
 	@PostMapping
-	public Prenotazione add(@RequestBody Prenotazione prenotazione) {
+	public void aggiungiPrenotazione(@RequestBody Prenotazione prenotazione) {
 		Veicolo veicolo = veicoloService.getOne(prenotazione.getVeicoloId());
 		veicolo.setDisponibile("false");
 		veicoloService.updateVeicolo(veicolo);
-		return prenotazioneService.addPrenotazione(prenotazione);
+
+		prenotazioneService.addPrenotazione(prenotazione);
 	}
 	
 	@GetMapping
@@ -40,18 +41,28 @@ public class PrenotazioniREST {
 		return prenotazioneService.getAll();
 	}
 	
-	@GetMapping("/{id}")
-	public Prenotazione getPrenotazioneById(@PathVariable ("id") int id) {
+	@GetMapping("id/{id}")
+	public Prenotazione getPrenotazione(@PathVariable ("id") int id) {
 			return prenotazioneService.getOne(id);
 	}
 	
-	@PutMapping
-	public Prenotazione update(@RequestBody Prenotazione prenotazione) {
-		return prenotazioneService.updatePrenotazione(prenotazione);
+	@GetMapping("email/{utenteEmail}")
+	public List<Prenotazione> getPrenotazioneByUtenteEmail(@PathVariable ("utenteEmail") String utenteEmail) {
+			return prenotazioneService.getByUtenteEmail(utenteEmail);
 	}
 	
-	@DeleteMapping 
-	public void delete(@PathVariable("id") int id) {
+	@GetMapping("veicolo/{veicoloId}")
+	public List<Prenotazione> getPrenotazioneByVeicoloId(@PathVariable ("veicoloId") int veicoloId) {
+			return prenotazioneService.getByVeicoloId(veicoloId);
+	}
+	
+	@PutMapping
+	public void modificaPrenotazione(@RequestBody Prenotazione prenotazione) {
+		prenotazioneService.updatePrenotazione(prenotazione);
+	}
+	
+	@DeleteMapping ("id/{id}")
+	public void eliminaPrenotazione(@PathVariable("id") int id) {
 		prenotazioneService.deletePrenotazione(id);
 	}
 	

@@ -24,8 +24,10 @@ public class Veicolo {
 	private String velocitaMassima;
 	private String autonomia;
 	private String descrizione;
+
 	@Convert(converter = PosizioneJsonConverter.class)
 	private Posizione posizioneAttuale;
+	
 	private String disponibile;
 	private String vistaBanner;
 	private String immagine;
