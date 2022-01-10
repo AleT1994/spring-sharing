@@ -155,12 +155,20 @@ $('#login-form').submit(function (e) {
 
           $(".error").remove();
 
-          $('#accedi').after('<span class="error">Autenticazione fallita: email o password sbagliati!</span>');
+          $('#accedi').after('<span class="error">Autenticazione fallita: Password sbagliata!</span>');
 
 
         }
 
       })
+
+      .catch(err => {
+        
+        $(".error").remove();
+  
+        $('#accedi').after('<span class="error">Autenticazione fallita: Email sbagliata!</span>');
+        
+      })  
 
   }
 

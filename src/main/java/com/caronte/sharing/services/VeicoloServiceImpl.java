@@ -6,10 +6,19 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.caronte.sharing.entities.GraficoVeicolo;
 import com.caronte.sharing.entities.Veicolo;
 import com.caronte.sharing.repos.VeicoloDAO;
+
+import java.io.IOException;
+import org.springframework.util.StringUtils;
+
+
+import com.caronte.sharing.config.CustomProperties;
+import com.caronte.sharing.util.FileUploader;
+
 
 @Service
 public class VeicoloServiceImpl implements VeicoloService {
@@ -18,10 +27,40 @@ public class VeicoloServiceImpl implements VeicoloService {
 	private VeicoloDAO repoVeicoli;
 
 	@Override
-	public void addVeicolo(Veicolo veicolo) {
+	public Veicolo saveVeicolo(Veicolo veicolo) {
 		veicolo.setDisponibile("true");
 		veicolo.setVistaBanner("false");
-		this.repoVeicoli.save(veicolo);
+		return this.repoVeicoli.save(veicolo);
+	}
+	
+	@Override
+	public Veicolo saveVeicolo(Veicolo veicolo, MultipartFile multipartFile) {
+		 // 1) nome del file o immagine
+		 // 2) setto nome del file prima di salvare il veicolo
+		 // 3) salvo il veicolo
+		 // 4) genero il percorso della cartella dove salvare l'immagine
+		 // 5) classe utility con metodo statico che salva il file
+		 // 6) restituisco il veicolo salvato
+		
+		//1
+		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+		
+		//3
+		Veicolo veicoloSalvato = repoVeicoli.save(veicolo);
+
+		//4
+		String uploadDir = CustomProperties.basepath + "/" + veicoloSalvato.getTipo();
+		 
+       try {
+       	//5
+			FileUploader.saveFile(uploadDir, fileName, multipartFile);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+       
+
+       //6
+		return veicoloSalvato;
 	}
 
 	@Override

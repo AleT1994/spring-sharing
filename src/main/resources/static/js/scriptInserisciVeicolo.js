@@ -1,23 +1,24 @@
 ///////////////////////FUNZIONE INSERIMENTO VEICOLO NEL DB///////////////////////////   
 // aggiungi veicolo
-document.getElementById("post-image").addEventListener("click", postVeicolo);
+//document.getElementById("form").addEventListener("submit", postVeicolo);
 
 function postVeicolo() {
+    console.log("ciao");
     const nome = document.getElementById("nomeVe").value;
     const tipo = document.getElementById("categoria").value;
     const autonomia = document.getElementById("autonom").value;
-    const posizioneAttuale = document.getElementById("staz").value;
+    //const posizioneAttuale = document.getElementById("staz").value;
     const image = document.getElementById("image").files[0];
     const nomeFile = image.name
 
     const src = "img/" + tipo + "/" + nomeFile
-
+  
     // oggetto per invio multipart file e altri parametri	
     const formData = new FormData();
     formData.append("nome", nome);
     formData.append("tipo", tipo);
     formData.append("autonomia", autonomia);
-    formData.append("posizioneAttuale", posizioneAttuale);
+    //formData.append("posizioneAttuale", posizioneAttuale);
     formData.append("immagine", src);
     formData.append("image", image);
 
@@ -35,13 +36,15 @@ function postVeicolo() {
             document.getElementById("staz").value = "";
             let blob = document.getElementById("image");
             blob.value = "";
+
+           
         });
 }
 ///////////////////////FUNZIONE INSERIMENTO VEICOLO NEL DB///////////////////////////
 
 
 ///////////////////CONTROLLO FORM INSERIMENTO VEICOLIO/////////////////////////
-$().ready(function () {
+/*$().ready(function () {
     $('#form').validate({
         rules: {
             nomeVe: {
@@ -64,5 +67,5 @@ $().ready(function () {
             form.submit();
         }
     });
-});
+});*/
 ///////////////////CONTROLLO FORM INSERIMENTO VEICOLIO/////////////////////////

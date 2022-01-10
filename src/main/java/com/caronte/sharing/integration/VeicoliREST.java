@@ -3,6 +3,7 @@ package com.caronte.sharing.integration;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,7 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.caronte.sharing.entities.GraficoVeicolo;
 import com.caronte.sharing.entities.Veicolo;
@@ -25,8 +28,17 @@ public class VeicoliREST {
 	private VeicoloService veicoloService;
 	
 	@PostMapping
-	public void aggiungiVeicolo(@RequestBody Veicolo veicolo) {
-		veicoloService.addVeicolo(veicolo);
+	public ResponseEntity<Veicolo> uploadVeicolo(Veicolo veicolo, @RequestParam("image") MultipartFile file) {
+		Veicolo veicoloSalvato = new Veicolo(); // vuoto
+
+		if (file == null || file.isEmpty()) {
+			veicoloSalvato = veicoloService.saveVeicolo(veicolo);
+
+		} else {
+			veicoloSalvato = veicoloService.saveVeicolo(veicolo, file);
+		}
+
+		return ResponseEntity.ok().body(veicoloSalvato);
 	}
 	
 	@GetMapping("/id/{id}")
@@ -61,7 +73,7 @@ public class VeicoliREST {
 	
 	@PutMapping
 	public void modificaVeicolo(@RequestBody Veicolo veicolo) {
-		veicoloService.addVeicolo(veicolo);
+		veicoloService.updateVeicolo(veicolo);
 	}
 	
 	@DeleteMapping("/id/{id}")

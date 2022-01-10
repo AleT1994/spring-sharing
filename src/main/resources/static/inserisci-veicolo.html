@@ -66,16 +66,15 @@
     <!-- Form Inserisci Veicolo -->
     <div class="row justify-content-center">
         <div class="col-md-4 align-self-center">
-            <form class="centrato" id="form" action="#">
+            <form class="centrato" id="form">
                 <div class="dropdown">
                     <label for="categoria">Categoria veicolo:</label><br>
                     <select name="categoria" id="categoria" required>
                         <option value=""></option>
-                        <option value="Auto_Elettrica">Macchina Elettrica</option>
-                        <option value="Monopattino_Elettrico">Monopattino</option>
-                        <option value="Auto_Ibrida">Macchina Ibrida</option>
-                        <option value="Bicicletta">Bicicletta</option>
-                        <option value="Auto_Benzina/Diesel">Macchina Diesel/Benzina</option>
+                        <option value="autoElettrica">Macchina Elettrica</option>
+                        <option value="monopattino">Monopattino</option>
+                        <option value="autoIbrida">Macchina Ibrida</option>
+                        <option value="bicicletta">Bicicletta</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -92,7 +91,7 @@
                 </div>
                 <label for="imgVeicolo">Carica Immagine:</label><br>
                 <input type="file" name="image" id="image" accept="image/png, image/jpeg" /><br>
-                <input type="submit" value="salva" id="post-image">
+                <input type="button" onclick="postVeicolo()" value="salva" id="post-image">
             </form>
         </div>
     </div>
@@ -112,6 +111,9 @@
     </footer>
     <!-- Footer -->
 
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- jQuery -->
 
     <!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
@@ -141,10 +143,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- jQuery-Validate -->
 
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- jQuery -->
-
     <!-- Lottie -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <!-- Lottie -->
@@ -152,10 +150,7 @@
 
     <!-- MIEI SCRIPT -->
     <script src="js/scriptLogin.js"></script>
-    <script src="js/scriptHome.js"></script>
-    <script src="js/scriptAmministraVeicoli.js"></script>
     <script src="js/scriptInserisciVeicolo.js"></script>
-    <script src="js/scriptPrentaVeicolo.js"></script>
     <!-- MIEI SCRIPT -->
 
 </body>

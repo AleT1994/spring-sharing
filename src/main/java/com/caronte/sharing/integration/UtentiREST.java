@@ -32,7 +32,7 @@ public class UtentiREST {
 		return utenteService.getAll();
 	}
 	
-	@GetMapping("/email/{email}")
+	@GetMapping("/{email}")
 	public Utente getUtenteByEmail(@PathVariable("email") String email) {
 			return utenteService.getOne(email);
 	}
@@ -42,7 +42,7 @@ public class UtentiREST {
 		utenteService.updateUtente(utente);
 	}
 	
-	@DeleteMapping("email/{email}")
+	@DeleteMapping("/{email}")
 	public void eliminaUtente(@PathVariable("email") String email) {
 		utenteService.deleteUtente(email);
 	}
