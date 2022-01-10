@@ -2,15 +2,32 @@ body {
     overflow-x: hidden;
     /* nascondere scrollbar orizzontale */
     background-color: rgb(253, 253, 253);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-nav {
-    background-color: rgb(253, 253, 253, 0.8);
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6{
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 img {
     width: 100%;
     height: auto;
+}
+
+nav {
+    background-color: rgb(253, 253, 253, 0.8);
+    font-family: 'Roboto', sans-serif;
 }
 
 footer {
@@ -23,7 +40,6 @@ footer {
     width: 10rem;
     height: auto;
 }
-
 
 /*----------------SWIPER - HOME----------------*/
 .swiper {
@@ -182,6 +198,36 @@ span.error {
     color: red;
 }
 /*----------------VALIDATION----------------*/
+
+
+/*----------------ABOUT-US----------------*/
+.team{
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.team-member{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.team-member img{
+    margin-top: auto;
+    border-radius: 50%;
+    max-width: 200px;
+}
+
+.team-member h2{
+    font-size: 1.5rem;
+}
+/*----------------ABOUT-US----------------*/
 
 
 /*----------------MEDIA QUERIES----------------*/

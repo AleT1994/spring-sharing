@@ -10,84 +10,186 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Chi siamo</title>
+
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <!--BOOTSTRAP-->
+
+    <!--FONT-AWESOME-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!--FONT-AWESOME-->
+
+    <!--SWIPER-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <!--SWIPER-->
+
+    <!--LEAFLET-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <!--LEAFLET-->
+
+    <!--GOOGLE FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600&display=swap"
+        rel="stylesheet">
+    <!--GOOGLE FONT-->
+
+    <!--MIO-CSS-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--MIO-CSS-->
 </head>
 
-<body style="background-color:rgb(253, 253, 253);">
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light row sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img id="logo" src="img/logo.png" alt="" class="ps-sm-3 ps-lg-5 d-inline-block align-text-top">
+            </a>
+            <button class="pe-3 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="pe-lg-5 collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a style="text-align: center;" class="nav-link active" aria-current="page"
+                            href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item" id="veicolidispo">
+                        <a style="text-align: center;" class="nav-link" href="veicoli-disponibili.html">Veicoli
+                            disponibili</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a style="text-align: center;" class="nav-link" href="about-us.html">About Us</a>
+                    </li>
+
+                    <li class="nav-item" id="loginPadre">
+                        <a style="text-align: center; cursor: pointer;" class="nav-link" data-bs-toggle="modal"
+                            data-bs-target="#myModal" id="login">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR -->
 
     <div class="container">
-        <!--NAVBAR-->
-        <nav class=" navbar navbar-expand-lg navbar-light row">
-            <div class="container-fluid" style="position: relative;">
-                <a class="navbar-brand" href="#">
-                    <img src="http://placekitten.com/100/100" alt="" class="d-inline-block align-text-top">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a style="text-align: center;" class="nav-link active" aria-current="page" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a style="text-align: center;" class="nav-link" href="#">Veicoli disponibili</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Azioni Admin
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="InserimentoVeicoli.html">Inserisci Veicolo</a></li>
-                            <li><a class="dropdown-item" href="TabellaVeicoliMK1.html">Gestisci Veicoli</a></li>
-                            </ul>
-                        <li class="nav-item">
-                            <a style="text-align: center;" class="nav-link" data-bs-toggle="modal" data-bs-target="#myModal" id="login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a style="text-align: center;" class="nav-link" href="Prenotazione.html">Veicoli Disponibili</a>
-                        </li>
-                        <li class="nav-item">
-                            <a style="text-align: center;" class="nav-link" href="abautas.html">About Us</a>
-                        </li>
-                    </ul>
-                </div>
+
+        <!-- BODY -->
+
+        <div class="mb-3">
+            <h1 class="mb-3">Chi siamo.</h1>
+            <p>CARonte è una compagnia di carsharing nata nel 2021, a Torino.</p>
+            <p>Ci siamo chiesti cosa avremmo potuto fare per migliorare la qualità della vita nella nostra città e
+                abbiamo deciso di concentrarci su un problema comune a tutti: il traffico!</p>
+            <p>Soltanto nel 2021 Torino ha sforato 34 volte il limite giornaliero d’inquinamento (50 microgrammi di Pm10
+                per metro cubo d'aria) di conseguenza abbiamo deciso di creare un servizio veloce, comodo e che punti a
+                ridurre emissioni e sprechi.</p>
+            <p>Abbiamo composto un team di dieci persone che ogni giorno vi aiuteranno nella vita di tutti i giorni e
+                contemporaneamente la nostra città. E sempre con un sorriso!
+                Cosa volete di più?</p>
+        </div>
+        <div class="team">
+            <div class="team-member">
+                <h2>Alexandra T.</h2>
+                <p>Breve descrizione</p>
+                <img src="img/aboutus/alexandra.png" alt="immagineProfilo">
             </div>
-        </nav>
-        <!--NAVBAR-->
-
-
-
-
-
-
-
-
-
-
-
-
-
+            <div class="team-member">
+                <h2>Arianna L.</h2>
+                <p>Breve descrizione</p>
+                <img src="img/aboutus/arianna.png" alt="immagineProfilo">
+            </div>
+            <div class="team-member">
+                <h2>Alessandro Be.</h2>
+                <p>Breve descrizione</p>
+                <img src="img/aboutus/berruti.png" alt="immagineProfilo">
+            </div>
+            <div class="team-member">
+                <h2>Alessandro Ba.</h2>
+                <p>Breve descrizione</p>
+                <img src="img/aboutus/bastianoni.png" alt="immagineProfilo">
+            </div>
+            <div class="team-member">
+                <h2>Thomas P.</h2>
+                <p>Breve descrizione</p>
+                <img src="img/aboutus/thomas.png" alt="immagineProfilo">
+            </div>
+        </div>
     </div>
+    <!-- BODY -->
 
-    <footer class="coloreFooter">
-        <div class="row g-0">
-            <div class="col-md-6 text-center text-md-start">
-                <p class="text">Lorem ipsum dolor</p>
+
+    <!-- FOOTER -->
+    <footer class="mt-3 mt-md-5">
+        <div class="row ms-3 py-3 py-md-5">
+            <div class="col-md-6 text-start text-md-center">
+                <p>Lorem ipsum dolor</p>
             </div>
-            <div class="col-md-6 text-center text-md-end">
+            <div class="col-md-6 text-start text-md-center">
                 <p>© 2021 My Team.</p>
             </div>
         </div>
     </footer>
+    <!-- FOOTER -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+
+    <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+    <!-- jQuery -->
 
-    <!-- nostro script -->
-    <script src="js/javascript.js"></script>
+    <!-- Popper-JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <!-- Popper-JS -->
+
+    <!-- Bootstrap-JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+    <!-- Bootstrap-JS -->
+
+    <!-- Swiper-JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Swiper-JS-->
+
+    <!-- Chart-JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chart-JS -->
+
+    <!-- Leaflet-JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <!-- Leaflet-JS -->
+
+    <!-- Lottie -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!-- Lottie -->
+
+    <!-- Modernizr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"
+        integrity="sha512-3n19xznO0ubPpSwYCRRBgHh63DrV+bdZfHK52b1esvId4GsfwStQNPJFjeQos2h3JwCmZl0/LgLxSKMAI55hgw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Modernizr -->
+
+    <!-- jQuery-Validate -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"
+        integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- jQuery-Validate -->
+
+
+    <!-- MIEI SCRIPT -->
+    <script src="js/scriptLogin.js"></script>
+    <script src="js/scriptHome.js"></script>
+    <script src="js/scriptAmministraVeicoli.js"></script>
+    <script src="js/scriptInserisciVeicolo.js"></script>
+    <script src="js/scriptPrenotaVeicolo.js"></script>
+    <!-- MIEI SCRIPT -->
 </body>
 
 </html>
