@@ -37,7 +37,7 @@ $(function(){
     
     $(document).click(function(e){
       if(!$(e.target).is(".ccv") || !$(e.target).closest(".ccv").length){
-        $(".card").css("transform", "rotatey(0deg)");
+        $(".card2").css("transform", "rotatey(0deg)");
         $(".seccode").css("color", "var(--text-color)");
       }
       if(!$(e.target).is(".expire") || !$(e.target).closest(".expire").length){

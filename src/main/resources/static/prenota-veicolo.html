@@ -123,53 +123,84 @@
                         <div class="form-group col-8">
                             <input type="datetime-local" id="dataOraPrenotazione" class="form-control mt-3 ms-3"
                                 name="dataOraPrenotazione">
-                            <button id="prenota" type="submit" class="btn btn-primary my-3 ms-3">Prosegui</button>
+                            <button type="submit" class="btn btn-primary my-3 ms-3">Prosegui</button>
                         </div>
                     </form>
                 </div>
             </div>
 
             <!-- INIZIO HIDDEN FORM PAGAMENTO DATI -->
-        <div>                
+            <div>
                 <div class="containerCarta d-flex mt-2">
-                  <div class="col1">
-                    <div class="card">
-                      <div class="front">
-                        <div class="type">
-                          <img class="bankid"/>
+                    <div class="col1">
+                        <div class="card card2">
+                            <div class="front">
+                                <div class="type">
+                                    <img class="bankid" />
+                                </div>
+                                <span class="chip"></span>
+                                <span class="card_number">&#x25CF;&#x25CF;&#x25CF;&#x25CF;
+                                    &#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF;
+                                    &#x25CF;&#x25CF;&#x25CF;&#x25CF; </span>
+                                <div class="date"><span class="date_value">MM / YYYY</span></div>
+                                <span class="fullname">FULL NAME</span>
+                            </div>
+                            <div class="back">
+                                <div class="magnetic"></div>
+                                <div class="bar"></div>
+                                <span class="seccode">&#x25CF;&#x25CF;&#x25CF;</span>
+                                <span class="chip"></span><span class="disclaimer">This card is property of Random Bank
+                                    of Random corporation. <br> If found please return to Random Bank of Random
+                                    corporation - 21968 Paris, Verdi Street, 34 </span>
+                            </div>
                         </div>
-                        <span class="chip"></span>
-                        <span class="card_number">&#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; </span>
-                        <div class="date"><span class="date_value">MM / YYYY</span></div>
-                        <span class="fullname">FULL NAME</span>
-                      </div>
-                      <div class="back">
-                        <div class="magnetic"></div>
-                        <div class="bar"></div>
-                        <span class="seccode">&#x25CF;&#x25CF;&#x25CF;</span>
-                        <span class="chip"></span><span class="disclaimer">This card is property of Random Bank of Random corporation. <br> If found please return to Random Bank of Random corporation - 21968 Paris, Verdi Street, 34 </span>
-                      </div>
                     </div>
-                  </div>
-                  <div class="col2">
-                    <label>Card Number</label>
-                    <input class="number" type="text" ng-model="ncard" maxlength="19" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
-                    <label>Cardholder name</label>
-                    <input class="inputname" type="text" placeholder=""/>
-                    <label>Expiry date</label>
-                    <input class="expire" type="text" placeholder="MM / YYYY"/>
-                    <label>Security Number</label>
-                    <input class="ccv" type="text" placeholder="CVC" maxlength="3" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
-                    <button class="buy"> Pay --.-- €</button>
-                  </div>
+                    <div class="col2">
+                        <label>Card Number</label>
+                        <input class="number" type="text" ng-model="ncard" maxlength="19"
+                            onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+                        <label>Cardholder name</label>
+                        <input class="inputname" type="text" placeholder="" />
+                        <label>Expiry date</label>
+                        <input class="expire" type="text" placeholder="MM / YYYY" />
+                        <label>Security Number</label>
+                        <input class="ccv" type="text" placeholder="CVC" maxlength="3"
+                            onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+                        <button class="buy" id="prenota" onclick="successoModal()"> Paga Ora <span class="prezzoQui">
+                                <!--prezzo qui--></span> €</button>
+                    </div>
                 </div>
-        </div>
+            </div>
             <!-- FINE HIDDEN FORM PAGAMENTO DATI -->
+
+            <!-- Modal Successo Pagamento-->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Pagamento Effettuato!</h5>
+                        </div>
+                        <div class="modal-body SUCCESSO d-flex">
+                            <span>
+                                <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_y2hxPc.json"
+                                    background="transparent" speed="1" style="width: 200px; height: 200px;" loop
+                                    autoplay></lottie-player>
+                            </span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success"> <a href="index.html"
+                                    style="color: white;">Chiudi e torna in Homepage</a> </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!--FORM PRENOTAZIONE-->
 
         </div>
     </div>
+
 
 
     <!-- LOGIN-MODAL -->
@@ -322,6 +353,15 @@
     <script src="js/scriptLogin.js"></script>
     <script src="js/scriptPrenotaVeicolo.js"></script>
     <script src="js/scriptPagamento.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    
+    <script type="text/javascript">
+        function successoModal() {
+
+            $('#exampleModal').modal('toggle');
+
+        }
+    </script>
     <!-- MIEI SCRIPT -->
 </body>
 
