@@ -28,8 +28,6 @@ public class VeicoloServiceImpl implements VeicoloService {
 
 	@Override
 	public Veicolo saveVeicolo(Veicolo veicolo) {
-		veicolo.setDisponibile("true");
-		veicolo.setVistaBanner("false");
 		return this.repoVeicoli.save(veicolo);
 	}
 	

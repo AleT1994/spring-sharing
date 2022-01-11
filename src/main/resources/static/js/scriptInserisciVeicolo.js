@@ -1,26 +1,36 @@
 ///////////////////////FUNZIONE INSERIMENTO VEICOLO NEL DB/////////////////////////// 
 function postVeicolo() {
-    const nome = document.getElementById("nomeVe").value;
-    const tipo = document.getElementById("categoria").value;
+    const nome = document.getElementById("nome").value;
+    const tipo = document.getElementById("tipo").value;
     const autonomia = document.getElementById("autonom").value;
-    const posizioneAttuale = document.getElementById("posizione").value;
+    const posizione = null;
     const image = document.getElementById("image").files[0];
-    const nomeFile = image.name
-
-    const src = "img/" + tipo + "/" + nomeFile
+    const nomeFile = image.name;
+    const src = "img/" + tipo + "/" + nomeFile;
   
-    // oggetto per invio multipart file e altri parametri	
-
-    var pos = {"descrizione": "STAZIONE 1 - Corso Stati Uniti 1", "latitudine": 45.0625658, "longitudine": 7.6696263 }
+    switch (document.getElementById("posizione").value) {
+        case "stazione1":
+            posizione = {"descrizione": "STAZIONE 1 - Corso Stati Uniti 1", "latitudine": 45.0625658, "longitudine": 7.6696263 };
+            break;
+        case "stazione2":
+            posizione = {"descrizione": "STAZIONE 2 - Corso Inghilterra 47", "latitudine": 45.0754338, "longitudine": 7.6650673};
+            break;
+        case "stazione3":
+            posizione = {"descrizione": "STAZIONE 3 - Via Giudeppe Verdi 61", "latitudine": 45.0665578, "longitudine": 7.6972264};
+            break;
+        case "stazione4":
+            posizione = {"descrizione": "STAZIONE 4 - Corso Regio Parco 12", "latitudine": 45.0753703, "longitudine": 7.6912162};
+            break;
+    }
+     
 
     //@TODO make a fucking switch
 
-    
     const formData = new FormData();
     formData.append("nome", nome);
     formData.append("tipo", tipo);
     formData.append("autonomia", autonomia);
-    formData.append("posizioneAttuale", JSON.stringify(pos));
+    formData.append("posizioneAttuale", JSON.stringify(posizione));
     formData.append("immagine", src);
     formData.append("image", image);
 

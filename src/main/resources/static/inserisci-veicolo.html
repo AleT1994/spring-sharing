@@ -69,9 +69,9 @@
             <form class="centrato" id="form">
 
                 <div class="form-group">
-                    <label for="categoria">Categoria veicolo:</label><br>
+                    <label for="tipo">Categoria:</label><br>
                     <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
-                        name="categoria" id="categoria" required>
+                        name="tipo" id="tipo" required>
                         <option selected></option>
                         <option value="autoElettrica">Macchina Elettrica</option>
                         <option value="autoIbrida">Macchina Ibrida</option>
@@ -82,32 +82,56 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="nomeVe">Nome veicolo:</label><br>
-                    <input class="form-control" id="nomeVe" type="text" placeholder="Audi A4"
+                    <label for="nomeVe">Nome:</label><br>
+                    <input class="form-control" id="nome" type="text" placeholder="NISSAN Leaf e+ N-Connecta"
                         aria-label="default input example" name="nomeVe">
                 </div>
 
                 <div class="form-group">
+                    <label for="modello">Modello:</label><br>
+                    <input class="form-control" id="modello" type="text" placeholder="berlina 3/5 porte"
+                        aria-label="default input example" name="modello">
+                </div>
+
+                <div class="form-group">
+                    <label for="capacita">Capacita:</label><br>
+                    <input class="form-control" id="capacita" type="text" placeholder="62 kWh"
+                        aria-label="default input example" name="capacita">
+                </div>
+
+                <div class="form-group">
+                    <label for="capacita">Capacita:</label><br>
+                    <input class="form-control" id="capacita" type="text" placeholder="62 kWh"
+                        aria-label="default input example" name="capacita">
+                </div>
+
+                <div class="form-group">
+                    <label for="capacita">Capacita:</label><br>
+                    <input class="form-control" id="capacita" type="text" placeholder="62 kWh"
+                        aria-label="default input example" name="capacita">
+                </div>
+
+                <div class="form-group">
                     <label for="autonom">Autonomia:</label><br>
-                    <input class="form-control" id="autonom" type="text" placeholder="130 km"
+                    <input class="form-control" id="autonom" type="text" placeholder="90kW (122 CV)"
                         aria-label="default input example" name="autonom">
                 </div>
 
                 <div class="form-group">
-                    <label for="categoria">Categoria veicolo:</label><br>
+                    <label for="categoria">Posizione attuale:</label><br>
                     <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
                         name="posizione" id="posizione" required>
                         <option selected></option>
-                        <option value='{"descrizione": "STAZIONE 1 - Corso Stati Uniti 1", "latitudine": "45.0625658", "longitudine": "7.6696263"}'>STAZIONE 1 - Corso Stati Uniti 1</option>
-                        <option value='{"descrizione": "STAZIONE 2 - Corso Inghilterra 47", "latitudine": "45.0754338", "longitudine": "7.6650673"}'>STAZIONE 2 - Corso Inghilterra 47</option>
-                        <option value='{"descrizione": "STAZIONE 3 - Via Giudeppe Verdi 61", "latitudine": "45.0665578", "longitudine": "7.6972264"}'>STAZIONE 3 - Via Giudeppe Verdi 61</option>
-                        <option value='{"descrizione": "STAZIONE 4 - Corso Regio Parco 12", "latitudine": "45.0753703", "longitudine": "7.6912162"}'>STAZIONE 4 - Corso Regio Parco 12</option>
+                        <option value='stazione1'>STAZIONE 1 - Corso Stati Uniti 1</option>
+                        <option value='stazione2'>STAZIONE 2 - Corso Inghilterra 47</option>
+                        <option value='stazione3'>STAZIONE 3 - Via Giudeppe Verdi 61</option>
+                        <option value='stazione4'>STAZIONE 4 - Corso Regio Parco 12</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="imgVeicolo">Carica Immagine:</label><br>
-                    <input type="file" name="image" id="image" accept="image/png, image/jpeg"
+                    <label for="imgVeicolo" class="form-label">Carica Immagine:</label><br>
+                    <input type="file" class="form-control" name="image" id="image" accept="image/svg image/png, image/jpeg"
                         class="btn btn-secondary" />
                 </div>
 
@@ -116,6 +140,7 @@
                         id="post-image">Salva</button>
                 </div>
 
+                
             </form>
         </div>
     </div>
