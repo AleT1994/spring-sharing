@@ -131,7 +131,7 @@ $('#prenota').click( function() {
 
     if (Modernizr.localstorage) {
 
-        var utenteStorage = JSON.parse(localStorage.getItem("ricordamiLogin"));
+        var utenteStorage = JSON.parse(localStorage.getItem("tokenLogin"));
         console.log(utenteStorage);
         emailStorage = utenteStorage.email;
 
