@@ -54,7 +54,7 @@ function addFilterBtns(setTipo) {
                 break;
         }
 
-        divBtnFilter.innerHTML += '<button class="btn" id="btn-' + tipo + '" >' + nomeBtn + '</button>';
+        divBtnFilter.innerHTML += '<button class="btn me-1" id="btn-' + tipo + '" >' + nomeBtn + '</button>';
         $('#btn-' + tipo).attr('onclick', 'filter("' + tipo + '")');
     })
 }
@@ -74,9 +74,16 @@ function addAccordions() {
     for (var i = 0; i < arrayObjVeicoli.length; i++) {
 
         var nome = arrayObjVeicoli[i].nome;
-        var img = arrayObjVeicoli[i].immagine;
+        var modello = arrayObjVeicoli[i].modello;
+        var capacita = arrayObjVeicoli[i].capacita;
+        var potenza = arrayObjVeicoli[i].potenza;
+        var velocita = arrayObjVeicoli[i].velocitaMassima;
         var autonomia = arrayObjVeicoli[i].autonomia;
-        //var posiz = arrayObjVeicoli[i].posizioneAttuale.descrizione;
+        var descrizione = arrayObjVeicoli[i].descrizione;
+        var posizione = arrayObjVeicoli[i].posizioneAttuale.descrizione;
+        var disponibile = arrayObjVeicoli[i].disponibile;
+        var banner = arrayObjVeicoli[i].vistaBanner;
+        var img = arrayObjVeicoli[i].immagine;
 
         var tipoVeicolo;
         switch (arrayObjVeicoli[i].tipo) {
@@ -104,8 +111,20 @@ function addAccordions() {
             '</h2>' +
             '<div id="collapse' + i + '" class="accordion-collapse collapse" aria-labelledby="heading' + i + '" data-bs-parent="#accordionExample">' +
             '<div class="accordion-body">' +
-            '<p>' + autonomia + '</p>' +
-            //        '<p>' + posiz + '</p>' +
+            '<table class="table">' +
+            '<tbody>' +
+            '<tr>' + '<th>Tipologia</th><td id="tipo-' + idVeicolo + '">' + tipoVeicolo + '</td></tr>' +
+            '<tr>' + '<th>Modello</th><td id="modello-' + idVeicolo + '">' + modello + '</td></tr>' +
+            '<tr>' + '<th>Capacità</th><td id="capacita-' + idVeicolo + '"">' + capacita + '</td></tr>' +
+            '<tr>' + '<th>Potenza</th><td id="potenza-' + idVeicolo + '">' + potenza + '</td></tr>' +
+            '<tr>' + '<th>Velocità massima</th><td id="velocita-' + idVeicolo + '">' + velocita + '</td></tr>' +
+            '<tr>' + '<th>Autonomia</th><td id="autonomia-' + idVeicolo + '">' + autonomia + '</td></tr>' +
+            '<tr>' + '<th>Descrizione</th><td id="descrizione-' + idVeicolo + '">' + descrizione + '</td></tr>' +
+            '<tr>' + '<th>Posizione attuale</th><td id="posizione-' + idVeicolo + '">' + posizione + '</td></tr>' +
+            '<tr>' + '<th>Attualmente disponibile</th><td id="disponibile-' + idVeicolo + '">' + disponibile + '</td></tr>' +
+            '<tr>' + '<th>Visibile in Home</th><td id="banner-' + idVeicolo + '">' + banner + '</td></tr>' +
+            ' </tbody>' +
+            '</table>' +
             '<div class="d-flex mb-3">' +
             '<button type="button" id="' + cancId + '" class="btn btn-danger" onclick="eliminaDati(' + idVeicolo + ')"><i class="fa fa-trash"></i></button>' +
             '<button type="button" id="' + modifId + '" class="btn btn-primary" onclick="modificaDati(' + idVeicolo + ')"><i class="far fa-edit"></i></button>' +
@@ -114,7 +133,6 @@ function addAccordions() {
             '</div>' +
             '</div>' +
             '</div>';
-
     }
 }
 
@@ -141,10 +159,18 @@ function filter(tipo) {
 
             if (arrayObjVeicoli[i].tipo == tipo) {
 
+
                 var nome = arrayObjVeicoli[i].nome;
-                var img = arrayObjVeicoli[i].immagine;
+                var modello = arrayObjVeicoli[i].modello;
+                var capacita = arrayObjVeicoli[i].capacita;
+                var potenza = arrayObjVeicoli[i].potenza;
+                var velocita = arrayObjVeicoli[i].velocitaMassima;
                 var autonomia = arrayObjVeicoli[i].autonomia;
-                var posiz = arrayObjVeicoli[i].posizioneAttuale.descrizione;
+                var descrizione = arrayObjVeicoli[i].descrizione;
+                var posizione = arrayObjVeicoli[i].posizioneAttuale.descrizione;
+                var disponibile = arrayObjVeicoli[i].disponibile;
+                var banner = arrayObjVeicoli[i].vistaBanner;
+                var img = arrayObjVeicoli[i].immagine;
 
                 var tipoVeicolo;
                 switch (arrayObjVeicoli[i].tipo) {
@@ -172,8 +198,20 @@ function filter(tipo) {
                     '</h2>' +
                     '<div id="collapse' + i + '" class="accordion-collapse collapse" aria-labelledby="heading' + i + '" data-bs-parent="#accordionExample">' +
                     '<div class="accordion-body">' +
-                    '<p>' + autonomia + '</p>' +
-                    //        '<p>' + posiz + '</p>' +
+                    '<table class="table">' +
+                    '<tbody>' +
+                    '<tr>' + '<th>Tipologia</th><td>' + tipoVeicolo + '</td></tr>' +
+                    '<tr>' + '<th>Modello</th><td>' + modello + '</td></tr>' +
+                    '<tr>' + '<th>Capacità</th><td>' + capacita + '</td></tr>' +
+                    '<tr>' + '<th>Potenza</th><td>' + potenza + '</td></tr>' +
+                    '<tr>' + '<th>Velocità massima</th><td>' + velocita + '</td></tr>' +
+                    '<tr>' + '<th>Autonomia</th><td>' + autonomia + '</td></tr>' +
+                    '<tr>' + '<th>Descrizione</th><td>' + descrizione + '</td></tr>' +
+                    '<tr>' + '<th>Stazione di appartentenza</th><td>' + posizione + '</td></tr>' +
+                    '<tr>' + '<th>Attualmente disponibile</th><td>' + disponibile + '</td></tr>' +
+                    '<tr>' + '<th>Visibile in Home</th><td>' + banner + '</td></tr>' +
+                    ' </tbody>' +
+                    '</table>' +
                     '<div class="d-flex mb-3">' +
                     '<button type="button" id="' + cancId + '" class="btn btn-danger" onclick="eliminaDati(' + idVeicolo + ')"><i class="fa fa-trash"></i></button>' +
                     '<button type="button" id="' + modifId + '" class="btn btn-primary" onclick="modificaDati(' + idVeicolo + ')"><i class="far fa-edit"></i></button>' +
@@ -182,46 +220,69 @@ function filter(tipo) {
                     '</div>' +
                     '</div>' +
                     '</div>';
-
             }
         }
     }
 }
 
 
+//funzione per eliminare il veicolo dal catalogo (ovvero dal DB)
 function eliminaDati(id) {
 
     const URL = "http://localhost:9010/sharing/api/veicoli/id/" + id;
     fetch(URL, {
             method: 'DELETE'
         })
-        .then(()=>{
-            document.getElementById("accordion-"+id).innerHTML = '';
+        .then(() => {
+            //nascondo momentaneamente l'accordion del viecolo (ricaricando la pagina non ci sara più tra i dati in Storage)
+            document.getElementById("accordion-" + id).innerHTML = '';
             showMessage('<div class="alert alert-success" role="alert">La tua azione è andata a buon fine</div>');
             setTimeout(hideMessage, 5000);
         });
 
 }
 
-function showMessage (message) {
+function showMessage(message) {
     document.getElementById("apiMessage").innerHTML = message;
 }
 
-function hideMessage () {
-    document.getElementById("apiMessage").innerHTML= '';
+function hideMessage() {
+    document.getElementById("apiMessage").innerHTML = '';
 }
 
+
+//funzione per modificare le informazioni del veicolo
 function modificaDati(id) {
 
     arrayObjVeicoli = [];
-        if (Modernizr.sessionstorage) {
-            arrayObjVeicoli = JSON.parse(sessionStorage.getItem("veicoli"));
-        }
+    if (Modernizr.sessionstorage) {
+        arrayObjVeicoli = JSON.parse(sessionStorage.getItem("veicoli"));
+    }
 
-        for (var i = 0; i < arrayObjVeicoli.length; i++) {
+    for (var i = 0; i < arrayObjVeicoli.length; i++) {
 
-            if (arrayObjVeicoli[i].id == id) {
-            }
+        if (arrayObjVeicoli[i].id == id) {
+
+            console.log(arrayObjVeicoli[id]);
+            console.log(JSON.stringify(arrayObjVeicoli[id].posizioneAttuale));
+
+            document.getElementById("posizione-" + id).innerHTML = '';
+            document.getElementById("posizione-" + id).innerHTML = '<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="newPosizione-' + id + '" required>' +
+                `<option id="staz-1" value='{"descrizione": "STAZIONE 1 - Corso Stati Uniti 1", "latitudine": "45.0625658", "longitudine": "7.6696263"}'>STAZIONE 1 - Corso Stati Uniti 1</option>` +
+                `<option id="staz-2" value='{"descrizione": "STAZIONE 2 - Corso Inghilterra 47", "latitudine": "45.0754338", "longitudine": "7.6650673"}'>STAZIONE 2 - Corso Inghilterra 47</option>` +
+                `<option id="staz-3" value='{"descrizione": "STAZIONE 3 - Via Giudeppe Verdi 61", "latitudine": "45.0665578", "longitudine": "7.6972264"}'>STAZIONE 3 - Via Giudeppe Verdi 61</option>` +
+                `<option id="staz-4" value='{"descrizione": "STAZIONE 4 - Corso Regio Parco 12", "latitudine": "45.0753703", "longitudine": "7.6912162"}'>STAZIONE 4 - Corso Regio Parco 12</option>` +
+                '</select>';
+
+                
+                var options = document.getElementById('newPosizione-' + id);
+                console.log(options);
+
+                for(var i = 0; i < arrayObjVeicoli.length; i++)
+                if ($("#newPosizione-" + id).val() == JSON.stringify(arrayObjVeicoli[id].posizioneAttuale)) {
+                    $("#newPosizione-" + id).attr("selected", true);
+                }
         }
+    }
 }
 //////////////////////////////FUNZIONE ACCORDION//////////////////////////////////

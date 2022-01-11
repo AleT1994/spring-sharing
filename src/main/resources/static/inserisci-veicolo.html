@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="Description" content="Enter your description here" />
-    <title>Home</title>
+    <title>Inserisci nuovo veicolo</title>
 
     <!--BOOTSTRAP-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
@@ -52,10 +52,6 @@
                             disponibili</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a style="text-align: center;" class="nav-link" href="about-us.html">About Us</a>
-                    </li>
-
                     <li class="nav-item" id="loginPadre">
                         <a style="text-align: center; cursor: pointer;" class="nav-link" data-bs-toggle="modal"
                             data-bs-target="#myModal" id="login">Login</a>
@@ -71,36 +67,55 @@
     <div class="row justify-content-center">
         <div class="col-md-4 align-self-center">
             <form class="centrato" id="form" action="#">
-                <label for="categoria">Categoria veicolo:</label><br>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="categoria"
-                    id="categoria" required>
-                    <option selected></option>
-                    <option value="autoElettrica">Macchina Elettrica</option>
-                    <option value="autoIbrida">Macchina Ibrida</option>
-                    <option value="monopattino">Monopattino</option>
-                    <option value="bicicletta">Bicicletta</option>
-                    <option value="autoBenzina_Diesel">Macchina Diesel/Benzina</option>
-                </select>
+
+                <div class="form-group">
+                    <label for="categoria">Categoria veicolo:</label><br>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                        name="categoria" id="categoria" required>
+                        <option selected></option>
+                        <option value="autoElettrica">Macchina Elettrica</option>
+                        <option value="autoIbrida">Macchina Ibrida</option>
+                        <option value="monopattino">Monopattino</option>
+                        <option value="bicicletta">Bicicletta</option>
+                        <option value="autoBenzina_Diesel">Macchina Diesel/Benzina</option>
+                    </select>
+                </div>
+
                 <div class="form-group">
                     <label for="nomeVe">Nome veicolo:</label><br>
                     <input class="form-control" id="nomeVe" type="text" placeholder="Audi A4"
-                        aria-label="default input example" name="nomeVe"><br>
+                        aria-label="default input example" name="nomeVe">
                 </div>
+
                 <div class="form-group">
                     <label for="autonom">Autonomia:</label><br>
                     <input class="form-control" id="autonom" type="text" placeholder="130 km"
-                        aria-label="default input example" name="autonom"><br>
+                        aria-label="default input example" name="autonom">
                 </div>
+
                 <div class="form-group">
-                    <label for="staz">Stazione di appartenenza:</label><br>
-                    <input class="form-control" id="staz" type="text" placeholder="Stazione 5"
-                        aria-label="default input example" name="staz"><br>
+                    <label for="categoria">Categoria veicolo:</label><br>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                        name="categoria" id="categoria" required>
+                        <option selected></option>
+                        <option value='{"descrizione": "STAZIONE 1 - Corso Stati Uniti 1", "latitudine": "45.0625658", "longitudine": "7.6696263"}'>STAZIONE 1 - Corso Stati Uniti 1</option>
+                        <option value='{"descrizione": "STAZIONE 2 - Corso Inghilterra 47", "latitudine": "45.0754338", "longitudine": "7.6650673"}'>STAZIONE 2 - Corso Inghilterra 47</option>
+                        <option value='{"descrizione": "STAZIONE 3 - Via Giudeppe Verdi 61", "latitudine": "45.0665578", "longitudine": "7.6972264"}'>STAZIONE 3 - Via Giudeppe Verdi 61</option>
+                        <option value='{"descrizione": "STAZIONE 4 - Corso Regio Parco 12", "latitudine": "45.0753703", "longitudine": "7.6912162"}'>STAZIONE 4 - Corso Regio Parco 12</option>
+                    </select>
                 </div>
-                <label for="imgVeicolo">Carica Immagine:</label><br>
-                <input type="file" name="image" id="image" accept="image/png, image/jpeg"
-                    class="btn btn-secondary" /><br>
-                <!-- <input type="submit" value="Salva" id="post-image" class="btn btn-success"> -->
-                <button onclick="postVeicolo()" class="btn btn-success mt-2 btn-lg" value="Salva" id="post-image">Salva</button>
+
+                <div class="form-group">
+                    <label for="imgVeicolo">Carica Immagine:</label><br>
+                    <input type="file" name="image" id="image" accept="image/png, image/jpeg"
+                        class="btn btn-secondary" />
+                </div>
+
+                <div class="form-group">
+                    <button onclick="postVeicolo()" class="btn btn-success mt-2 btn-lg" value="Salva"
+                        id="post-image">Salva</button>
+                </div>
+
             </form>
         </div>
     </div>

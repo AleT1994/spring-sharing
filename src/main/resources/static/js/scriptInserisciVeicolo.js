@@ -1,9 +1,5 @@
-///////////////////////FUNZIONE INSERIMENTO VEICOLO NEL DB///////////////////////////   
-// aggiungi veicolo
-//document.getElementById("form").addEventListener("submit", postVeicolo);
-
+///////////////////////FUNZIONE INSERIMENTO VEICOLO NEL DB/////////////////////////// 
 function postVeicolo() {
-    console.log("ciao");
     const nome = document.getElementById("nomeVe").value;
     const tipo = document.getElementById("categoria").value;
     const autonomia = document.getElementById("autonom").value;
@@ -18,7 +14,7 @@ function postVeicolo() {
     formData.append("nome", nome);
     formData.append("tipo", tipo);
     formData.append("autonomia", autonomia);
-    //formData.append("posizioneAttuale", posizioneAttuale);
+    formData.append("posizioneAttuale", posizioneAttuale);
     formData.append("immagine", src);
     formData.append("image", image);
 
@@ -44,7 +40,7 @@ function postVeicolo() {
 
 
 ///////////////////CONTROLLO FORM INSERIMENTO VEICOLIO/////////////////////////
-/*$().ready(function () {
+$().ready(function () {
     $('#form').validate({
         rules: {
             nomeVe: {
@@ -67,5 +63,5 @@ function postVeicolo() {
             form.submit();
         }
     });
-});*/
+});
 ///////////////////CONTROLLO FORM INSERIMENTO VEICOLIO/////////////////////////

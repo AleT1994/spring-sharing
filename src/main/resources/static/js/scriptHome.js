@@ -94,10 +94,10 @@ fetch(URLgrafico)
                     tipo = "Monopattino";
                     break;
                 case "autoElettrica":
-                    tipo = "Auto Elettrica";
+                    tipo = "A. Elettrica";
                     break;
                 case "autoIbrida":
-                    tipo = "Auto Ibrida";
+                    tipo = "A. Ibrida";
                     break;
             }
             listaLabels.push(tipo);
