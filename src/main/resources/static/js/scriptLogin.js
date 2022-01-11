@@ -29,6 +29,7 @@ window.onload = (event) => {
     var benvenuto = JSON.parse(localStorage.getItem('tokenLogin'))
     var nome = benvenuto.nome
     var ruolo = benvenuto.ruolo
+    var srcfoto = benvenuto.fotoProfilo
 
     //Se c'è l'admin permetti di vedere il pannello admin
     if (ruolo == "amministratore") {
@@ -41,7 +42,7 @@ window.onload = (event) => {
     }
 
 
-    var stringaBenvenuto = '<li class="nav-item dropdown" id="benvenutoUtente"><a style="text-align: center;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Benvenuto ' + nome + '</a><ul class="dropdown-menu" aria-labelledby="navbarDropdown"><li><a style="text-align: center;" class="dropdown-item" href="#">Le tue Prenotazioni</a></li><li class="text-center"><button  onclick="loggingOut()" class="btn btn-danger" id="logout">Log Out</button></li></ul></li>'
+    var stringaBenvenuto = '<li class="nav-item dropdown" id="benvenutoUtente"><a style="text-align: center;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Benvenuto ' + nome + '</a><ul class="dropdown-menu" aria-labelledby="navbarDropdown"><li class="text-center"><img src="'+ srcfoto + '" ' +'alt="Immagine Utente" style="max-width: 5vw;" id="imgutn"></li><li><a style="text-align: center;" class="dropdown-item" href="#">Le tue Prenotazioni</a></li><li><a style="text-align: center;" class="dropdown-item" href="impostazioni.html">Impostazioni Utente</a></li><li class="text-center"><button  onclick="loggingOut()" class="btn btn-danger" id="logout">Log Out</button></li></ul></li>'
 
 
     $("#loginPadre").html(stringaBenvenuto);
@@ -114,10 +115,15 @@ $('#login-form').submit(function (e) {
         if ((res.email == email) && (res.password == psw)) {
 
 
+          if(res.fotoProfilo != null){fotoProfilo = res.fotoProfilo}
+          else{fotoProfilo = "img/utenti/default.png"}
+
           //Creo il token per mantenere il login anche se ricarico la pagina
           function costruttore() {
+            this.email = res.email;
             this.nome = res.nome;
             this.ruolo = res.ruolo;
+            this.fotoProfilo = fotoProfilo;
           }
 
           var token_utente = new costruttore();
@@ -180,7 +186,7 @@ function loggingOut() {
 
 
   localStorage.removeItem('tokenLogin');
-  location.reload();
+  window.location.assign("http://localhost:9010/sharing/index.html");
 
 
 
@@ -192,19 +198,22 @@ function registration() {
   $('#myModal').modal('toggle');
 
 
-  //Impostare il form date mettendo come Massimo la data odierna
+  //Impostare il form date 
   var today = new Date();
   var vecchio = new Date();
   var dd = today.getDate();
   var mm = today.getMonth() + 1;
   var yyyy = today.getFullYear() - 18;
-  var oldy = yyyy - 100;
+  var yyyr = today.getFullYear() - 18;
+  var oldy = yyyy - 120;
 
 
   today = yyyy + '-' + mm + '-' + dd;
+  todayreal = yyyr + '-' + mm + '-' + dd;
   vecchio = oldy + '-' + mm + '-' + dd;
   document.getElementById("nascita").setAttribute("max", today);
   document.getElementById("nascita").setAttribute("min", vecchio);
+  document.getElementById("nascita").setAttribute("value", "2000-01-01");
 
 
 
@@ -220,51 +229,94 @@ function registration() {
     var nascita = document.getElementById("nascita").value
     var email = document.getElementById("email1").value
     var psw = document.getElementById("pwd1").value
-
+    var pat = document.getElementById("pat").value
+    
 
 
     //Validazione Reg_Form
     $(".error").remove();
 
+    if (nascita > todayreal) {
+      $('#nascita').after('<span class="error">Vieni dal futuro, non hai niente da fare qui</span>');
+      e.preventDefault();
+
+    }
+    if (nascita > document.getElementById("nascita").max) {
+      $('#nascita').after('<span class="error">Non sei maggiorenne</span>');
+      e.preventDefault();
+    }
+    
+
+    if (nascita < document.getElementById("nascita").min) {
+      $('#nascita').after('<span class="error">Sei già morto</span>');
+      e.preventDefault();
+
+    }
 
     if (nome.length < 1) {
       $('#nome').after('<span class="error">Inserisci un nome</span>');
+      e.preventDefault();
+
     }
 
     if (nome.length > 40) {
       $('#nome').after('<span class="error">Troppi caratteri massimo 40</span>');
+      e.preventDefault();
+
     }
 
     if (cognome.length < 1) {
       $('#cognome').after('<span class="error">Inserisci un cognome</span>');
+      e.preventDefault();
+
     }
 
     if (cognome.length > 40) {
       $('#cognome').after('<span class="error">Troppi caratteri massimo 40</span>');
+      e.preventDefault();
+
     }
 
-    if (nascita.length < 1) {
+    if (nascita.length == "") {
       $('#nascita').after('<span class="error">Inserisci una data di nascita</span>');
+      e.preventDefault();
+
     }
 
     if (email.length < 1) {
       $('#email1').after('<span class="error">Non hai inserito la mail</span>');
+      e.preventDefault();
+
     }
 
     if (email.length > 30) {
       $('#email1').after('<span class="error">Troppi caratteri massimo 30</span>');
+      e.preventDefault();
+
     }
 
     if (!email.match(regEx)) {
       $('#email1').after('<span class="error">Inserisci una mail valida!</span>');
+      e.preventDefault();
+
     }
 
     if (psw.length < 1) {
       $('#pwd1').after('<span class="error">Inserisci una password</span>');
+      e.preventDefault();
+
     }
 
     if (psw.length > 30) {
       $('#pwd1').after('<span class="error">Troppi caratteri massimo 30</span>');
+      e.preventDefault();
+
+    }
+
+    if (pat.length != 10) {
+      $('#pat').after('<span class="error">Inserisci un codice valido per la patente</span>');
+      e.preventDefault();
+
     }
 
 
@@ -286,6 +338,7 @@ function registration() {
 
 
           $('#email1').after('<span class="error">Mail già registrata per un account!</span>');
+          e.preventDefault();
 
 
         }
@@ -294,7 +347,6 @@ function registration() {
       })
       .catch(emailgood => {
 
-        if ((30 >= email.length > 0) && (30 >= psw.length > 0) && (email.match(regEx)) && (40 >= nome.length > 0) && (40 >= cognome.length > 0)) {
 
 
           linkApiAdd = "http://localhost:9010/sharing/api/utenti"
@@ -309,6 +361,7 @@ function registration() {
             this.nome = nome;
             this.cognome = cognome
             this.nascita = nascita.split("-").reverse().join("-");
+            this.patente = pat;
           }
 
           var utente = new costruttore();
@@ -346,8 +399,6 @@ function registration() {
           location.reload()
 
 
-
-        }
 
 
       })
