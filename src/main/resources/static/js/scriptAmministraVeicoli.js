@@ -275,7 +275,7 @@ function modificaDati(id) {
                 '</select>';
 
                 
-                var options = document.getElementById('newPosizione-' + id);
+                var options = document.getElementById('newPosizione-' + id).childNodes;
                 console.log(options);
 
                 for(var i = 0; i < arrayObjVeicoli.length; i++)
