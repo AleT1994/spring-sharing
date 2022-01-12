@@ -91,16 +91,15 @@ footer a:active {
 .wrapperDettaglio {
     width: 100%;
     height: 100%;
-
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     top: 0;
     margin: auto;
-
     z-index: 1;
 }
+
 
 .dettagliVeicolo {
     background-color: rgb(33, 34, 40, 0.5);
@@ -108,6 +107,11 @@ footer a:active {
     padding: 4rem;
     text-align: left;
 }
+.dettagliVeicolo img{
+    max-width: 60%;
+    height: auto;
+}
+
 
 /*----------------SWIPER - HOME----------------*/
 
@@ -172,11 +176,14 @@ footer a:active {
     position: relative;
 }
 
+.noPallini{
+    list-style: none;
+}
+
 #imgVeicolo {
-    display: block;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
+    
+    width: 30%;
+    height: auto;
 }
 
 .card {
