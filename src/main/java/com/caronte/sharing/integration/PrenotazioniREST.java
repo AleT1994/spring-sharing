@@ -58,11 +58,6 @@ public class PrenotazioniREST {
 	
 	@PutMapping
 	public void modificaPrenotazione(@RequestBody Prenotazione prenotazione) {
-		
-		Veicolo veicolo = veicoloService.getOne(prenotazione.getVeicoloId());
-		veicolo.setDisponibile("true");
-		veicoloService.updateVeicolo(veicolo);
-		
 		prenotazioneService.updatePrenotazione(prenotazione);
 	}
 	

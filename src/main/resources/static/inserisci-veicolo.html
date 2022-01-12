@@ -74,16 +74,16 @@
 
                 <div class="" id="apiMessage"></div>
 
-                <div id="form">
+                <div id="form" class="was-validated">
 
                     <div class="form-floating mb-3">
-                        <select class="form-select" aria-label=".form-select-lg example" name="tipo" id="tipo">
+                        <select class="form-select" aria-label=".form-select-lg example" name="tipo" id="tipo" required>
                             <option selected></option>
                             <option value="autoElettrica">Auto Elettrica</option>
                             <option value="autoIbrida">Auto Ibrida</option>
+                            <option value="autoBenzina_Diesel">Auto Diesel/Benzina</option>
                             <option value="monopattino">Monopattino</option>
                             <option value="bicicletta">Bicicletta</option>
-                            <option value="autoBenzina_Diesel">Auto Diesel/Benzina</option>
                         </select>
                         <label for="tipo">Seleziona la categoria</label>
                     </div>
@@ -94,7 +94,7 @@
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="nomeAuto" type="text"
                                     placeholder="NISSAN Leaf e+ N-Connecta" aria-label="default input example"
-                                    name="nomeAuto">
+                                    name="nomeAuto" required>
                                 <label for="nomeAuto">Nome</label>
                             </div>
                         </div>
@@ -108,6 +108,8 @@
                         </div>
 
                     </div>
+                    <div class="invalid-feedback">Devi selezionare una tipologia di veicolo</div>
+
 
                     <div class="row">
 

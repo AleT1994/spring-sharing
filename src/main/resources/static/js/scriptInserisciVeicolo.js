@@ -30,9 +30,6 @@ function postVeicolo() {
             posizione = {"descrizione": "STAZIONE 4 - Corso Regio Parco 12", "latitudine": 45.0753703, "longitudine": 7.6912162};
             break;
     }
-     
-    console.log(posizione);
-    console.log(disponibile);
 
     const formData = new FormData();
     formData.append("nome", nome);
