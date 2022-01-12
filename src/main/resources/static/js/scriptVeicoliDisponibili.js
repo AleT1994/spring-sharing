@@ -1,10 +1,6 @@
-
 var url = 'http://localhost:9010/sharing/api/veicoli/disponibile/true'
 
-
 var divveico = document.getElementById("veicolidisposez");
-
-
 
 fetch(url)
   .then(response => {return response.json()})
@@ -317,7 +313,7 @@ fetch(url)
 
 
 
-  ///////////////////////FUNZIONE PULSANTE PRENOTA///////////////////////////
+///////////////////////FUNZIONE PULSANTE PRENOTA///////////////////////////
 
 //funzione per recuperare la stringa dei dati dell'auto e salvarla in sessione
 function getDati(id) {

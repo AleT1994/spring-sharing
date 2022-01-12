@@ -8,6 +8,7 @@ var autonomiaVeicolo = document.getElementById("autonomiaVeicolo");
 //creo un oggetto per salvare i dati dalla Session Storage
 var objVeicolo = {};
 
+console.log("ciao");
 if (Modernizr.sessionstorage) {
     objVeicolo = JSON.parse(sessionStorage.getItem("datiVeicolo"));
 }
