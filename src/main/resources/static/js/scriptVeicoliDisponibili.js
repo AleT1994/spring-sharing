@@ -30,11 +30,11 @@ fetch(url)
         divveico.innerHTML +=
 
         '<div class="row sezione">' + 
-        '<div class="col-sm-12 col-md-4">' +
+        '<div class="col-sm-12 col-md-6">' +
         '    <img class="immaginina" src="' +  data[i].immagine    +'">'+
         '</div>'+
         
-        '<div class="col-sm-12 col-md-8 align-self-center">' +
+        '<div class="col-sm-12 col-md-6">' +
         
         ' <h2 class="pacific">' + data[i].nome + '</h2>'+
         
@@ -121,11 +121,11 @@ fetch(url)
               divveico.innerHTML +=
       
               '<div class="row sezione">' + 
-              '<div class="col-sm-12 col-md-4">' +
+              '<div class="col-sm-12 col-md-6">' +
               '    <img class="immaginina" src="' +  data[bugnpagstart].immagine    +'">'+
               '</div>'+
               
-              '<div class="col-sm-12 col-md-8 align-self-center">' +
+              '<div class="col-sm-12 col-md-6">' +
               
               ' <h2 class="pacific">' + data[bugnpagstart].nome + '</h2>'+
               
@@ -230,11 +230,11 @@ fetch(url)
                           divveico.innerHTML +=
                   
                           '<div class="row sezione">' + 
-                          '<div class="col-sm-12 col-md-4">' +
+                          '<div class="col-sm-12 col-md-6">' +
                           '    <img class="immaginina" src="' +  data[elementinpagstart].immagine    +'">'+
                           '</div>'+
                           
-                          '<div class="col-sm-12 col-md-8 align-self-center">' +
+                          '<div class="col-sm-12 col-md-6">' +
                           
                           ' <h2 class="pacific">' + data[elementinpagstart].nome + '</h2>'+
                           
