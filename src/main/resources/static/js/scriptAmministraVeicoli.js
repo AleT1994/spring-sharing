@@ -110,19 +110,19 @@ function addAccordions() {
             '<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse' + i + '" aria-expanded="false" aria-controls="collapse' + i + '">' + nome + '</button>' +
             '</h2>' +
             '<div id="collapse' + i + '" class="accordion-collapse collapse" aria-labelledby="heading' + i + '" data-bs-parent="#accordionExample">' +
-            '<div class="accordion-body">' +
+            '<div id="dettagliVeicolo-' + idVeicolo + '" class="accordion-body">' +
             '<table class="table">' +
             '<tbody>' +
-            '<tr>' + '<th>Tipologia</th><td id="tipo-' + idVeicolo + '">' + tipoVeicolo + '</td></tr>' +
-            '<tr>' + '<th>Modello</th><td id="modello-' + idVeicolo + '">' + modello + '</td></tr>' +
-            '<tr>' + '<th>Capacità</th><td id="capacita-' + idVeicolo + '"">' + capacita + '</td></tr>' +
-            '<tr>' + '<th>Potenza</th><td id="potenza-' + idVeicolo + '">' + potenza + '</td></tr>' +
-            '<tr>' + '<th>Velocità massima</th><td id="velocita-' + idVeicolo + '">' + velocita + '</td></tr>' +
-            '<tr>' + '<th>Autonomia</th><td id="autonomia-' + idVeicolo + '">' + autonomia + '</td></tr>' +
-            '<tr>' + '<th>Descrizione</th><td id="descrizione-' + idVeicolo + '">' + descrizione + '</td></tr>' +
-            '<tr>' + '<th>Posizione attuale</th><td id="posizione-' + idVeicolo + '">' + posizione + '</td></tr>' +
-            '<tr>' + '<th>Attualmente disponibile</th><td id="disponibile-' + idVeicolo + '">' + disponibile + '</td></tr>' +
-            '<tr>' + '<th>Visibile in Home</th><td id="banner-' + idVeicolo + '">' + banner + '</td></tr>' +
+            '<tr>' + '<th>Tipologia</th><td>' + tipoVeicolo + '</td></tr>' +
+            '<tr>' + '<th>Modello</th><td>' + modello + '</td></tr>' +
+            '<tr>' + '<th>Capacità</th><td>' + capacita + '</td></tr>' +
+            '<tr>' + '<th>Potenza</th><td>' + potenza + '</td></tr>' +
+            '<tr>' + '<th>Velocità massima</th><td>' + velocita + '</td></tr>' +
+            '<tr>' + '<th>Autonomia</th><td>' + autonomia + '</td></tr>' +
+            '<tr>' + '<th>Descrizione</th><td>' + descrizione + '</td></tr>' +
+            '<tr>' + '<th>Posizione attuale</th><td>' + posizione + '</td></tr>' +
+            '<tr>' + '<th>Attualmente disponibile</th><td>' + disponibile + '</td></tr>' +
+            '<tr>' + '<th>Visibile in Home</th><td>' + banner + '</td></tr>' +
             ' </tbody>' +
             '</table>' +
             '<div class="d-flex mb-3">' +
@@ -197,17 +197,17 @@ function filter(tipo) {
                     '<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse' + i + '" aria-expanded="false" aria-controls="collapse' + i + '">' + nome + '</button>' +
                     '</h2>' +
                     '<div id="collapse' + i + '" class="accordion-collapse collapse" aria-labelledby="heading' + i + '" data-bs-parent="#accordionExample">' +
-                    '<div class="accordion-body">' +
+                    '<div id="dettagliVeicolo-' + idVeicolo + '" class="accordion-body">' +
                     '<table class="table">' +
                     '<tbody>' +
-                    '<tr>' + '<th>Categoria</th><td>' + tipoVeicolo + '</td></tr>' +
+                    '<tr>' + '<th>Tipologia</th><td>' + tipoVeicolo + '</td></tr>' +
                     '<tr>' + '<th>Modello</th><td>' + modello + '</td></tr>' +
                     '<tr>' + '<th>Capacità</th><td>' + capacita + '</td></tr>' +
                     '<tr>' + '<th>Potenza</th><td>' + potenza + '</td></tr>' +
                     '<tr>' + '<th>Velocità massima</th><td>' + velocita + '</td></tr>' +
                     '<tr>' + '<th>Autonomia</th><td>' + autonomia + '</td></tr>' +
                     '<tr>' + '<th>Descrizione</th><td>' + descrizione + '</td></tr>' +
-                    '<tr>' + '<th>Stazione di appartentenza</th><td>' + posizione + '</td></tr>' +
+                    '<tr>' + '<th>Posizione attuale</th><td>' + posizione + '</td></tr>' +
                     '<tr>' + '<th>Attualmente disponibile</th><td>' + disponibile + '</td></tr>' +
                     '<tr>' + '<th>Visibile in Home</th><td>' + banner + '</td></tr>' +
                     ' </tbody>' +
@@ -263,39 +263,114 @@ function modificaDati(id) {
 
         if (arrayObjVeicoli[i].id == id) {
 
-            console.log(arrayObjVeicoli[id]);
-            console.log(JSON.stringify(arrayObjVeicoli[id].posizioneAttuale));
+            document.getElementById("dettagliVeicolo-" + id).innerHTML = '';
 
-            document.getElementById("posizione-" + id).innerHTML = '';
-            document.getElementById("posizione-" + id).innerHTML = '<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="newPosizione-' + id + '" required>' +
-                `<option value='stazione1'>STAZIONE 1 - Corso Stati Uniti 1</option>` +
-                `<option value='stazione2'>STAZIONE 2 - Corso Inghilterra 47</option>` +
-                `<option value='stazione3'>STAZIONE 3 - Via Giudeppe Verdi 61</option>` +
-                `<option value='stazione4'>STAZIONE 4 - Corso Regio Parco 12</option>` +
-                '</select>';
+            document.getElementById("dettagliVeicolo-" + id).innerHTML =
+                '<div class="form-floating mb-3">' +
+                '<select class="form-select" aria-label=".form-select-lg example" name="tipo" id="newTipo-' + id + '">' +
+                '<option selected></option>' +
+                '<option value="autoElettrica">Auto Elettrica</option>' +
+                '<option value="autoIbrida">Auto Ibrida</option>' +
+                '<option value="monopattino">Monopattino</option>' +
+                '<option value="bicicletta">Bicicletta</option>' +
+                '<option value="autoBenzina_Diesel">Auto Diesel/Benzina</option>' +
+                '</select>' +
+                '<label for="tipo">Seleziona la categoria</label>' +
+                '</div>' +
+                '<div class="row">' +
+                '<div class="col-md-6">' +
+                '<div class="form-floating mb-3">' +
+                '<input class="form-control" id="newNome' + id + '" type="text" placeholder="NISSAN Leaf e+ N-Connecta" aria-label="default input example" name="nomeAuto">' +
+                '<label for="nomeAuto">Nome</label>' +
+                '</div>' +
+                '</div>' +
+                '<div class="col-md-6">' +
+                '<div class="form-floating mb-3">' +
+                '<input class="form-control" id="newModello' + id + '" type="text" placeholder="berlina 3/5 porte" aria-label="default input example" name="modello">' +
+                '<label for="modello">Modello</label>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="row">' +
+                '<div class="col-md-6">' +
+                '<div class="form-floating mb-3" >' +
+                '<input class="form-control" id="newCapacita' + id + '" type="text" placeholder="62 kWh" aria-label="default input example" name="capacita" >' +
+                '<label for="capacita">Capacita</label>' +
+                '</div>' +
+                '</div>' +
+                '<div class="col-md-6">' +
+                '<div class="form-floating mb-3">' +
+                '<input class="form-control" id="newPotenza' + id + '" type="text" placeholder="90kW (122 CV)" aria-label="default input example" name="potenza" >' +
+                '<label for="potenza">Potenza</label>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="row" >' +
+                '<div class="col-md-6">' +
+                '<div class="form-floating mb-3">' +
+                '<input class="form-control" id="newVelocita' + id + '" type="text" placeholder="157km/h" aria-label="default input example" name="velocita" >' +
+                '<label for="velocita">Velocita massima</label>' +
+                '</div>' +
+                '</div>' +
+                '<div class="col-md-6">' +
+                '<div class = "form-floating mb-3">' +
+                '<input class="form-control" id="newAutonomia' + id + '" type="text" placeholder="385km" aria-label="default input example" name="autonomia">' +
+                '<label for="autonomia">Autonomia</label>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="form-floating mb-3">' +
+                '<textarea class="form-control" id="newDescrizione' + id + '" placeholder="Inserisci una descrizione del veicolo" name="descrizione" style="height: 100px">' +
+                '</textarea>' +
+                '<label for="descrizione">Descrizione</label>' +
+                '</div>' +
+                '<div class="form-floating mb-3">' +
+                '<select class="form-select" aria-label=".form-select-lg example" name="posizione" id="newPosizione-' + id + '">' +
+                '<option value="stazione1">STAZIONE 1 - Corso Stati Uniti 1</option>' +
+                '<option value="stazione2">STAZIONE 2 - Corso Inghilterra 47</option>' +
+                '<option value="stazione3">STAZIONE 3 - Via Giudeppe Verdi 61</option>' +
+                '<option value="stazione4">STAZIONE 4 - Corso Regio Parco 12</option>' +
+                '</select>' +
+                '<label for="posizione">Seleziona la posizione attuale</label>' +
+                '</div>' +
+                '<div class="row">' +
+                '<div class="col-md-6">' +
+                '<div class="form-check form-switch">' +
+                '<input class="form-check-input" type="checkbox" id="disponibile" checked>' +
+                '<label class="form-check-label" for="disponibile">Disponibile al noleggio</label>' +
+                '</div>' +
+                '</div>' +
+                '<div class="col-md-6">' +
+                '<div class="form-check form-switch">' +
+                '<input class="form-check-input" type="checkbox" id="banner">' +
+                '<label class="form-check-label" for="banner">Immagine visibile in Home</label>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="my-4">' +
+                `<label for="image" class="form-label"> Carica l'immagine del veicolo</label>` +
+                '<input type="file" class="form-control" name="image" id="image" accept="image/svg, image/png, image/jpeg" class="btn btn-secondary" />' +
+                '</div>' +
+                '<div class="d-flex justify-content-center align-items-center mb-5">' +
+                '<button class="btn btn-success btn-lg" onclick="postVeicolo()" value="Salva" id="post-image">Salva</button>' +
+                '</div>'
 
-                
-                var options = document.getElementById('newPosizione-' + id).childNodes;
-                console.log(options);
+            var oldPosizioneSelected = arrayObjVeicoli[i].posizioneAttuale.descrizione;
 
-                switch (arrayObjVeicoli[i].posizone) {
-                    case {"descrizione": "STAZIONE 1 - Corso Stati Uniti 1", "latitudine": 45.0625658, "longitudine": 7.6696263 }:
-                        $("#newPosizione-" + id).val("stazione1").attr("selected", true);
-                        break;
-                    case {"descrizione": "STAZIONE 2 - Corso Inghilterra 47", "latitudine": 45.0754338, "longitudine": 7.6650673}:
-                        $("#newPosizione-" + id).val("stazione2").attr("selected", true);
-                        break;
-                    case {"descrizione": "STAZIONE 3 - Via Giudeppe Verdi 61", "latitudine": 45.0665578, "longitudine": 7.6972264}:
-                        $("#newPosizione-" + id).val("stazione3").attr("selected", true);
-                        break;
-                    case {"descrizione": "STAZIONE 4 - Corso Regio Parco 12", "latitudine": 45.0753703, "longitudine": 7.6912162}:
-                        $("#newPosizione-" + id).val("stazione4").attr("selected", true);
-                        break;
-                }
-                for(var i = 0; i < arrayObjVeicoli.length; i++)
-                if ($("#newPosizione-" + id).val() == JSON.stringify(arrayObjVeicoli[id].posizioneAttuale)) {
-                    $("#newPosizione-" + id).attr("selected", true);
-                }
+            var posizioneValues = ["stazione1", "stazione2", "stazione3", "stazione4"];
+            var optionDesc = ["STAZIONE 1 - Corso Stati Uniti 1", "STAZIONE 2 - Corso Inghilterra 47", "STAZIONE 3 - Via Giudeppe Verdi 61", "STAZIONE 4 - Corso Regio Parco 12"];
+
+            setChecked(oldPosizioneSelected, "#newPosizione-" + id, posizioneValues, optionDesc);
+
+        }
+    }
+}
+
+//funzione per selezionare il valore della option che corrisponde al valore del veicolo nel DB
+function setChecked(old, id, optionValues, optionTexts) {
+    for (var i = 0; i < optionValues.length; i++) {
+        if (old.indexOf(optionTexts[i]) != -1) {
+            $(id).children('option[value="' + optionValues[i] + '"]').attr('selected', true);
         }
     }
 }

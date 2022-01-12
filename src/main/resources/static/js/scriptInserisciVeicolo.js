@@ -9,18 +9,11 @@ function postVeicolo() {
     const autonomia = document.getElementById("autonomia").value;
     const descrizione = document.getElementById("descrizione").value;
     const inputPosizione = document.getElementById("posizione").value;
-    const inputDisponibile = document.getElementById("disponibile").value;
-    const inputBanner = document.getElementById("banner").value;
+    const disponibile = document.getElementById("disponibile").checked;
+    const banner = document.getElementById("banner").checked;
     const image = document.getElementById("image").files[0];
     const nomeFile = image.name;
     const src = "img/" + tipo + "/" + nomeFile;
-  
-    var disponibile;
-    if(inputDisponibile == "on") {
-        disponibile = "true";
-    } else {
-        disponibile = "false";
-    }
     
     var posizione;
     switch (inputPosizione) {
@@ -49,7 +42,7 @@ function postVeicolo() {
     formData.append("potenza", potenza);
     formData.append("velocitaMassima", velocita);
     formData.append("autonomia", autonomia);
-    formData.append("autonomia", descrizione);
+    formData.append("descrizione", descrizione);
     formData.append("posizioneAttuale", JSON.stringify(posizione));
     formData.append("disponibile", disponibile);
     formData.append("vistaBanner", banner);
@@ -63,6 +56,10 @@ function postVeicolo() {
             body: formData
         })
         .then(() => {
+            showMessage('<div class="alert alert-success" role="alert">La tua azione è andata a buon fine</div>');
+            setTimeout(hideMessage, 5000);
+        })
+        .then(() => {
             //svuoto elementi input veicolo
             document.getElementById("nomeAuto").value = "";
             document.getElementById("tipo").value = "";
@@ -71,6 +68,14 @@ function postVeicolo() {
             let blob = document.getElementById("image");
             blob.value = "";
         });
+}
+
+function showMessage(message) {
+    document.getElementById("apiMessage").innerHTML = message;
+}
+
+function hideMessage() {
+    document.getElementById("apiMessage").innerHTML = '';
 }
 ///////////////////////FUNZIONE INSERIMENTO VEICOLO NEL DB///////////////////////////
 

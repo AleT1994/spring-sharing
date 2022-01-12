@@ -65,9 +65,16 @@
 
     <!-- BODY -->
     <div class="container">
+
+        <h1 class="display-3 text-center fw-bolder">Inserisci un nuovo veicolo</h1>
+
+
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-10 col-lg-6 ">
-                <form id="form">
+
+                <div class="" id="apiMessage"></div>
+
+                <div id="form">
 
                     <div class="form-floating mb-3">
                         <select class="form-select" aria-label=".form-select-lg example" name="tipo" id="tipo">
@@ -84,42 +91,62 @@
                     <div class="row">
 
                         <div class="col-md-6">
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="nomeAuto" type="text" placeholder="NISSAN Leaf e+ N-Connecta"
-                            aria-label="default input example" name="nomeAuto">
-                        <label for="nomeAuto">Nome</label>
-                    </div>
-                </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="nomeAuto" type="text"
+                                    placeholder="NISSAN Leaf e+ N-Connecta" aria-label="default input example"
+                                    name="nomeAuto">
+                                <label for="nomeAuto">Nome</label>
+                            </div>
+                        </div>
 
-                <div class="col-md-6">
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="modello" type="text" placeholder="berlina 3/5 porte"
-                            aria-label="default input example" name="modello">
-                        <label for="modello">Modello</label>
-                    </div>
-                </div>
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="capacita" type="text" placeholder="62 kWh"
-                            aria-label="default input example" name="capacita">
-                        <label for="capacita">Capacita</label>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="modello" type="text" placeholder="berlina 3/5 porte"
+                                    aria-label="default input example" name="modello">
+                                <label for="modello">Modello</label>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="potenza" type="text" placeholder="90kW (122 CV)"
-                            aria-label="default input example" name="potenza">
-                        <label for="potenza">Potenza</label>
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="capacita" type="text" placeholder="62 kWh"
+                                    aria-label="default input example" name="capacita">
+                                <label for="capacita">Capacita</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="potenza" type="text" placeholder="90kW (122 CV)"
+                                    aria-label="default input example" name="potenza">
+                                <label for="potenza">Potenza</label>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="velocita" type="text" placeholder="157km/h"
-                            aria-label="default input example" name="velocita">
-                        <label for="velocita">Velocita massima</label>
-                    </div>
+                    <div class="row">
 
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="autonomia" type="text" placeholder="385km"
-                            aria-label="default input example" name="autonomia">
-                        <label for="autonomia">Autonomia</label>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="velocita" type="text" placeholder="157km/h"
+                                    aria-label="default input example" name="velocita">
+                                <label for="velocita">Velocita massima</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="autonomia" type="text" placeholder="385km"
+                                    aria-label="default input example" name="autonomia">
+                                <label for="autonomia">Autonomia</label>
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="form-floating mb-3">
@@ -141,21 +168,30 @@
                         <label for="posizione">Seleziona la posizione attuale</label><br>
                     </div>
 
-                    <div class="form-check form-switch mb-3">
-                        <input class="form-check-input" type="checkbox" id="disponibile" checked>
-                        <label class="form-check-label" for="disponibile">Disponibile al noleggio</label>
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="disponibile" checked>
+                                <label class="form-check-label" for="disponibile">Disponibile al noleggio</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="banner">
+                                <label class="form-check-label" for="banner">Immagine visibile in Home</label>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="mb-3">
+                    <div class="my-4">
                         <label for="image" class="form-label">Carica l'immagine del veicolo</label><br>
                         <input type="file" class="form-control" name="image" id="image"
                             accept="image/svg, image/png, image/jpeg" class="btn btn-secondary" />
                     </div>
 
-                    <div class="form-check form-switch mb-3">
-                        <input class="form-check-input" type="checkbox" id="banner">
-                        <label class="form-check-label" for="banner">Immagine visibile in Home</label>
-                    </div>
 
                     <div class="d-flex justify-content-center align-items-center mb-5">
                         <button class="btn btn-success btn-lg" onclick="postVeicolo()" value="Salva"
@@ -163,7 +199,7 @@
                     </div>
 
 
-                </form>
+                </div>
             </div>
         </div>
     </div>

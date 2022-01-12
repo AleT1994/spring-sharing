@@ -24,6 +24,21 @@ public class UtenteServiceImpl implements UtenteService {
 		utente.setRuolo("utente");
 		this.repoUtente.save(utente);
 	}
+	
+	@Override
+	public void addImageUtente(MultipartFile multipartFile) {
+		
+		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+		
+		String uploadDir = CustomProperties.basepath + "/utenti";
+		
+		try {
+	       	//5
+				FileUploader.saveFile(uploadDir, fileName, multipartFile);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+	}
 
 	@Override
 	public Utente getOne(String email) {
@@ -43,21 +58,6 @@ public class UtenteServiceImpl implements UtenteService {
 	@Override
 	public void deleteUtente(String email) {
 		this.repoUtente.deleteByEmail(email);
-	}
-
-	@Override
-	public void addImageUtente(MultipartFile multipartFile) {
-		
-		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-		
-		String uploadDir = CustomProperties.basepath + "/utenti";
-		
-		try {
-	       	//5
-				FileUploader.saveFile(uploadDir, fileName, multipartFile);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 	}
 
 }

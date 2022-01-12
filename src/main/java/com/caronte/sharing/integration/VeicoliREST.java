@@ -38,8 +38,7 @@ public class VeicoliREST {
 
 		Veicolo veicoloSalvato = new Veicolo();
 		veicolo.setPosizioneAttuale(extractPosizione(request));
-		veicolo.setDisponibile("true");
-		veicolo.setVistaBanner("false");
+
 		if (file == null || file.isEmpty()) {
 			veicoloSalvato = veicoloService.saveVeicolo(veicolo);
 

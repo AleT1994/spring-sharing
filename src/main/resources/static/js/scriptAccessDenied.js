@@ -1,7 +1,4 @@
-
-
 if(!localStorage.getItem("tokenLogin")){
-
 
     var permessi = 
     ' <div class="text-center">'+
@@ -11,11 +8,6 @@ if(!localStorage.getItem("tokenLogin")){
 
 
     $("body").html(permessi);
-
-
-
-
-
 }
 
 
