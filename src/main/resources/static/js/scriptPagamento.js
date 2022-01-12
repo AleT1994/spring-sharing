@@ -1,6 +1,3 @@
-
-
-
 $(function(){
   
     var cards = [{
