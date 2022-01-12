@@ -70,138 +70,189 @@
     <!--NAVBAR-->
 
 
-    <!--SCHEDA VEICOLO-->
-    <div class="banner mb-5">
-        <div id="banner">
-
-            <img id="imgVeicolo" src="http://placekitten.com/300/300" class="img-fluid img-thumbnail"
-                alt="articleImage1">
-
-            <div class="row wrapperDettaglio">
-                <div
-                    class="col-12 col-md-7 col-lg-5 d-flex flex-column justify-content-center align-items-flex-start dettagliVeicolo">
-                    <h2 id="nomeVeicolo">Lorem, ipsum dolor.</h2>
-                    <p id="tipoVeicolo">Lorem ipsum dolor.</p>
-                    <p id="autonomiaVeicolo">Lorem ipsum dolor.</p>
+    <!--BODY-->
+    <div class="container-fluid">
+        <div class="d-flex  justify-content-center align-items-center text-center">
+            <img id="imgVeicolo" src="http://placekitten.com/300/300" class="img-fluid" alt="articleImage1">
+        </div>
+        <div class="row mb-5">
+            <div id="banner" class="col-6">
+                <div class="d-flex  justify-content-center align-items-center text-center">
+                    <ul class="noPallini">
+                        <li>
+                            <p id="nomeVeicolo">Lorem, ipsum dolor.</p>
+                        </li>
+                        <li>
+                            <p id="tipoVeicolo">Lorem ipsum dolor.</p>
+                        </li>
+                        <li>
+                            <p id="autonomiaVeicolo">Lorem ipsum dolor.</p>
+                        </li>
+                        <li><p id="modelloVeicolo">Lorem ipsum dolor.</p></li>
+                    </ul>
+                    <ul class="noPallini">
+                        <li >
+                            <p id="potenzaVeicolo">Potenza lorem</p>
+                        </li>
+                        <li>
+                            <p id="capacitaVeicolo">Capacita lorem</p>
+                        </li>
+                        <li >
+                            <p id="velMaxVeicolo">Velocita lorem</p>
+                        </li>
+                        <li>
+                            <p id="descrizioneVeicolo">Descrizione lorem</p>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
-        </div>
-    </div>
-    <!--SCHEDA VEICOLO-->
-
-
-    <div class="container">
-        <div class="row">
-
             <!--POSIZIONE VEICOLO SULLA MAPPA-->
-            <div class="wrapperMap my-5 col-lg-6 d-flex justify-content-center">
+            <div class="wrapperMap my-5 col-6 d-flex justify-content-center">
                 <div id="map"></div>
             </div>
             <!--POSIZIONE VEICOLO SULLA MAPPA-->
-
-
-            <!--FORM PRENOTAZIONE-->
-            <!-- <div class="wrapperCard my-5 col-lg-6 d-flex justify-content-center align-items-center">
-                <div class="card">
-                    <h4 class="card-header text-center">Prenota ora il tuo veicolo!</h4>
-                    <form id="formPrenotazione" action="#">
-                        <h5 class="card-title mt-3 ms-3">Inserisci data e ora</h5>
-                        <div class="form-group col-8">
-                            <input type="datetime-local" id="dataOraPrenotazione" class="form-control mt-3 ms-3"
-                                name="dataOraPrenotazione">
-                            <button id="prenota" type="submit" class="btn btn-primary my-3 ms-3">Prosegui</button>
-                        </div>
-                    </form>
-                </div>
-            </div> -->
-            <div class=" my-5 col-lg-6 d-flex justify-content-center align-items-center">
-                <div class="carta">
-                    <h4 class=" text-center">Prenota ora il tuo veicolo!</h4>
-                    <form id="formPrenotazione">
-                        <h5 class=" mt-3 ms-3">Inserisci data e ora</h5>
-                        <div class="form-group col-8">
-                            <input type="datetime-local" id="dataOraPrenotazione" class="form-control mt-3 ms-3"
-                                name="dataOraPrenotazione">
-                            <button id="prenota" type="submit" class="btn btn-primary my-3 ms-3">Prosegui</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <!-- INIZIO HIDDEN FORM PAGAMENTO DATI -->
-            <div>
-                <div class="containerCarta d-flex mt-2">
-                    <div class="col1">
-                        <div class="card card2">
-                            <div class="front">
-                                <div class="type">
-                                    <img class="bankid" />
-                                </div>
-                                <span class="chip"></span>
-                                <span class="card_number">&#x25CF;&#x25CF;&#x25CF;&#x25CF;
-                                    &#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF;
-                                    &#x25CF;&#x25CF;&#x25CF;&#x25CF; </span>
-                                <div class="date"><span class="date_value">MM / YYYY</span></div>
-                                <span class="fullname">FULL NAME</span>
-                            </div>
-                            <div class="back">
-                                <div class="magnetic"></div>
-                                <div class="bar"></div>
-                                <span class="seccode">&#x25CF;&#x25CF;&#x25CF;</span>
-                                <span class="chip"></span><span class="disclaimer">This card is property of Random Bank
-                                    of Random corporation. <br> If found please return to Random Bank of Random
-                                    corporation - 21968 Paris, Verdi Street, 34 </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col2">
-                        <label>Card Number</label>
-                        <input class="number" type="text" ng-model="ncard" maxlength="19"
-                            onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                        <label>Cardholder name</label>
-                        <input class="inputname" type="text" placeholder="" />
-                        <label>Expiry date</label>
-                        <input class="expire" type="text" placeholder="MM / YYYY" />
-                        <label>Security Number</label>
-                        <input class="ccv" type="text" placeholder="CVC" maxlength="3"
-                            onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                        <button class="buy" id="prenota" onclick="successoModal()"> Paga Ora <span class="prezzoQui">
-                                <!--prezzo qui--></span> €</button>
-                    </div>
-                </div>
-            </div>
-            <!-- FINE HIDDEN FORM PAGAMENTO DATI -->
-
-            <!-- Modal Successo Pagamento-->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Pagamento Effettuato!</h5>
-                        </div>
-                        <div class="modal-body SUCCESSO d-flex">
-                            <span>
-                                <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_y2hxPc.json"
-                                    background="transparent" speed="1" style="width: 200px; height: 200px;" loop
-                                    autoplay></lottie-player>
-                            </span>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-success"> <a href="index.html"
-                                    style="color: white;">Chiudi e torna in Homepage</a> </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--FORM PRENOTAZIONE-->
-
         </div>
+        <!-- STEPPER PAGAMENTO-->
+        <div class="container mb-5">
+            <div class="row g-0 justify-content-center">
+                <!-- FORMS -->
+                <div class="col-lg-12 mx-0 px-0">
+                    <div class="progress">
+                        <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="50"
+                            class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                            role="progressbar" style="width: 0%"></div>
+                    </div>
+                    <div id="qbox-container">
+                        <form class="needs-validation" id="form-wrapper" method="post" name="form-wrapper" novalidate>
+                            <!-- STEPS HERE -->
+                            <div id="steps-container justify-content-center align-items-center">
+                                <div class="step justify-content-center align-items-center">
+                                    <!-- CALENDARIO -->
+                                    <div class="row">
+                                        <div
+                                            class="my-5 col-lg-6 offset-lg-3  justify-content-center align-items-center">
+                                            <h4 class="text-center">Prenota ora il tuo veicolo!</h4>
+                                            <form id="formPrenotazione justify-content-center align-items-center">
+                                                <h5
+                                                    class="mt-3 ms-3 justify-content-center align-items-center text-center">
+                                                    Inserisci data e ora</h5>
+                                                <div class="form-group col">
+                                                    <input type="datetime-local" id="dataOraPrenotazione"
+                                                        class="form-control mt-3 ms-3" name="dataOraPrenotazione" ">
+                                                    </div>
+                                                </form>
+                                        </div>
+                                    </div>
+                                        <!-- CALENDARIO -->
+                                    </div>
+                                    <div class=" step">
+                                                    <!-- INIZIO FORM PAGAMENTO DATI -->
+                                                    <div>
+                                                        <div class="containerCarta d-flex mt-2">
+                                                            <div class="col1">
+                                                                <div class="card card2">
+                                                                    <div class="front">
+                                                                        <div class="type">
+                                                                            <img class="bankid" />
+                                                                        </div>
+                                                                        <span class="chip"></span>
+                                                                        <span
+                                                                            class="card_number">&#x25CF;&#x25CF;&#x25CF;&#x25CF;
+                                                                            &#x25CF;&#x25CF;&#x25CF;&#x25CF;
+                                                                            &#x25CF;&#x25CF;&#x25CF;&#x25CF;
+                                                                            &#x25CF;&#x25CF;&#x25CF;&#x25CF; </span>
+                                                                        <div class="date"><span class="date_value">MM /
+                                                                                AAAA</span>
+                                                                        </div>
+                                                                        <span class="fullname">NOME COMPLETO</span>
+                                                                    </div>
+                                                                    <div class="back">
+                                                                        <div class="magnetic"></div>
+                                                                        <div class="bar"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col2">
+                                                                <label>Numero Carta</label>
+                                                                <input id="formGroupExampleInput"
+                                                                    class="number form-control" type="text"
+                                                                    ng-model="ncard" maxlength="19"
+                                                                    onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+                                                                <label>Nome Intestatario</label>
+                                                                <input class="inputname" type="text" placeholder="" />
+                                                                <label>Scadenza</label>
+                                                                <input class="expire" type="text"
+                                                                    placeholder="MM / AAAA" />
+                                                                <label>Numero di sicurezza</label>
+                                                                <input class="ccv" type="text" placeholder="CCV"
+                                                                    maxlength="3"
+                                                                    onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- FINE FORM PAGAMENTO DATI -->
+                                                </div>
+                                                <!-- ULTIMO STEP -->
+                                                <div class="step">
+                                                    <div class="mt-1 justify-content-center align-items-center text-center">
+                                                        <div class="closing-text">
+                                                            <h4>Ci sei quasi..</h4>
+                                                            <p>Inserire riepilogo pagamento qui</p>
+                                                            <p>Clicca su Submit per terminare la transazione.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- ULTIMO STEP -->
+                                        </div>
+                                        <div id="q-box__buttons">
+                                            <button id="prev-btn" type="button">Indietro</button>
+                                            <button id="next-btn" type="button">Avanti</button>
+                                            <button id="submit-btn" type="submit" onclick="successoModal()">Dacci i
+                                                soldi</button>
+                                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- STEPPER PAGAMENTO -->
+
+        <!-- PRELOADER WRAPPER STEPPER-->
+        <div id="preloader-wrapper">
+            <div id="preloader"></div>
+            <div class="preloader-section section-left"></div>
+            <div class="preloader-section section-right"></div>
+        </div>
+        <!-- PRELOADER WRAPPER STEPPER-->
+
+
     </div>
 
 
+    <!-- Modal Successo Pagamento-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header justify-content-center align-items-center">
+                    <h5 class="modal-title" id="exampleModalLabel">Pagamento Effettuato!</h5>
+                </div>
+                <div class="modal-body SUCCESSO d-flex justify-content-center align-items-center">
+                    <span>
+                        <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_y2hxPc.json"
+                            background="transparent" speed="1" style="width: 200px; height: 200px;" loop autoplay>
+                        </lottie-player>
+                    </span>
+                </div>
+                <div class="modal-footer justify-content-center align-items-center">
+                    <button type="button" class="btn btn-success"> <a href="index.html" style="color: white;">Chiudi e
+                            torna in Homepage</a> </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Successo Pagamento-->
 
     <!-- LOGIN-MODAL -->
     <div class="modal fade" id="myModal">
@@ -336,9 +387,9 @@
         crossorigin=""></script>
     <!-- Leaflet-JS -->
 
-     <!-- Lottie -->
-     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-     <!-- Lottie -->
+    <!-- Lottie -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!-- Lottie -->
 
     <!-- Modernizr -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"
@@ -357,7 +408,7 @@
     <script src="js/scriptLogin.js"></script>
     <script src="js/scriptPrenotaVeicolo.js"></script>
     <script src="js/scriptPagamento.js"></script>
-    
+
     <script type="text/javascript">
         function successoModal() {
 

@@ -271,22 +271,22 @@ function modificaDati(id) {
                 '<option selected></option>' +
                 '<option value="autoElettrica">Auto Elettrica</option>' +
                 '<option value="autoIbrida">Auto Ibrida</option>' +
+                '<option value="autoBenzina_Diesel">Auto Diesel/Benzina</option>' +
                 '<option value="monopattino">Monopattino</option>' +
                 '<option value="bicicletta">Bicicletta</option>' +
-                '<option value="autoBenzina_Diesel">Auto Diesel/Benzina</option>' +
                 '</select>' +
                 '<label for="tipo">Seleziona la categoria</label>' +
                 '</div>' +
                 '<div class="row">' +
                 '<div class="col-md-6">' +
                 '<div class="form-floating mb-3">' +
-                '<input class="form-control" id="newNome' + id + '" type="text" placeholder="NISSAN Leaf e+ N-Connecta" aria-label="default input example" name="nomeAuto">' +
+                '<input class="form-control" id="newNome-' + id + '" type="text" placeholder="NISSAN Leaf e+ N-Connecta" aria-label="default input example" name="nomeAuto">' +
                 '<label for="nomeAuto">Nome</label>' +
                 '</div>' +
                 '</div>' +
                 '<div class="col-md-6">' +
                 '<div class="form-floating mb-3">' +
-                '<input class="form-control" id="newModello' + id + '" type="text" placeholder="berlina 3/5 porte" aria-label="default input example" name="modello">' +
+                '<input class="form-control" id="newModello-' + id + '" type="text" placeholder="berlina 3/5 porte" aria-label="default input example" name="modello">' +
                 '<label for="modello">Modello</label>' +
                 '</div>' +
                 '</div>' +
@@ -294,13 +294,13 @@ function modificaDati(id) {
                 '<div class="row">' +
                 '<div class="col-md-6">' +
                 '<div class="form-floating mb-3" >' +
-                '<input class="form-control" id="newCapacita' + id + '" type="text" placeholder="62 kWh" aria-label="default input example" name="capacita" >' +
+                '<input class="form-control" id="newCapacita-' + id + '" type="text" placeholder="62 kWh" aria-label="default input example" name="capacita" >' +
                 '<label for="capacita">Capacita</label>' +
                 '</div>' +
                 '</div>' +
                 '<div class="col-md-6">' +
                 '<div class="form-floating mb-3">' +
-                '<input class="form-control" id="newPotenza' + id + '" type="text" placeholder="90kW (122 CV)" aria-label="default input example" name="potenza" >' +
+                '<input class="form-control" id="newPotenza-' + id + '" type="text" placeholder="90kW (122 CV)" aria-label="default input example" name="potenza" >' +
                 '<label for="potenza">Potenza</label>' +
                 '</div>' +
                 '</div>' +
@@ -308,20 +308,19 @@ function modificaDati(id) {
                 '<div class="row" >' +
                 '<div class="col-md-6">' +
                 '<div class="form-floating mb-3">' +
-                '<input class="form-control" id="newVelocita' + id + '" type="text" placeholder="157km/h" aria-label="default input example" name="velocita" >' +
+                '<input class="form-control" id="newVelocita-' + id + '" type="text" placeholder="157km/h" aria-label="default input example" name="velocita" >' +
                 '<label for="velocita">Velocita massima</label>' +
                 '</div>' +
                 '</div>' +
                 '<div class="col-md-6">' +
                 '<div class = "form-floating mb-3">' +
-                '<input class="form-control" id="newAutonomia' + id + '" type="text" placeholder="385km" aria-label="default input example" name="autonomia">' +
+                '<input class="form-control" id="newAutonomia-' + id + '" type="text" placeholder="385km" aria-label="default input example" name="autonomia">' +
                 '<label for="autonomia">Autonomia</label>' +
                 '</div>' +
                 '</div>' +
                 '</div>' +
                 '<div class="form-floating mb-3">' +
-                '<textarea class="form-control" id="newDescrizione' + id + '" placeholder="Inserisci una descrizione del veicolo" name="descrizione" style="height: 100px">' +
-                '</textarea>' +
+                '<textarea class="form-control" id="newDescrizione-' + id + '" placeholder="Inserisci una descrizione del veicolo" name="descrizione" style="height: 100px"></textarea>' +
                 '<label for="descrizione">Descrizione</label>' +
                 '</div>' +
                 '<div class="form-floating mb-3">' +
@@ -336,42 +335,83 @@ function modificaDati(id) {
                 '<div class="row">' +
                 '<div class="col-md-6">' +
                 '<div class="form-check form-switch">' +
-                '<input class="form-check-input" type="checkbox" id="disponibile" checked>' +
+                '<input class="form-check-input" type="checkbox" name="disponibile" id="newDisponibile-' + id + '" checked>' +
                 '<label class="form-check-label" for="disponibile">Disponibile al noleggio</label>' +
                 '</div>' +
                 '</div>' +
                 '<div class="col-md-6">' +
                 '<div class="form-check form-switch">' +
-                '<input class="form-check-input" type="checkbox" id="banner">' +
+                '<input class="form-check-input" type="checkbox" name="banner" id="newBanner-' + id + '">' +
                 '<label class="form-check-label" for="banner">Immagine visibile in Home</label>' +
                 '</div>' +
                 '</div>' +
                 '</div>' +
                 '<div class="my-4">' +
                 `<label for="image" class="form-label"> Carica l'immagine del veicolo</label>` +
-                '<input type="file" class="form-control" name="image" id="image" accept="image/svg, image/png, image/jpeg" class="btn btn-secondary" />' +
+                '<input type="file" class="form-control" name="image" id="newImage' + id + '" accept="image/svg, image/png, image/jpeg" class="btn btn-secondary" />' +
                 '</div>' +
                 '<div class="d-flex justify-content-center align-items-center mb-5">' +
-                '<button class="btn btn-success btn-lg" onclick="postVeicolo()" value="Salva" id="post-image">Salva</button>' +
+                '<button class="btn btn-success btn-lg" onclick="putVeicolo(' + id + ')">Salva</button>' +
                 '</div>'
 
-            var oldPosizioneSelected = arrayObjVeicoli[i].posizioneAttuale.descrizione;
+            var oldTipo = arrayObjVeicoli[i].tipo;
+            var tipoValues = ["autoElettrica", "autoIbrida", "monopattino", "bicicletta", "autoBenzina_Diesel"];
+            var tipi = ["autoElettrica", "autoIbrida", "monopattino", "bicicletta", "autoBenzina_Diesel"];
+            setSelected(oldTipo, "#newTipo-" + id, tipoValues, tipi);
 
+            var oldNome = arrayObjVeicoli[i].nome;
+            $("#newNome-" + id).attr("value", oldNome);
+
+            var oldModello = arrayObjVeicoli[i].modello;
+            $("#newModello-" + id).attr("value", oldModello);
+
+            var oldCapacita = arrayObjVeicoli[i].capacita;
+            $("#newCapacita-" + id).attr("value", oldCapacita);
+
+            var oldPotenza = arrayObjVeicoli[i].potenza;
+            $("#newPotenza-" + id).attr("value", oldPotenza);
+
+            var oldVelocita = arrayObjVeicoli[i].velocitaMassima;
+            $("#newVelocita-" + id).attr("value", oldVelocita);
+
+            var oldAutonomia = arrayObjVeicoli[i].autonomia;
+            $("#newAutonomia-" + id).attr("value", oldAutonomia);
+
+            var oldDescrizione = arrayObjVeicoli[i].descrizione;
+            $("#newDescrizione-" + id).attr("value", oldDescrizione);
+
+            var oldPosizione = arrayObjVeicoli[i].posizioneAttuale.descrizione;
             var posizioneValues = ["stazione1", "stazione2", "stazione3", "stazione4"];
-            var optionDesc = ["STAZIONE 1 - Corso Stati Uniti 1", "STAZIONE 2 - Corso Inghilterra 47", "STAZIONE 3 - Via Giudeppe Verdi 61", "STAZIONE 4 - Corso Regio Parco 12"];
+            var posizioneDesc = ["STAZIONE 1 - Corso Stati Uniti 1", "STAZIONE 2 - Corso Inghilterra 47", "STAZIONE 3 - Via Giudeppe Verdi 61", "STAZIONE 4 - Corso Regio Parco 12"];
+            setSelected(oldPosizione, "#newPosizione-" + id, posizioneValues, posizioneDesc);
 
-            setChecked(oldPosizioneSelected, "#newPosizione-" + id, posizioneValues, optionDesc);
-
+            var oldDisponibile = arrayObjVeicoli[i].disponibile;
+            if (oldDisponibile == "true") {
+                $("#newDisponibile-" + id).attr("checked", true);
+            } else {
+                $("#newDisponibile-" + id).attr("checked", false);
+            }
+            var oldBanner = arrayObjVeicoli[i].vistaBanner;
+            if (oldBanner == "true") {
+                $("#newBanner-" + id).attr("checked", true);
+            } else {
+                $("#newBanner-" + id).attr("checked", false);
+            }
         }
     }
 }
 
 //funzione per selezionare il valore della option che corrisponde al valore del veicolo nel DB
-function setChecked(old, id, optionValues, optionTexts) {
+function setSelected(old, id, optionValues, oldDesc) {
     for (var i = 0; i < optionValues.length; i++) {
-        if (old.indexOf(optionTexts[i]) != -1) {
+        if (old.indexOf(oldDesc[i]) != -1) {
             $(id).children('option[value="' + optionValues[i] + '"]').attr('selected', true);
         }
     }
+}
+
+function putVeicolo(id) {
+
+
 }
 //////////////////////////////FUNZIONE ACCORDION//////////////////////////////////
