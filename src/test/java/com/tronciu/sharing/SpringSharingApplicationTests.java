@@ -46,9 +46,6 @@ class SpringSharingApplicationTests {
 		}
 
 		System.out.println(x);
-		
-		
-
 	}
 
 }

@@ -1,14 +1,29 @@
 ///////////////////////FUNZIONE INSERIMENTO VEICOLO NEL DB/////////////////////////// 
 function postVeicolo() {
-    const nome = document.getElementById("nome").value;
+    const nome = document.getElementById("nomeAuto").value;
     const tipo = document.getElementById("tipo").value;
-    const autonomia = document.getElementById("autonom").value;
-    const posizione = null;
+    const modello = document.getElementById("modello").value;
+    const capacita = document.getElementById("capacita").value;
+    const potenza = document.getElementById("potenza").value;
+    const velocita = document.getElementById("velocita").value;
+    const autonomia = document.getElementById("autonomia").value;
+    const descrizione = document.getElementById("descrizione").value;
+    const inputPosizione = document.getElementById("posizione").value;
+    const inputDisponibile = document.getElementById("disponibile").value;
+    const inputBanner = document.getElementById("banner").value;
     const image = document.getElementById("image").files[0];
     const nomeFile = image.name;
     const src = "img/" + tipo + "/" + nomeFile;
   
-    switch (document.getElementById("posizione").value) {
+    var disponibile;
+    if(inputDisponibile == "on") {
+        disponibile = "true";
+    } else {
+        disponibile = "false";
+    }
+    
+    var posizione;
+    switch (inputPosizione) {
         case "stazione1":
             posizione = {"descrizione": "STAZIONE 1 - Corso Stati Uniti 1", "latitudine": 45.0625658, "longitudine": 7.6696263 };
             break;
@@ -23,14 +38,21 @@ function postVeicolo() {
             break;
     }
      
-
-    //@TODO make a fucking switch
+    console.log(posizione);
+    console.log(disponibile);
 
     const formData = new FormData();
     formData.append("nome", nome);
     formData.append("tipo", tipo);
+    formData.append("modello", modello);
+    formData.append("capacita", capacita);
+    formData.append("potenza", potenza);
+    formData.append("velocitaMassima", velocita);
     formData.append("autonomia", autonomia);
+    formData.append("autonomia", descrizione);
     formData.append("posizioneAttuale", JSON.stringify(posizione));
+    formData.append("disponibile", disponibile);
+    formData.append("vistaBanner", banner);
     formData.append("immagine", src);
     formData.append("image", image);
 
@@ -40,16 +62,14 @@ function postVeicolo() {
             method: 'POST',
             body: formData
         })
-        .then(veicolo => {
+        .then(() => {
             //svuoto elementi input veicolo
-            document.getElementById("nomeVe").value = "";
-            document.getElementById("categoria").value = "";
-            document.getElementById("autonom").value = "";
-            document.getElementById("staz").value = "";
+            document.getElementById("nomeAuto").value = "";
+            document.getElementById("tipo").value = "";
+            document.getElementById("autonomia").value = "";
+            document.getElementById("posizione").value = "";
             let blob = document.getElementById("image");
             blob.value = "";
-
-           
         });
 }
 ///////////////////////FUNZIONE INSERIMENTO VEICOLO NEL DB///////////////////////////
@@ -59,20 +79,20 @@ function postVeicolo() {
 $().ready(function () {
     $('#form').validate({
         rules: {
-            nomeVe: {
+            nomeAuto: {
                 required: true
             },
-            autonom: {
+            autonomia: {
                 required: true
             },
-            staz: {
+            posizione: {
                 required: true
             }
         },
         messages: {
-            nomeVe: 'Inserisci il nome del veicolo',
-            autonom: "Inserisci l'autonomia del veicolo",
-            staz: 'Inserisci la stazione di appartenenza'
+            nomeAuto: 'Inserisci il nome del veicolo',
+            autonomia: "Inserisci l'autonomia del veicolo",
+            posizione: 'Inserisci la stazione di appartenenza'
         },
         errorElement: "span",
         submitHandler: function (form) {

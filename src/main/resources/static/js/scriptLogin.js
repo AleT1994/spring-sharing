@@ -398,9 +398,6 @@ function registration() {
 
           location.reload()
 
-
-
-
       })
 
 

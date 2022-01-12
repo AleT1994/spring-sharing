@@ -200,7 +200,7 @@ function filter(tipo) {
                     '<div class="accordion-body">' +
                     '<table class="table">' +
                     '<tbody>' +
-                    '<tr>' + '<th>Tipologia</th><td>' + tipoVeicolo + '</td></tr>' +
+                    '<tr>' + '<th>Categoria</th><td>' + tipoVeicolo + '</td></tr>' +
                     '<tr>' + '<th>Modello</th><td>' + modello + '</td></tr>' +
                     '<tr>' + '<th>Capacità</th><td>' + capacita + '</td></tr>' +
                     '<tr>' + '<th>Potenza</th><td>' + potenza + '</td></tr>' +
@@ -268,16 +268,30 @@ function modificaDati(id) {
 
             document.getElementById("posizione-" + id).innerHTML = '';
             document.getElementById("posizione-" + id).innerHTML = '<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="newPosizione-' + id + '" required>' +
-                `<option id="staz-1" value='{"descrizione": "STAZIONE 1 - Corso Stati Uniti 1", "latitudine": "45.0625658", "longitudine": "7.6696263"}'>STAZIONE 1 - Corso Stati Uniti 1</option>` +
-                `<option id="staz-2" value='{"descrizione": "STAZIONE 2 - Corso Inghilterra 47", "latitudine": "45.0754338", "longitudine": "7.6650673"}'>STAZIONE 2 - Corso Inghilterra 47</option>` +
-                `<option id="staz-3" value='{"descrizione": "STAZIONE 3 - Via Giudeppe Verdi 61", "latitudine": "45.0665578", "longitudine": "7.6972264"}'>STAZIONE 3 - Via Giudeppe Verdi 61</option>` +
-                `<option id="staz-4" value='{"descrizione": "STAZIONE 4 - Corso Regio Parco 12", "latitudine": "45.0753703", "longitudine": "7.6912162"}'>STAZIONE 4 - Corso Regio Parco 12</option>` +
+                `<option value='stazione1'>STAZIONE 1 - Corso Stati Uniti 1</option>` +
+                `<option value='stazione2'>STAZIONE 2 - Corso Inghilterra 47</option>` +
+                `<option value='stazione3'>STAZIONE 3 - Via Giudeppe Verdi 61</option>` +
+                `<option value='stazione4'>STAZIONE 4 - Corso Regio Parco 12</option>` +
                 '</select>';
 
                 
                 var options = document.getElementById('newPosizione-' + id).childNodes;
                 console.log(options);
 
+                switch (arrayObjVeicoli[i].posizone) {
+                    case {"descrizione": "STAZIONE 1 - Corso Stati Uniti 1", "latitudine": 45.0625658, "longitudine": 7.6696263 }:
+                        $("#newPosizione-" + id).val("stazione1").attr("selected", true);
+                        break;
+                    case {"descrizione": "STAZIONE 2 - Corso Inghilterra 47", "latitudine": 45.0754338, "longitudine": 7.6650673}:
+                        $("#newPosizione-" + id).val("stazione2").attr("selected", true);
+                        break;
+                    case {"descrizione": "STAZIONE 3 - Via Giudeppe Verdi 61", "latitudine": 45.0665578, "longitudine": 7.6972264}:
+                        $("#newPosizione-" + id).val("stazione3").attr("selected", true);
+                        break;
+                    case {"descrizione": "STAZIONE 4 - Corso Regio Parco 12", "latitudine": 45.0753703, "longitudine": 7.6912162}:
+                        $("#newPosizione-" + id).val("stazione4").attr("selected", true);
+                        break;
+                }
                 for(var i = 0; i < arrayObjVeicoli.length; i++)
                 if ($("#newPosizione-" + id).val() == JSON.stringify(arrayObjVeicoli[id].posizioneAttuale)) {
                     $("#newPosizione-" + id).attr("selected", true);

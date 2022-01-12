@@ -64,84 +64,102 @@
 
 
     <!-- BODY -->
-    <div class="row justify-content-center">
-        <div class="col-md-4 align-self-center">
-            <form class="centrato" id="form">
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-10 col-lg-6 ">
+                <form id="form">
 
-                <div class="form-group">
-                    <label for="tipo">Categoria:</label><br>
-                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
-                        name="tipo" id="tipo" required>
-                        <option selected></option>
-                        <option value="autoElettrica">Macchina Elettrica</option>
-                        <option value="autoIbrida">Macchina Ibrida</option>
-                        <option value="monopattino">Monopattino</option>
-                        <option value="bicicletta">Bicicletta</option>
-                        <option value="autoBenzina_Diesel">Macchina Diesel/Benzina</option>
-                    </select>
-                </div>
+                    <div class="form-floating mb-3">
+                        <select class="form-select" aria-label=".form-select-lg example" name="tipo" id="tipo">
+                            <option selected></option>
+                            <option value="autoElettrica">Auto Elettrica</option>
+                            <option value="autoIbrida">Auto Ibrida</option>
+                            <option value="monopattino">Monopattino</option>
+                            <option value="bicicletta">Bicicletta</option>
+                            <option value="autoBenzina_Diesel">Auto Diesel/Benzina</option>
+                        </select>
+                        <label for="tipo">Seleziona la categoria</label>
+                    </div>
 
-                <div class="form-group">
-                    <label for="nomeVe">Nome:</label><br>
-                    <input class="form-control" id="nome" type="text" placeholder="NISSAN Leaf e+ N-Connecta"
-                        aria-label="default input example" name="nomeVe">
-                </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="nomeAuto" type="text" placeholder="NISSAN Leaf e+ N-Connecta"
+                            aria-label="default input example" name="nomeAuto">
+                        <label for="nomeAuto">Nome</label>
+                    </div>
 
-                <div class="form-group">
-                    <label for="modello">Modello:</label><br>
-                    <input class="form-control" id="modello" type="text" placeholder="berlina 3/5 porte"
-                        aria-label="default input example" name="modello">
-                </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="modello" type="text" placeholder="berlina 3/5 porte"
+                            aria-label="default input example" name="modello">
+                        <label for="modello">Modello</label>
+                    </div>
 
-                <div class="form-group">
-                    <label for="capacita">Capacita:</label><br>
-                    <input class="form-control" id="capacita" type="text" placeholder="62 kWh"
-                        aria-label="default input example" name="capacita">
-                </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="capacita" type="text" placeholder="62 kWh"
+                            aria-label="default input example" name="capacita">
+                        <label for="capacita">Capacita</label>
+                    </div>
 
-                <div class="form-group">
-                    <label for="capacita">Capacita:</label><br>
-                    <input class="form-control" id="capacita" type="text" placeholder="62 kWh"
-                        aria-label="default input example" name="capacita">
-                </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="potenza" type="text" placeholder="90kW (122 CV)"
+                            aria-label="default input example" name="potenza">
+                        <label for="potenza">Potenza</label>
+                    </div>
 
-                <div class="form-group">
-                    <label for="capacita">Capacita:</label><br>
-                    <input class="form-control" id="capacita" type="text" placeholder="62 kWh"
-                        aria-label="default input example" name="capacita">
-                </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="velocita" type="text" placeholder="157km/h"
+                            aria-label="default input example" name="velocita">
+                        <label for="velocita">Velocita massima</label>
+                    </div>
 
-                <div class="form-group">
-                    <label for="autonom">Autonomia:</label><br>
-                    <input class="form-control" id="autonom" type="text" placeholder="90kW (122 CV)"
-                        aria-label="default input example" name="autonom">
-                </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="autonomia" type="text" placeholder="385km"
+                            aria-label="default input example" name="autonomia">
+                        <label for="autonomia">Autonomia</label>
+                    </div>
 
-                <div class="form-group">
-                    <label for="categoria">Posizione attuale:</label><br>
-                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
-                        name="posizione" id="posizione" required>
-                        <option selected></option>
-                        <option value='stazione1'>STAZIONE 1 - Corso Stati Uniti 1</option>
-                        <option value='stazione2'>STAZIONE 2 - Corso Inghilterra 47</option>
-                        <option value='stazione3'>STAZIONE 3 - Via Giudeppe Verdi 61</option>
-                        <option value='stazione4'>STAZIONE 4 - Corso Regio Parco 12</option>
-                    </select>
-                </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="descrizione"
+                            placeholder="Inserisci una descrizione del veicolo" name="descrizione"
+                            style="height: 100px"></textarea>
+                        <label for="descrizione">Descrizione</label>
+                    </div>
 
-                <div class="form-group">
-                    <label for="imgVeicolo" class="form-label">Carica Immagine:</label><br>
-                    <input type="file" class="form-control" name="image" id="image" accept="image/svg image/png, image/jpeg"
-                        class="btn btn-secondary" />
-                </div>
+                    <div class="form-floating mb-3">
+                        <select class="form-select" aria-label=".form-select-lg example" name="posizione" id="posizione"
+                            required>
+                            <option selected></option>
+                            <option value='stazione1'>STAZIONE 1 - Corso Stati Uniti 1</option>
+                            <option value='stazione2'>STAZIONE 2 - Corso Inghilterra 47</option>
+                            <option value='stazione3'>STAZIONE 3 - Via Giudeppe Verdi 61</option>
+                            <option value='stazione4'>STAZIONE 4 - Corso Regio Parco 12</option>
+                        </select>
+                        <label for="posizione">Seleziona la posizione attuale</label><br>
+                    </div>
 
-                <div class="form-group">
-                    <button onclick="postVeicolo()" class="btn btn-success mt-2 btn-lg" value="Salva"
-                        id="post-image">Salva</button>
-                </div>
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input" type="checkbox" id="disponibile" checked>
+                        <label class="form-check-label" for="disponibile">Disponibile al noleggio</label>
+                    </div>
 
-                
-            </form>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Carica l'immagine del veicolo</label><br>
+                        <input type="file" class="form-control" name="image" id="image"
+                            accept="image/svg, image/png, image/jpeg" class="btn btn-secondary" />
+                    </div>
+
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input" type="checkbox" id="banner">
+                        <label class="form-check-label" for="banner">Immagine visibile in Home</label>
+                    </div>
+
+                    <div class="d-flex justify-content-center align-items-center mb-5">
+                        <button class="btn btn-success btn-lg" onclick="postVeicolo()" value="Salva"
+                            id="post-image">Salva</button>
+                    </div>
+
+
+                </form>
+            </div>
         </div>
     </div>
     <!-- BODY -->

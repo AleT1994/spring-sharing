@@ -90,11 +90,11 @@ $().ready(function () {
 
     var date = new Date();
     var gg = date.getDate();
-    if(gg < 10){
+    if (gg < 10) {
         gg = "0" + gg;
     }
     var mo = date.getMonth() + 1;
-    if(mo < 10){
+    if (mo < 10) {
         mo = "0" + mo;
     }
     var yyyy = date.getFullYear();
@@ -103,8 +103,8 @@ $().ready(function () {
     var today = yyyy + "-" + mo + "-" + gg + "T" + hh + ":" + mi;
     var maxDate = (yyyy + 1) + "-" + mo + "-" + gg + "T" + hh + ":" + mi;
     console.log(today);
-     $('#dataOraPrenotazione').attr("min", today);
-     $('#dataOraPrenotazione').attr("max", maxDate);
+    $('#dataOraPrenotazione').attr("min", today);
+    $('#dataOraPrenotazione').attr("max", maxDate);
 
     $('#formPrenotazione').validate({
         rules: {
@@ -119,14 +119,15 @@ $().ready(function () {
         errorElement: "span",
         submitHandler: function () {
 
-            
+
         }
     });
 
 });
 
-$('#prenota').click( function() {
+$('#prenota').click(function () {
 
+    //prendo email dallo Storage
     var emailStorage;
 
     if (Modernizr.localstorage) {
@@ -137,11 +138,13 @@ $('#prenota').click( function() {
 
     }
 
+    //prendo id veicolo dalla storage
     var idVeicoloStorage = objVeicolo.id;
     console.log(idVeicoloStorage);
 
     dataOraInput = $('#dataOraPrenotazione').val();
-console.log(dataOraInput);
+    console.log(dataOraInput);
+
     var objPrenotazione = {
         utenteEmail: emailStorage,
         veicoloId: idVeicoloStorage,
@@ -156,7 +159,7 @@ console.log(dataOraInput);
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
-          },
+        },
         method: "POST",
         body: JSON.stringify(objPrenotazione)
     });
