@@ -1,4 +1,12 @@
+////////////////////////////////////////////////////
+//////Impedire prenotazione ai non loggati
 
+
+
+
+
+
+///////////////////////////////////////////
 var url = 'http://localhost:9010/sharing/api/veicoli/disponibile/true'
 
 var divveico = document.getElementById("veicolidisposez");
@@ -315,6 +323,9 @@ fetch(url)
 
 //funzione per recuperare la stringa dei dati dell'auto e salvarla in sessione
 function getDati(id) {
+
+  if (localStorage.getItem('tokenLogin')) {
+
     var tastoId = "btnPrenota-" + id;
     var objVeicolo = JSON.parse(document.getElementById(tastoId).getAttribute("obj"));
     if (Modernizr.sessionstorage) {
@@ -373,7 +384,7 @@ function getDati(id) {
   
     else {location.href = "prenota-veicolo.html"}
     
-    
+  } else { $('#myModal').modal('toggle');}
 
 }
 ///////////////////////FUNZIONE PULSANTE PRENOTA///////////////////////////

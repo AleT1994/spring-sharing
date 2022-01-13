@@ -1,3 +1,4 @@
+console.log(document.getElementById('selezioneOfferta').id);
 ///////////////////////FUNZIONE PRENDI DATI///////////////////////////
 //recupero gli elementi dall'HMTL
 var imgVeicolo = document.getElementById("imgVeicolo");
@@ -119,6 +120,8 @@ $().ready(function () {
     $('#dataOraPrenotazione').attr("min", today);
     $('#dataOraPrenotazione').attr("max", maxDate);
 
+    
+
     // $('#formPrenotazione').validate({
     //     rules: {
     //         dataOraPrenotazione: {
@@ -138,6 +141,14 @@ $().ready(function () {
 
 });
 
+
+
+
+
+
+
+
+
 $('#prenota').click(function () {
 
     //prendo email dallo Storage
@@ -151,6 +162,15 @@ $('#prenota').click(function () {
 
     }
 
+    var tipoVeicoloStorage = ''
+
+    //recupero tipo veicolo
+    if(document.getElementById('selezioneOfferta').value == "ACHILLE - giornata singola 34,99€"){tipoVeicoloStorage = 'standard'}
+    if(document.getElementById('selezioneOfferta').value == "ERMES - 3 mesi a 20,99€"){tipoVeicoloStorage = 'abbonamentoGiornaliero'}
+    if(document.getElementById('selezioneOfferta').value == "PROMETEO - 6 mesi a 18,99€"){tipoVeicoloStorage = 'abbonamentoSettimanale'}
+    if(document.getElementById('selezioneOfferta').value == "ULISSE - 12 mesi a 15,99€"){tipoVeicoloStorage = 'abbonamentoMensile'}
+
+
     //prendo id veicolo dalla storage
     var idVeicoloStorage = objVeicolo.id;
 
@@ -159,6 +179,7 @@ $('#prenota').click(function () {
     var objPrenotazione = {
         utenteEmail: emailStorage,
         veicoloId: idVeicoloStorage,
+        tipo: tipoVeicoloStorage,
         inizioPrenotazione: dataOraInput
     }
     
