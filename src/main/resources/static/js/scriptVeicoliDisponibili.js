@@ -1,3 +1,4 @@
+
 var url = 'http://localhost:9010/sharing/api/veicoli/disponibile/true'
 
 var divveico = document.getElementById("veicolidisposez");
@@ -75,7 +76,6 @@ fetch(url)
         '  <p>' + data[i].posizioneAttuale.descrizione + '</p>' + 
         '</div>'+
         
-        '<a href="prenota-veicolo.html">' +
         '<button type="button" id="' + tastoId + '" class="btn btn-primary" onclick="getDati(' + i + ')">Prenota</button>' +
         '</a>' +
         '</div>' +
@@ -166,7 +166,6 @@ fetch(url)
               '  <p>' + data[bugnpagstart].posizioneAttuale.descrizione + '</p>' + 
               '</div>'+
               
-              '<a href="prenota-veicolo.html">' +
               '<button type="button" id="' + tastoId + '" class="btn btn-primary" onclick="getDati(' + bugnpagstart + ')">Prenota</button>' +
               '</a>' +
               '</div>' +
@@ -275,9 +274,8 @@ fetch(url)
                           '  <p>' + data[elementinpagstart].posizioneAttuale.descrizione + '</p>' + 
                           '</div>'+
                           
-                          '<a href="prenota-veicolo.html">' +
                           '<button type="button" id="' + tastoId + '" class="btn btn-primary" onclick="getDati(' + elementinpagstart + ')">Prenota</button>' +
-                          '</a>' +
+
                           '</div>' +
                           '</div>';
                   
@@ -322,6 +320,61 @@ function getDati(id) {
     if (Modernizr.sessionstorage) {
         sessionStorage.setItem("datiVeicolo", JSON.stringify(objVeicolo));
     }
+
+
+    if(localStorage.getItem('cambiaprenotaz')){
+      
+      var emailStorage;
+
+    if (Modernizr.localstorage) {
+
+        var utenteStorage = JSON.parse(localStorage.getItem("tokenLogin"));
+        console.log(utenteStorage);
+        emailStorage = utenteStorage.email;
+
+    }
+
+    //prendo id veicolo dalla storage
+    var idVeicoloStorage = objVeicolo.id;
+    console.log(idVeicoloStorage);
+
+    dataOraInput = JSON.parse(localStorage.getItem('cambiaprenotaz')).data;
+    console.log(dataOraInput);
+
+    var objPrenotazione = {
+        utenteEmail: emailStorage,
+        veicoloId: idVeicoloStorage,
+        inizioPrenotazione: dataOraInput
+    }
+    console.log(objPrenotazione);
+
+    const URLprenotazione = "http://localhost:9010/sharing/api/prenotazioni";
+
+    //salvo i dati su tabella prenotazioni nel DB con POST su api/prenotazioni
+    fetch(URLprenotazione, {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify(objPrenotazione)
+    });
+    
+
+    localStorage.removeItem('cambiaprenotaz')
+    
+    location.href = "prenotazioni-utente.html"
+    
+    
+    
+  }
+  
+  
+  
+    else {location.href = "prenota-veicolo.html"}
+    
+    
+
 }
 ///////////////////////FUNZIONE PULSANTE PRENOTA///////////////////////////
 

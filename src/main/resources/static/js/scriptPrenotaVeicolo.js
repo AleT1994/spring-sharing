@@ -165,5 +165,7 @@ $('#prenota').click(function () {
         body: JSON.stringify(objPrenotazione)
     });
 
+    location.href = "index.html"
+
 })
 ///////////////////////FUNZIONE FORM PRENOTAZIONE///////////////////////////

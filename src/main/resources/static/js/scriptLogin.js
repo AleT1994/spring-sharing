@@ -42,7 +42,7 @@ window.onload = (event) => {
     }
 
 
-    var stringaBenvenuto = '<li class="nav-item dropdown" id="benvenutoUtente"><a style="text-align: center;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Benvenuto ' + nome + '</a><ul class="dropdown-menu" aria-labelledby="navbarDropdown"><li class="text-center"><img src="'+ srcfoto + '" ' +'alt="Immagine Utente" style="max-width: 5vw;" id="imgutn"></li><li><a style="text-align: center;" class="dropdown-item" href="#">Le tue Prenotazioni</a></li><li><a style="text-align: center;" class="dropdown-item" href="impostazioni.html">Impostazioni Utente</a></li><li class="text-center"><button  onclick="loggingOut()" class="btn btn-danger" id="logout">Log Out</button></li></ul></li>'
+    var stringaBenvenuto = '<li class="nav-item dropdown" id="benvenutoUtente"><a style="text-align: center;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Benvenuto ' + nome + '</a><ul class="dropdown-menu" aria-labelledby="navbarDropdown"><li class="text-center"><img src="'+ srcfoto + '" ' +'alt="Immagine Utente" class="rounded" style="max-width: 5vw;" id="imgutn"></li><li><a style="text-align: center;" class="dropdown-item" href="prenotazioni-utente.html">Le tue Prenotazioni</a></li><li><a style="text-align: center;" class="dropdown-item" href="impostazioni.html">Impostazioni Utente</a></li><li class="text-center"><button  onclick="loggingOut()" class="btn btn-danger" id="logout">Log Out</button></li></ul></li>'
 
 
     $("#loginPadre").html(stringaBenvenuto);
@@ -182,7 +182,6 @@ $('#login-form').submit(function (e) {
 
 //Logout Funzione
 function loggingOut() {
-
 
 
   localStorage.removeItem('tokenLogin');
