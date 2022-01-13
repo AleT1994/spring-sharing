@@ -178,11 +178,12 @@ footer a:active {
 
 .noPallini{
     list-style: none;
+    font-size: 13px;
 }
 
 #imgVeicolo {
     
-    width: 30%;
+    width: 20%;
     height: auto;
 }
 
@@ -259,7 +260,7 @@ span.error {
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 2rem;
+    margin-top: 7rem;
 }
 
 .team-member{
