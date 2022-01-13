@@ -44,7 +44,7 @@ public class PrenotazioneServiceImpl implements PrenotazioneService {
 	}
 
 	@Override
-	public void updatePrenotazione(Prenotazione prenotazione) {
+	public void closePrenotazione(Prenotazione prenotazione) {
 		LocalDateTime now = LocalDateTime.now();  
 		prenotazione.setFinePrenotazione(now);
 		prenotazione.setStato("conclusa");

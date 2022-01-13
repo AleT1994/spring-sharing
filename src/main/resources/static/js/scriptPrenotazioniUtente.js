@@ -207,70 +207,6 @@ fetch(apiveicoli)
 ////////////////////////////////////////////////////////////
 function chiudiPrenotazione(veicolo, id){
 //////////////////////////////////////////////////////////
-//Cambia stato veicolo in disponibile
-
-
-
-var linkveicolosingola = "http://localhost:9010/sharing/api/veicoli/id/" + veicolo
-
-   
-
-      fetch(linkveicolosingola)
-      .then(dati => {
-        return dati.json()
-      })
-      .then(res => {
-
-
-        linkApiAddV = "http://localhost:9010/sharing/api/veicoli"
-
-
-
-        function costruttoreveicolo(){
-          this.id = res.id;
-          this.nome = res.nome;
-          this.tipo = res.tipo;
-          this.modello = res.modello;
-          this.capacita = res.capacita;
-          this.potenza = res.potenza;
-          this.velocitaMassima = res.velocitaMassima
-          this.autonomia = res.autonomia
-          this.descrizione = res.descrizione
-          this.posizioneAttuale = res.posizioneAttuale
-          this.disponibile = "true"
-          this.vistaBanner = res.vistaBanner
-          this.immagine = res.immagine
-
-
-        }
-
-        var veicolo = new costruttoreveicolo();
-
-        
-        var veicoloJSON = JSON.stringify(veicolo);
-        
-
-
-
-        fetch(linkApiAddV, {
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          method: "PUT",
-          body: veicoloJSON
-        })
-                 
-
-                
-              
-
-        })
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Cambia DB Prenotazioni
-
 
     var linkprenotazionesingola = "http://localhost:9010/sharing/api/prenotazioni/id/" + id
 
@@ -498,7 +434,7 @@ function saveDate(id,calendario){
                         
       
       
-      // location.reload();
+      location.reload();
       
 
   
@@ -507,47 +443,12 @@ function saveDate(id,calendario){
     
     
   
-  
-  
+
   
   
   })
 
 
-    // var objPrenotazione = {
-    //     utenteEmail: emailStorage,
-    //     veicoloId: idVeicoloStorage,
-    //     inizioPrenotazione: dataOraInput
-    // }
-    // console.log(objPrenotazione);
-
-    // const URLprenotazione = "http://localhost:9010/sharing/api/prenotazioni";
-
-    // //salvo i dati su tabella prenotazioni nel DB con POST su api/prenotazioni
-    // fetch(URLprenotazione, {
-    //     headers: {
-    //         'Accept': 'application/json',
-    //         'Content-Type': 'application/json'
-    //     },
-    //     method: "POST",
-    //     body: JSON.stringify(objPrenotazione)
-    // });
-
-
-    //DeletePrenotazione
-
-    // const URLprenotazioneDEL = "http://localhost:9010/sharing/api/prenotazioni/id/" + id
-
-    // fetch(URLprenotazioneDEL, {
-    //   method: 'DELETE',
-    //  })
-  //    .then(ricarica => {
-
-      
-  //       location.reload();
-  
-  
-  // })
 
 }
 
