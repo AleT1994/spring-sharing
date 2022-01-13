@@ -6,6 +6,8 @@ let form = document.getElementsByTagName('form')[0];
 let preloader = document.getElementById('preloader-wrapper');
 let bodyElement = document.querySelector('body');
 let succcessDiv = document.getElementById('success');
+var riepilogo = document.getElementById('riepilogo');
+var selezioneOfferta = document.getElementById('selezioneOfferta');
 
 form.onsubmit = () => {
     return false
@@ -23,8 +25,45 @@ const progress = (value) => {
     document.getElementsByClassName('progress-bar')[0].style.width = `${value}%`;
 }
 
-nextBtn.addEventListener('click', () => {
+
+nextBtn.addEventListener('click', function () {
+   
+    $(".error").remove();
+
+    var date = new Date();
+    var gg = date.getDate();
+    if (gg < 10) {
+        gg = "0" + gg;
+    }
+    var mo = date.getMonth() + 1;
+    if (mo < 10) {
+        mo = "0" + mo;
+    }
+    var yyyy = date.getFullYear();
+    var hh = date.getHours();
+    var mi = date.getMinutes();
+
+
+    var propriora = yyyy + "-" + mo + "-" + gg + "T" + hh + ":" + mi;
+
+    if (document.getElementById("dataOraPrenotazione").value == "") {
+    $('#dataOraPrenotazione').after('<span class="error">Devi inserire un valore valido di tipo data e ora</span>');
+    return
+    }
+
+    else if (document.getElementById("dataOraPrenotazione").value > document.getElementById("dataOraPrenotazione").max) {
+    $('#dataOraPrenotazione').after('<span class="error">Puoi prenotare il veicolo entro massimo 1 anno</span>');
+    return
+    }
+    else if (document.getElementById("dataOraPrenotazione").value < propriora ) {
+    $('#dataOraPrenotazione').after('<span class="error">Non puoi prenotare qualcosa nel passato</span>');
+    return
+    }
+
+    else {
+   
     current_step++;
+    console.log(current_step);
     let previous_step = current_step - 1;
     if ((current_step > 0) && (current_step <= stepCount)) {
         prevBtn.classList.remove('d-none');
@@ -47,12 +86,27 @@ nextBtn.addEventListener('click', () => {
         }
     }
     progress((100 / stepCount) * current_step);
+
+
+    if(current_step==2){
+        riepilogo.innerHTML=selezioneOfferta.value;
+    }
+
+
+
+
+        }
+
 });
  
+
  
 prevBtn.addEventListener('click', () => {
+
+
     if (current_step > 0) {
         current_step--;
+        console.log(current_step);
         let previous_step = current_step + 1;
         prevBtn.classList.add('d-none');
         prevBtn.classList.add('d-inline-block');
@@ -75,6 +129,9 @@ prevBtn.addEventListener('click', () => {
         prevBtn.classList.add('d-none');
     }
     progress((100 / stepCount) * current_step);
+
+
+
 });
  
  

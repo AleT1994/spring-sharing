@@ -99,33 +99,31 @@
         </div>
         <div class="row mb-5">
             <div id="banner" class="col-6 align-items-middle d-flex justify-content-center align-items-center">
-                <div class="">
+                <div>
                     <ul class="noPallini">
                         <li>
-                            <p id="nomeVeicolo">Lorem, ipsum dolor.</p>
+                            <div class="d-flex" id="nomeVeicolo"></div>
                         </li>
                         <li>
-                            <p id="tipoVeicolo">Lorem ipsum dolor.</p>
+                            <div class="d-flex" id="tipoVeicolo"></div>
                         </li>
                         <li>
-                            <p id="autonomiaVeicolo">Lorem ipsum dolor.</p>
+                            <div class="d-flex" id="autonomiaVeicolo"></div>
                         </li>
                         <li>
-                            <p id="modelloVeicolo">Modello ipsum dolor.</p>
-                        </li>
-                    </ul>
-                    <ul class="noPallini">
-                        <li>
-                            <p id="potenzaVeicolo">Potenza lorem</p>
+                            <div class="d-flex" id="modelloVeicolo"></div>
                         </li>
                         <li>
-                            <p id="capacitaVeicolo">Capacita lorem</p>
+                            <div class="d-flex" id="potenzaVeicolo"></div>
                         </li>
                         <li>
-                            <p id="velMaxVeicolo">Velocita lorem</p>
+                            <div class="d-flex" id="capacitaVeicolo"></div>
                         </li>
                         <li>
-                            <p id="posizioneVeicolo">Posizione lorem</p>
+                            <div class="d-flex" id="velMaxVeicolo"></div>
+                        </li>
+                        <li>
+                            <div id="posizioneVeicolo"></div>
                         </li>
                     </ul>
                 </div>
@@ -173,13 +171,13 @@
                                     <div class="my-5 col-lg-6 offset-lg-3  justify-content-center align-items-center">
                                         <h4 class="mt-3 ms-3 justify-content-center align-items-center text-center">
                                             Seleziona il piano di pagamento</h4>
-                                        <select
+                                        <select 
                                             class="form-select justify-content-center align-items-center text-center"
-                                            aria-label="Default select example">
-                                            <option selected>Seleziona QUI</option>
-                                            <option value="1">ERMES - 3 mesi a 20,99€</option>
-                                            <option value="2">PROMETEO - 6 mesi a 18,99€</option>
-                                            <option value="3">ULISSE - 12 mesi a 15,99€</option>
+                                            aria-label="Default select example" id="selezioneOfferta">
+                                            <option id="achille" value="ACHILLE - giornata singola 34,99€">ACHILLE - giornata singola 34,99€</option>
+                                            <option id="ermes" value="ERMES - 3 mesi a 20,99€">ERMES - 3 mesi a 20,99€</option>
+                                            <option id="prometeo" value="PROMETEO - 6 mesi a 18,99€">PROMETEO - 6 mesi a 18,99€</option>
+                                            <option id="ulisse" value="ULISSE - 12 mesi a 15,99€">ULISSE - 12 mesi a 15,99€</option>
                                         </select>
                                     </div>
                                     <!-- SELECT OFFERTA -->
@@ -232,7 +230,7 @@
                                     <div class="mt-1 justify-content-center align-items-center text-center">
                                         <div class="closing-text">
                                             <h4>Ci sei quasi..</h4>
-                                            <!-- <p id="riepilogo">Inserire riepilogo pagamento qui</p> -->
+                                            <p id="riepilogo">Inserire riepilogo pagamento qui</p>
                                             <p>Clicca su Submit per terminare la transazione.</p>
                                         </div>
                                     </div>
@@ -444,6 +442,7 @@
 
     <!-- MIEI SCRIPT -->
     <script src="js/scriptLogin.js"></script>
+    <script src="js/scriptAccessDenied.js"></script>
     <script src="js/scriptPrenotaVeicolo.js"></script>
     <script src="js/scriptPagamento.js"></script>
     <script src="js/scriptStepper.js"></script>

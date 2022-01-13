@@ -17,7 +17,6 @@ public class PrenotazioneServiceImpl implements PrenotazioneService {
 
 	@Override
 	public void addPrenotazione(Prenotazione prenotazione) {
-		prenotazione.setTipo("standard");
 		prenotazione.setStato("in corso");
 
 		this.repoPrenotazione.save(prenotazione);

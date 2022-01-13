@@ -32,7 +32,7 @@
 
 <body>
 
-    
+
     <!--NAVBAR-->
     <nav class="navbar navbar-expand-lg navbar-light row sticky-top asusu">
         <div class="container">
@@ -42,14 +42,15 @@
 
 
             <!-- Nav tabs -->
-                <ul class="nav nav-tabs" id="tabsticky">
+
+            <!-- <ul class="nav nav-tabs" id="tabsticky">
                     <li class="nav-item">
                     <a class="nav-link active" data-bs-toggle="tab" href="#prntcorso">Prenotazioni in corso</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#prntfinite">Prenotazioni finite</a>
                     </li>
-                    </ul>
+                </ul> -->
 
 
             <button class="pe-3 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -79,32 +80,44 @@
 
 
 
-    <!--SEZIONI CON TABS-->
-  
-  
-    <!-- Tab panes -->
-    <div class="tab-content">
-    
 
-    <!--Sezione prenotazioni in corso WARNING NON SPAZIARE TRA I DIV O SI SPACCA TUTTO-->
-    <div class="tab-pane container active" id="prntcorso"></div>
-    <!--Sezione prenotazioni in corso WARNING NON SPAZIARE TRA I DIV O SI SPACCA TUTTO-->
-    
 
-    <!--Sezione prenotazioni finite WARNING NON SPAZIARE TRA I DIV O SI SPACCA TUTTO-->
-    <div class="tab-pane container fade" id="prntfinite"></div>
-    <!--Sezione prenotazioni finite WARNING NON SPAZIARE TRA I DIV O SI SPACCA TUTTO-->
-    
-  
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav nav-tabs bg-light" id="tabsticky" style="z-index: 1;">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#prntcorso">Prenotazioni in corso</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#prntfinite">Prenotazioni finite</a>
+                    </li>
+                </ul>
+
+                <!--SEZIONI CON TABS-->
+
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+
+
+                    <!--Sezione prenotazioni in corso WARNING NON SPAZIARE TRA I DIV O SI SPACCA TUTTO-->
+                    <div class="tab-pane container active p-0" id="prntcorso"></div>
+                    <!--Sezione prenotazioni in corso WARNING NON SPAZIARE TRA I DIV O SI SPACCA TUTTO-->
+
+
+                    <!--Sezione prenotazioni finite WARNING NON SPAZIARE TRA I DIV O SI SPACCA TUTTO-->
+                    <div class="tab-pane container fade p-0" id="prntfinite"></div>
+                    <!--Sezione prenotazioni finite WARNING NON SPAZIARE TRA I DIV O SI SPACCA TUTTO-->
+
+
+                </div>
+            </div>
+        </div>
     </div>
-  <!--SEZIONI CON TABS-->
-
-
-
-
-    
-  
-
+    <!--SEZIONI CON TABS-->
 
 
 
@@ -119,7 +132,7 @@
         </div>
     </footer>
     <!-- FOOTER -->
-    
+
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -160,7 +173,7 @@
     <script src="js/scriptAccessDenied.js"></script>
     <script src="js/scriptPrenotazioniUtente.js"></script>
     <script src="js/scriptPrenotazioniUtentefinito.js"></script>
-   
+
 
 </body>
 
