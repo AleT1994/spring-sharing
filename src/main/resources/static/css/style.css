@@ -209,9 +209,13 @@ footer a:active {
 
 .noPallini{
     list-style: none;
-    font-size: 13px;
+    /* font-size: 13px; */
     /* border: solid;
     border: rgb(129, 192, 243); */
+}
+
+.noPallini h4{
+    margin-right: 0.5rem;
 }
 
 #imgVeicolo {

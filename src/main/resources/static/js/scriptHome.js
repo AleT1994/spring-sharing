@@ -41,17 +41,17 @@ $().ready(function () {
                     '<div class="col-12 col-md-7 col-lg-5 d-flex flex-column justify-content-center align-items-flex-start dettagliVeicolo">' +
                     '<h2>' + nome + '</h2>' +
                     '<p>' + descrizione + '</p>' +
-                    '<a href="prenota-veicolo.html">' +
-                    '<button type="button" id="' + tastoId + '" class="btn btn-primary" onclick="getDati(' + i + ')">Prenota</button>' +
-                    '</a>' +
+                    // '<a href="prenota-veicolo.html">' +
+                    // '<button type="button" id="' + tastoId + '" class="btn btn-primary" onclick="getDati(' + i + ')">Prenota</button>' +
+                    // '</a>' +
                     '</div>' +
                     '</div>' +
                     '</div>';
 
                 //collego a ogni bottone "Prenota" i dati della sua auto sotto forma di Stringa (con attributo obj)
-                var btnPrenota = document.getElementById(tastoId);
-                var stringifiedObj = JSON.stringify(response[i]);
-                btnPrenota.setAttribute("obj", stringifiedObj);
+                // var btnPrenota = document.getElementById(tastoId);
+                // var stringifiedObj = JSON.stringify(response[i]);
+                // btnPrenota.setAttribute("obj", stringifiedObj);
             }
         });
 });
