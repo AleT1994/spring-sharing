@@ -374,7 +374,7 @@ function modificaDati(id) {
             }
 
             var oldImage = arrayObjVeicoli[i].immagine;
-            $("#newDescrizione-" + id).attr("value", oldImage);
+            $("#newImage-" + id).attr("name", oldImage);
         }
     }
 }
@@ -444,14 +444,108 @@ function putVeicolo(id) {
     }
 
     const nome = document.getElementById("newNome-" + id).value;
+    if (nome == "") {
+        $("#newNome-" + id).after(`<span class="error">Inserisci il nome del veicolo</span>`);
+        id.preventDefault();
+    }
+    if (nome.length < 4) {
+        $("#newNome-" + id).after(`<span class="error">Il nome del veicolo è troppo corto</span>`);
+        id.preventDefault();
+    }
+    if (nome.length > 50) {
+        $("#newNome-" + id).after(`<span class="error">Il nome del veicolo è troppo lungo</span>`);
+        id.preventDefault();
+    }
 
     const modello = document.getElementById("newModello-" + id).value;
+    if (modello == "") {
+        $("#newModello-" + id).after(`<span class="error">Inserisci il modello del veicolo</span>`);
+        id.preventDefault();
+    }
+    if (modello.length < 3) {
+        $("#newModello-" + id).after(`<span class="error">Il modello del veicolo è troppo corto</span>`);
+        id.preventDefault();
+    }
+    if (modello.length > 25) {
+        $("#newModello-" + id).after(`<span class="error">Il modello del veicolo è troppo lungo</span>`);
+        id.preventDefault();
+    }
+
     const capacita = document.getElementById("newCapacita-" + id).value;
+    if (capacita == "") {
+        $("#newCapacita-" + id).after(`<span class="error">Inserisci la capacita del veicolo</span>`);
+        id.preventDefault();
+    }
+    if (capacita.length < 3) {
+        $("#newCapacita-" + id).after(`<span class="error">La capacita del veicolo è troppo corta</span>`);
+        id.preventDefault();
+    }
+    if (capacita.length > 15) {
+        $("#newCapacita-" + id).after(`<span class="error">La capacita del veicolo è troppo lunga</span>`);
+        id.preventDefault();
+    }
+    
     const potenza = document.getElementById("newPotenza-" + id).value;
+    if (potenza == "") {
+        $("#newPotenza-" + id).after(`<span class="error">Inserisci la potenza del veicolo</span>`);
+        id.preventDefault();
+    }
+    if (potenza.length < 3) {
+        $("#newPotenza-" + id).after(`<span class="error">La potenza del veicolo è troppo corta</span>`);
+        id.preventDefault();
+    }
+    if (potenza.length > 15) {
+        $("#newPotenza-" + id).after(`<span class="error">La potenza del veicolo è troppo lunga</span>`);
+        id.preventDefault();
+    }
+
     const velocita = document.getElementById("newVelocita-" + id).value;
+    if (velocita == "") {
+        $("#newVelocita-" + id).after(`<span class="error">Inserisci la velocita del veicolo</span>`);
+        id.preventDefault();
+    }
+    if (velocita.length < 3) {
+        $("#newVelocita-" + id).after(`<span class="error">La velocita del veicolo è troppo corta</span>`);
+        id.preventDefault();
+    }
+    if (velocita.length > 15) {
+        $("#newVelocita-" + id).after(`<span class="error">La velocita del veicolo è troppo lunga</span>`);
+        id.preventDefault();
+    }
+
     const autonomia = document.getElementById("newAutonomia-" + id).value;
+    if (autonomia == "") {
+        $("#newAutonomia-" + id).after(`<span class="error">Inserisci l'autonomia del veicolo</span>`);
+        id.preventDefault();
+    }
+    if (autonomia.length < 3) {
+        $("#newAutonomia-" + id).after(`<span class="error">L'autonomia del veicolo è troppo corta</span>`);
+        id.preventDefault();
+    }
+    if (autonomia.length > 15) {
+        $("#newAutonomia-" + id).after(`<span class="error">L'autonomia del veicolo è troppo lunga</span>`);
+        id.preventDefault();
+    }
     const descrizione = document.getElementById("newDescrizione-" + id).value;
+    if (descrizione == "") {
+        $("#newDescrizione-" + id).after(`<span class="error">Inserisci la descrizione del veicolo</span>`);
+        id.preventDefault();
+    }
+    if (descrizione.length < 15) {
+        $("#newDescrizione-" + id).after(`<span class="error">La descrizione del veicolo è troppo corta</span>`);
+        id.preventDefault();
+    }
+    if (descrizione.length > 250) {
+        $("#newDescrizione-" + id).after(`<span class="error">La descrizione del veicolo è troppo lunga</span>`);
+        id.preventDefault();
+    }
+
     const inputPosizione = document.getElementById("newPosizione-" + id).value;
+    if (inputPosizione == "") {
+        $("#newPosizione-" + id).after(`<span class="error">Inserisci la posizione attuale del veicolo</span>`);
+        id.preventDefault();
+    }
+
     const disponibile = document.getElementById("newDisponibile-" + id).checked;
     const banner = document.getElementById("newBanner-" + id).checked;
 
@@ -467,7 +561,7 @@ function putVeicolo(id) {
         formData.append("immagine", src);
         formData.append("image", image);
     } else {
-        formData.append("immagine", src); //@TODO set old values
+        formData.append("immagine", document.getElementById("newImage-"+id).name); //@TODO set old values
     }
 
 
@@ -525,6 +619,7 @@ function putVeicolo(id) {
         });
 }
 
+//funzione per aprire il modale che mi notifica il successo dell'operazione
 function successo() {
 
     $('#successoModifica').modal('toggle');
@@ -543,7 +638,7 @@ function conferma(id) {
 
 }
 
-//funzione per eliminare il veicolo dal catalogo (ovvero dal DB)
+//funzione per eliminare il veicolo dal catalogo (quindi dal DB)
 function eliminaDati() {
 
     var id;
@@ -562,10 +657,12 @@ function eliminaDati() {
 
 }
 
+//funzione che ricarica la pagina corrente
 function ricaricaPagina() {
     location.reload();
 }
 
+//funzione button che mi fa tornare in home
 $('#vaiHome').click(function () {
     window.location = "index.html";
 });
