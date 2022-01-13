@@ -50,6 +50,11 @@ public class PrenotazioneServiceImpl implements PrenotazioneService {
 		prenotazione.setStato("conclusa");
 		this.repoPrenotazione.save(prenotazione);
 	}
+	
+	public void updatePrenotazioneData(Prenotazione prenotazione) {
+		prenotazione.setStato("in corso");
+		this.repoPrenotazione.save(prenotazione);
+	}
 
 	@Override
 	public void deletePrenotazione(int id) {

@@ -145,7 +145,7 @@ fetch(apiveicoli)
                           '<button type="button" class="btn btn-primary" id="cambiaveicolobtnid'+ k +'" dammidata="'+ inizioCambiaV +'" onclick="cambiaVeicolo('+ idVeicolo + ',' + idPrn  + ', this.id )">Cambia Veicolo</button>'+
 
 
-                          '<button type="button" class="btn btn-info" id="cambiaredatabtnid'+ k +'" dammicalendario="aggiungicalendario'+ k +'" onclick="cambiaData('+ idVeicolo + ',' + idPrn + ', this.id)">Cambia Data</button>'+
+                          '<button type="button" class="btn btn-info" id="cambiaredatabtnid'+ k +'" dammicalendario="aggiungicalendario'+ k +'" onclick="cambiaData('+ idPrn + ', this.id)">Cambia Data</button>'+
                          
                       
 
@@ -331,7 +331,7 @@ var linkveicolosingola = "http://localhost:9010/sharing/api/veicoli/id/" + veico
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
-function cambiaData(veicolo, id, calendario){
+function cambiaData(id, calendario){
 
 
     var cale = calendario 
@@ -354,40 +354,47 @@ function cambiaData(veicolo, id, calendario){
      $(calendariovero).insertAfter('#'+calen)
 
 
-    var date = new Date();
-    var gg = date.getDate();
-    if (gg < 10) {
-        gg = "0" + gg;
-    }
-    var mo = date.getMonth() + 1;
-    if (mo < 10) {
-        mo = "0" + mo;
-    }
-    var yyyy = date.getFullYear();
-    var hh = date.getHours();
-    var mi = date.getMinutes();
-    var today = yyyy + "-" + mo + "-" + gg + "T" + hh + ":" + mi;
-    var maxDate = (yyyy + 1) + "-" + mo + "-" + gg + "T" + hh + ":" + mi;
 
-    $('#dataOraPrenotazione'+ calendario).attr("min", today);
-    $('#dataOraPrenotazione'+ calendario).attr("max", maxDate);
-
-    $('#formPrenotazione' + calendario).validate({
-        rules: {
-            dataOraPrenotazione: {
-                required: true,
-                date: true
-            }
-        },
-        messages: {
-            dataOraPrenotazione: "Devi inserire un valore valido di tipo data e ora"
-        },
-        errorElement: "span",
-        submitHandler: function () {
-
-
+        var date = new Date();
+        var gg = date.getDate();
+        if (gg < 10) {
+            gg = "0" + gg;
         }
-    });
+        var mo = date.getMonth() + 1;
+        if (mo < 10) {
+            mo = "0" + mo;
+        }
+        var yyyy = date.getFullYear();
+        var hh = date.getHours();
+        var mi = date.getMinutes();
+        var today = yyyy + "-" + mo + "-" + gg + "T" + hh + ":" + mi;
+        var maxDate = (yyyy + 1) + "-" + mo + "-" + gg + "T" + hh + ":" + mi;
+    
+        $('#dataOraPrenotazione'+ calendario).attr("min", today);
+        $('#dataOraPrenotazione'+ calendario).attr("max", maxDate);
+    
+      
+        
+        $('#formPrenotazione' + calendario).validate({
+              
+            rules: {
+                dataOraPrenotazione: {
+                    required: true,
+                    date: true
+                }
+            },
+            messages: {
+                dataOraPrenotazione: "Devi inserire un valore valido di tipo data e ora"
+            },
+            errorElement: "span",
+            submitHandler: function () {
+    
+    
+            }
+        });
+
+
+
 
 
     $("#"+cale).attr("class", "btn btn-success")
@@ -395,81 +402,124 @@ function cambiaData(veicolo, id, calendario){
     $("#"+cale).html("Salva data")
 
 
-    $("#"+cale).attr("onclick", "saveDate("+ veicolo +","+ id + ", this.id )")
+    $("#"+cale).attr("onclick", "saveDate("+ id + ", this.id )")
 
     var formprenotazionedaeliminare = 'formPrenotazione' + calendario
 
     var htmlButtonAnnulla = 
     
-    '<button type="button" class="btn btn-warning" id="annullacalendario'+ calendario +'" onclick="annullaData('+ formprenotazionedaeliminare + ',' +  veicolo + ',' + id +  ',' + calendario +', this.id )">Annulla</button>';
+    '<button type="button" class="btn btn-warning" id="annullacalendario'+ calendario +'" onclick="annullaData('+ formprenotazionedaeliminare + ',' +  id +  ',' + calendario +', this.id )">Annulla</button>';
     
     $(htmlButtonAnnulla).insertAfter('#' + cale);
 
 }
 
-function saveDate(veicolo,id,calendario){
+function saveDate(id,calendario){
 
+    
+    
 
-    //prendo email dallo Storage
-    var emailStorage;
-
-    if (Modernizr.localstorage) {
-
-        var utenteStorage = JSON.parse(localStorage.getItem("tokenLogin"));
-        console.log(utenteStorage);
-        emailStorage = utenteStorage.email;
-
-    }
-
-    //prendo id veicolo dalla storage
-    var idVeicoloStorage = veicolo;
-    console.log(idVeicoloStorage);
 
     var idcalendarioperfavore = calendario
     console.log(idcalendarioperfavore)
 
     dataOraInput = $('#dataOraPrenotazione'+ calendario ).val();
-    console.log(dataOraInput);
+    console.log(dataOraInput)
+    // console.log(dataOraInput);
 
-    var objPrenotazione = {
-        utenteEmail: emailStorage,
-        veicoloId: idVeicoloStorage,
-        inizioPrenotazione: dataOraInput
+    fetch("http://localhost:9010/sharing/api/prenotazioni/id/" + id)
+  .then(dati1 => {
+    return dati1.json()
+  })
+  .then(bau => { 
+    
+    
+    var contratto = bau.tipo 
+
+    function costruttoreprenotazionedata(){
+      this.id = bau.id;
+      this.utenteEmail = bau.utenteEmail;
+      this.veicoloId = bau.veicoloId;
+      this.tipo = bau.tipo;
+      this.stato = bau.stato;
+      this.inizioPrenotazione = dataOraInput
+      this.finePrenotazione = bau.finePrenotazione
     }
-    console.log(objPrenotazione);
 
-    const URLprenotazione = "http://localhost:9010/sharing/api/prenotazioni";
-
-    //salvo i dati su tabella prenotazioni nel DB con POST su api/prenotazioni
-    fetch(URLprenotazione, {
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        method: "POST",
-        body: JSON.stringify(objPrenotazione)
-    });
+    var prenotazionedata = new costruttoreprenotazionedata();
 
 
-    //DeletePrenotazione
 
-    const URLprenotazioneDEL = "http://localhost:9010/sharing/api/prenotazioni/id/" + id
+    var prenotazionedataJSON = JSON.stringify(prenotazionedata);
 
-    fetch(URLprenotazioneDEL, {
-      method: 'DELETE',
-     })
-     .then(ricarica => {
-
+  
+    fetch("http://localhost:9010/sharing/api/prenotazioni/data", {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "PUT",
+      body: prenotazionedataJSON
+    })
+    .then(prenotazioneconclusa => {
+                        
       
-        location.reload();
+      
+      location.reload();
+      
+
+  
+        }); 
+
+    
+    
+  
+  
+  
   
   
   })
 
+
+    // var objPrenotazione = {
+    //     utenteEmail: emailStorage,
+    //     veicoloId: idVeicoloStorage,
+    //     inizioPrenotazione: dataOraInput
+    // }
+    // console.log(objPrenotazione);
+
+    // const URLprenotazione = "http://localhost:9010/sharing/api/prenotazioni";
+
+    // //salvo i dati su tabella prenotazioni nel DB con POST su api/prenotazioni
+    // fetch(URLprenotazione, {
+    //     headers: {
+    //         'Accept': 'application/json',
+    //         'Content-Type': 'application/json'
+    //     },
+    //     method: "POST",
+    //     body: JSON.stringify(objPrenotazione)
+    // });
+
+
+    //DeletePrenotazione
+
+    // const URLprenotazioneDEL = "http://localhost:9010/sharing/api/prenotazioni/id/" + id
+
+    // fetch(URLprenotazioneDEL, {
+    //   method: 'DELETE',
+    //  })
+  //    .then(ricarica => {
+
+      
+  //       location.reload();
+  
+  
+  // })
+
 }
 
 
-function annullaData(form, veicolo, id, calendario, bottonelimina) {
+function annullaData(form, id, calendario, bottonelimina) {
  
   
   var formelimina = $(form).attr('id');
@@ -488,7 +538,7 @@ function annullaData(form, veicolo, id, calendario, bottonelimina) {
   $("#"+calendario1).attr("class", "btn btn-info")
   $("#"+calendario1).html("Cambia Data")
   
-  $('#'+ calendario1).attr("onclick",  "cambiaData(" + veicolo + "," + id + ", this.id )")
+  $('#'+ calendario1).attr("onclick",  "cambiaData(" + id + ", this.id )")
 
   
 

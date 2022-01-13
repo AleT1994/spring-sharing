@@ -61,6 +61,11 @@ public class PrenotazioniREST {
 		prenotazioneService.updatePrenotazione(prenotazione);
 	}
 	
+	@PutMapping("data")
+	public void modificaPrenotazioneData(@RequestBody Prenotazione prenotazione) {
+		prenotazioneService.updatePrenotazioneData(prenotazione);
+	}
+	
 	@DeleteMapping ("id/{id}")
 	public void eliminaPrenotazione(@PathVariable("id") int id) {
 		prenotazioneService.deletePrenotazione(id);

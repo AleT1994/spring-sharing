@@ -13,6 +13,7 @@ public interface PrenotazioneService {
 	List<Prenotazione> getByUtenteEmail(String utenteEmail);
 	List<Prenotazione> getByVeicoloId(int veicoloId);
 	void updatePrenotazione(Prenotazione prenotazione);
+	void updatePrenotazioneData(Prenotazione prenotazione);
 	void deletePrenotazione(int id);
 	
 }
