@@ -5,6 +5,12 @@ var nomeVeicolo = document.getElementById("nomeVeicolo");
 var tipoVeicolo = document.getElementById("tipoVeicolo");
 var autonomiaVeicolo = document.getElementById("autonomiaVeicolo");
 
+var modelloVeicolo = document.getElementById("modelloVeicolo");
+var potenzaVeicolo = document.getElementById("potenzaVeicolo");
+var capacitaVeicolo = document.getElementById("capacitaVeicolo");
+var velMaxVeicolo = document.getElementById("velMaxVeicolo");
+var posizioneVeicolo = document.getElementById("posizioneVeicolo");
+
 //creo un oggetto per salvare i dati dalla Session Storage
 var objVeicolo = {};
 
@@ -34,6 +40,13 @@ switch (objVeicolo.tipo) {
         break;
 }
 autonomiaVeicolo.innerText = "Autonomia: " + objVeicolo.autonomia;
+modelloVeicolo.innerText = "Modello: " + objVeicolo.modello;
+potenzaVeicolo.innerText = "Potenza: " + objVeicolo.potenza;
+capacitaVeicolo.innerText = "Capacità: " + objVeicolo.capacita;
+velMaxVeicolo.innerText = "Velocità massima: " + objVeicolo.velocitaMassima;
+posizioneVeicolo.innerText = "Posizione attuale: " + JSON.stringify(objVeicolo.posizioneAttuale.descrizione);
+
+
 ///////////////////////FUNZIONE PRENDI DATI///////////////////////////
 
 

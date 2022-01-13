@@ -178,11 +178,12 @@ footer a:active {
 
 .noPallini{
     list-style: none;
+    font-size: 13px;
 }
 
 #imgVeicolo {
     
-    width: 30%;
+    width: 20%;
     height: auto;
 }
 
@@ -259,7 +260,7 @@ span.error {
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 2rem;
+    margin-top: 7rem;
 }
 
 .team-member{
@@ -285,15 +286,15 @@ span.error {
 /*----------------MEDIA QUERIES----------------*/
 @media screen and (min-width: 500px) {
     #map {
-        width: 420px;
-        height: 280px;
+        width: 320px;
+        height: 190px;
     }
 }
 
 @media screen and (min-width: 700px) {
     #map {
-        width: 600px;
-        height: 400px;
+        width: 500px;
+        height: 300px;
     }
 }
 /*----------------MEDIA QUERIES----------------*/

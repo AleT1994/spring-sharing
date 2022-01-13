@@ -57,8 +57,16 @@ public class PrenotazioniREST {
 	}
 	
 	@PutMapping
-	public void modificaPrenotazione(@RequestBody Prenotazione prenotazione) {
-		prenotazioneService.updatePrenotazione(prenotazione);
+	public void chiudiPrenotazione(@RequestBody Prenotazione prenotazione) {
+		Veicolo veicolo = veicoloService.getOne(prenotazione.getVeicoloId());
+		veicolo.setDisponibile("true");
+		veicoloService.updateVeicolo(veicolo);
+		prenotazioneService.closePrenotazione(prenotazione);
+	}
+	
+	@PutMapping("data")
+	public void modificaPrenotazioneData(@RequestBody Prenotazione prenotazione) {
+		prenotazioneService.updatePrenotazioneData(prenotazione);
 	}
 	
 	@DeleteMapping ("id/{id}")
