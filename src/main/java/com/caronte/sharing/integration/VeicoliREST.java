@@ -33,8 +33,8 @@ public class VeicoliREST {
 	private VeicoloService veicoloService;
 
 	@PostMapping
-	public ResponseEntity<Veicolo> uploadVeicolo(Veicolo veicolo, BindingResult result,
-			HttpServletRequest request, @RequestParam("image") MultipartFile file) {
+	public ResponseEntity<Veicolo> uploadVeicolo(Veicolo veicolo, BindingResult result, HttpServletRequest request,
+			@RequestParam("image") MultipartFile file) {
 
 		Veicolo veicoloSalvato = new Veicolo();
 		veicolo.setPosizioneAttuale(extractPosizione(request));
@@ -91,9 +91,28 @@ public class VeicoliREST {
 		return veicoloService.getByDisponibile(disponibile);
 	}
 
-	@PutMapping
-	public void modificaVeicolo(@RequestBody Veicolo veicolo) {
+	@PutMapping("/file")
+	public ResponseEntity<Veicolo> modificaVeicolo(Veicolo veicolo, BindingResult result, HttpServletRequest request,
+			@RequestParam("image") MultipartFile file) {
 		veicoloService.updateVeicolo(veicolo);
+
+		Veicolo veicoloSalvato = new Veicolo();
+		veicolo.setPosizioneAttuale(extractPosizione(request));
+		veicoloSalvato = veicoloService.updateVeicolo(veicolo,file);
+		
+		return ResponseEntity.ok().body(veicoloSalvato);
+	}
+
+	@PutMapping()
+	public ResponseEntity<Veicolo> modificaVeicolo(Veicolo veicolo, BindingResult result, HttpServletRequest request) {
+		veicoloService.updateVeicolo(veicolo);
+
+		Veicolo veicoloSalvato = new Veicolo();
+		veicolo.setPosizioneAttuale(extractPosizione(request));
+
+		veicoloSalvato = veicoloService.updateVeicolo(veicolo);
+
+		return ResponseEntity.ok().body(veicoloSalvato);
 	}
 
 	@DeleteMapping("/id/{id}")

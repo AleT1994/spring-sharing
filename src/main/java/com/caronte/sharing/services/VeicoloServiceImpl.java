@@ -102,13 +102,43 @@ public class VeicoloServiceImpl implements VeicoloService {
 	}
 
 	@Override
-	public void updateVeicolo(Veicolo veicolo) {
-		this.repoVeicoli.save(veicolo);
+	public Veicolo updateVeicolo(Veicolo veicolo) {
+		return this.repoVeicoli.save(veicolo);
 	}
 
 	@Override
 	public void deleteVeicolo(int id) {
 		this.repoVeicoli.deleteById(id);
+	}
+
+	@Override
+	public Veicolo updateVeicolo(Veicolo veicolo, MultipartFile multipartFile) {
+		 // 1) nome del file o immagine
+		 // 2) setto nome del file prima di salvare il veicolo
+		 // 3) salvo il veicolo
+		 // 4) genero il percorso della cartella dove salvare l'immagine
+		 // 5) classe utility con metodo statico che salva il file
+		 // 6) restituisco il veicolo salvato
+		
+		//1
+		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+		
+		//3
+		Veicolo veicoloSalvato = repoVeicoli.save(veicolo);
+
+		//4
+		String uploadDir = CustomProperties.basepath + "/" + veicoloSalvato.getTipo();
+		 
+      try {
+      	//5
+			FileUploader.saveFile(uploadDir, fileName, multipartFile);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+      
+
+      //6
+		return veicoloSalvato;
 	}
 
 }
