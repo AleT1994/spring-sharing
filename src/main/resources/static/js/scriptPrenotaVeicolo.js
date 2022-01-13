@@ -120,22 +120,22 @@ $().ready(function () {
     $('#dataOraPrenotazione').attr("min", today);
     $('#dataOraPrenotazione').attr("max", maxDate);
 
-    $('#formPrenotazione').validate({
-        rules: {
-            dataOraPrenotazione: {
-                required: true,
-                date: true
-            }
-        },
-        messages: {
-            dataOraPrenotazione: "Devi inserire un valore valido di tipo data e ora"
-        },
-        errorElement: "span",
-        submitHandler: function () {
+    // $('#formPrenotazione').validate({
+    //     rules: {
+    //         dataOraPrenotazione: {
+    //             required: true,
+    //             date: true
+    //         }
+    //     },
+    //     messages: {
+    //         dataOraPrenotazione: "Devi inserire un valore valido di tipo data e ora"
+    //     },
+    //     errorElement: "span",
+    //     submitHandler: function () {
 
 
-        }
-    });
+    //     }
+    // });
 
 });
 
