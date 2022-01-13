@@ -41,7 +41,7 @@
 <body class="d-flex flex-column min-vh-100">
 
     <!--NAVBAR-->
-    <nav class="navbar navbar-expand-lg navbar-light row sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light row sticky-top asusu">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <img id="logo" src="img/logo.png" alt="" class="ps-sm-3 ps-lg-5 d-inline-block align-text-top">
@@ -98,8 +98,8 @@
             <img id="imgVeicolo" src="http://placekitten.com/300/300" class="img-fluid" alt="articleImage1">
         </div>
         <div class="row mb-5">
-            <div id="banner" class="col-6">
-                <div class="d-flex  justify-content-center align-items-center text-center">
+            <div id="banner" class="col-6 align-items-middle d-flex justify-content-center align-items-center">
+                <div class="">
                     <ul class="noPallini">
                         <li>
                             <p id="nomeVeicolo">Lorem, ipsum dolor.</p>
@@ -110,16 +110,18 @@
                         <li>
                             <p id="autonomiaVeicolo">Lorem ipsum dolor.</p>
                         </li>
-                        <li><p id="modelloVeicolo">Modello ipsum dolor.</p></li>
+                        <li>
+                            <p id="modelloVeicolo">Modello ipsum dolor.</p>
+                        </li>
                     </ul>
                     <ul class="noPallini">
-                        <li >
+                        <li>
                             <p id="potenzaVeicolo">Potenza lorem</p>
                         </li>
                         <li>
                             <p id="capacitaVeicolo">Capacita lorem</p>
                         </li>
-                        <li >
+                        <li>
                             <p id="velMaxVeicolo">Velocita lorem</p>
                         </li>
                         <li>
@@ -162,77 +164,87 @@
                                                 <div class="form-group col">
                                                     <input type="datetime-local" id="dataOraPrenotazione"
                                                         class="form-control mt-3 ms-3" name="dataOraPrenotazione">
-                                                    </div>
-                                                </form>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
-                                        <!-- CALENDARIO -->
+                                    <!-- CALENDARIO -->
+                                    <!-- SELECT OFFERTA -->
+                                    <div class="my-5 col-lg-6 offset-lg-3  justify-content-center align-items-center">
+                                        <h4 class="mt-3 ms-3 justify-content-center align-items-center text-center">
+                                            Seleziona il piano di pagamento</h4>
+                                        <select
+                                            class="form-select justify-content-center align-items-center text-center"
+                                            aria-label="Default select example">
+                                            <option selected>Seleziona QUI</option>
+                                            <option value="1">ERMES - 3 mesi a 20,99€</option>
+                                            <option value="2">PROMETEO - 6 mesi a 18,99€</option>
+                                            <option value="3">ULISSE - 12 mesi a 15,99€</option>
+                                        </select>
                                     </div>
-                                    <div class=" step">
-                                                    <!-- INIZIO FORM PAGAMENTO DATI -->
-                                                    <div>
-                                                        <div class="containerCarta d-flex mt-2">
-                                                            <div class="col1">
-                                                                <div class="card card2">
-                                                                    <div class="front">
-                                                                        <div class="type">
-                                                                            <img class="bankid" />
-                                                                        </div>
-                                                                        <span class="chip"></span>
-                                                                        <span
-                                                                            class="card_number">&#x25CF;&#x25CF;&#x25CF;&#x25CF;
-                                                                            &#x25CF;&#x25CF;&#x25CF;&#x25CF;
-                                                                            &#x25CF;&#x25CF;&#x25CF;&#x25CF;
-                                                                            &#x25CF;&#x25CF;&#x25CF;&#x25CF; </span>
-                                                                        <div class="date"><span class="date_value">MM /
-                                                                                AAAA</span>
-                                                                        </div>
-                                                                        <span class="fullname">NOME COMPLETO</span>
-                                                                    </div>
-                                                                    <div class="back">
-                                                                        <div class="magnetic"></div>
-                                                                        <div class="bar"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col2">
-                                                                <label>Numero Carta</label>
-                                                                <input id="formGroupExampleInput"
-                                                                    class="number form-control" type="text"
-                                                                    ng-model="ncard" maxlength="19"
-                                                                    onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                                                                <label>Nome Intestatario</label>
-                                                                <input class="inputname" type="text" placeholder="" />
-                                                                <label>Scadenza</label>
-                                                                <input class="expire" type="text"
-                                                                    placeholder="MM / AAAA" />
-                                                                <label>Numero di sicurezza</label>
-                                                                <input class="ccv" type="text" placeholder="CCV"
-                                                                    maxlength="3"
-                                                                    onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                                                            </div>
+                                    <!-- SELECT OFFERTA -->
+                                </div>
+                                <div class=" step">
+                                    <!-- INIZIO FORM PAGAMENTO DATI -->
+                                    <div class="col-md-10 col-lg-6 mx-auto">
+                                        <div class="containerCarta d-flex mt-2 row">
+                                            <div class="col1">
+                                                <div class="card card2">
+                                                    <div class="front">
+                                                        <div class="type">
+                                                            <img class="bankid" />
                                                         </div>
+                                                        <span class="chip"></span>
+                                                        <span class="card_number">&#x25CF;&#x25CF;&#x25CF;&#x25CF;
+                                                            &#x25CF;&#x25CF;&#x25CF;&#x25CF;
+                                                            &#x25CF;&#x25CF;&#x25CF;&#x25CF;
+                                                            &#x25CF;&#x25CF;&#x25CF;&#x25CF; </span>
+                                                        <div class="date"><span class="date_value">MM /
+                                                                AAAA</span>
+                                                        </div>
+                                                        <span class="fullname">NOME COMPLETO</span>
                                                     </div>
-                                                    <!-- FINE FORM PAGAMENTO DATI -->
-                                                </div>
-                                                <!-- ULTIMO STEP -->
-                                                <div class="step">
-                                                    <div class="mt-1 justify-content-center align-items-center text-center">
-                                                        <div class="closing-text">
-                                                            <h4>Ci sei quasi..</h4>
-                                                            <p>Inserire riepilogo pagamento qui</p>
-                                                            <p>Clicca su Submit per terminare la transazione.</p>
-                                                        </div>
+                                                    <div class="back">
+                                                        <div class="magnetic"></div>
+                                                        <div class="bar"></div>
                                                     </div>
                                                 </div>
-                                                <!-- ULTIMO STEP -->
+                                            </div>
+                                            <div class="col2">
+                                                <label class="form-label">Numero Carta</label>
+                                                <input id="formGroupExampleInput" class="number form-control"
+                                                    type="text" ng-model="ncard" maxlength="19"
+                                                    onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+                                                <label class="form-label">Nome Intestatario</label>
+                                                <input class="inputname form-control" type="text" placeholder="" />
+                                                <label class="form-label">Scadenza</label>
+                                                <input class="expire form-control" type="text" placeholder="MM / AAAA" />
+                                                <label class="form-label">Numero di sicurezza</label>
+                                                <input class="ccv form-control" type="text" placeholder="CCV" maxlength="3"
+                                                    onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+                                            </div>
                                         </div>
-                                        <div id="q-box__buttons">
-                                            <button id="prev-btn" type="button">Indietro</button>
-                                            <button id="next-btn" type="button">Avanti</button>
-                                            <button id="submit-btn" type="submit" onclick="successoModal()">Dacci i
-                                                soldi</button>
+                                    </div>
+                                    <!-- FINE FORM PAGAMENTO DATI -->
+                                </div>
+                                <!-- ULTIMO STEP -->
+                                <div class="step">
+                                    <div class="mt-1 justify-content-center align-items-center text-center">
+                                        <div class="closing-text">
+                                            <h4>Ci sei quasi..</h4>
+                                            <!-- <p id="riepilogo">Inserire riepilogo pagamento qui</p> -->
+                                            <p>Clicca su Submit per terminare la transazione.</p>
                                         </div>
+                                    </div>
+                                </div>
+                                <!-- ULTIMO STEP -->
+                            </div>
+                            <div id="q-box__buttons">
+                                <button id="prev-btn" type="button">Indietro</button>
+                                <button id="next-btn" type="button">Avanti</button>
+                                <button id="submit-btn" type="submit" onclick="successoModal()">Dacci i
+                                    soldi</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -269,7 +281,7 @@
                 </div>
                 <div class="modal-footer justify-content-center align-items-center">
                     <button type="button" class="btn btn-success" id="prenota">Salva e
-                            torna in Homepage</button>
+                        torna in Homepage</button>
                 </div>
             </div>
         </div>
@@ -424,7 +436,7 @@
         integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- jQuery-Validate -->
-    
+
     <!-- SCRIPT STEPPER IMPORTATO -->
     <script src="https://static.app/js/static-forms.js"></script>
     <!-- SCRIPT STEPPER IMPORTATO -->

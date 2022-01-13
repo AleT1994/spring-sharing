@@ -76,7 +76,7 @@ fetch(url)
         '  <p>' + data[i].posizioneAttuale.descrizione + '</p>' + 
         '</div>'+
         
-        '<button type="button" id="' + tastoId + '" class="btn btn-primary" onclick="getDati(' + i + ')">Prenota</button>' +
+        '<button type="button" id="' + tastoId + '" class="btn btn-success" onclick="getDati(' + i + ')">Prenota</button>' +
         '</a>' +
         '</div>' +
         '</div>';
