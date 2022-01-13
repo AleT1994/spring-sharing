@@ -42,6 +42,12 @@ public class PrenotazioneServiceImpl implements PrenotazioneService {
 	public List<Prenotazione> getByVeicoloId(int veicoloId) {
 		return this.repoPrenotazione.findByVeicoloId(veicoloId);
 	}
+	
+	@Override
+	public List<Prenotazione> getByStato(String stato) {
+		return this.repoPrenotazione.findByStato(stato);
+	}
+
 
 	@Override
 	public void closePrenotazione(Prenotazione prenotazione) {
@@ -61,4 +67,5 @@ public class PrenotazioneServiceImpl implements PrenotazioneService {
 		this.repoPrenotazione.deleteById(id);
 	}
 
+	
 }

@@ -409,3 +409,17 @@ function openModalLogin() {
   $('#myModal').modal('toggle');
   
 }
+
+// modifichine navbar
+const nav = document.querySelector('.asusu'); //definisco l'elemento da modificare (navbar)
+     let navTop = nav.offsetTop; //prendo l'altezza della navbar
+
+    function fixedNav() {
+    if (window.scrollY > navTop) {      //se lo scroll verticale è maggiore dell'altezza della navbar
+        nav.classList.add('scrolled');  //allora aggiungi una classe alla navbar
+    } else {
+        nav.classList.remove('scrolled');    //altrimenti togli la classe  
+    }
+    }
+
+window.addEventListener('scroll', fixedNav);  //sull'evento scroll fai partire la funzione sopra.

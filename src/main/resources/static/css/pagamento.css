@@ -41,7 +41,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  width: 680px;
+  width: 100%;
 }
 .containerCarta .col1 {
   perspective: 1000;
@@ -57,7 +57,16 @@ body {
   box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.1);
   transition: all 1s;
   transform-style: preserve-3d;
+  display: none;
+
 }
+
+@media screen and (min-width: 560px) {
+  .containerCarta .col1 .card {
+     display: block;
+  }
+}
+
 .containerCarta .col1 .card .front {
   position: absolute;
   background: var(--card-color);
@@ -177,7 +186,7 @@ body {
   font-size: 8px;
   bottom: 55px;
 }
-.containerCarta .col2 input {
+/* .containerCarta .col2 input {
   display: block;
   width: 260px;
   height: 30px;
@@ -200,7 +209,7 @@ body {
   padding-left: 8px;
   font-size: 15px;
   color: #444;
-}
+} */
 .containerCarta .col2 .ccv {
   width: 40%;
 }
@@ -245,3 +254,5 @@ body {
   margin: auto;
   background: #ddd;
 }
+
+

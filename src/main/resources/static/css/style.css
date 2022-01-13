@@ -30,13 +30,26 @@ img {
 .navbar {
     background-color: rgb(253, 253, 253, 0.8);
     font-family: 'Roboto', sans-serif;
+    transition: all 0.5s;
 }
+
+.scrolled{
+    background-color: white;
+
+}
+
+
 
 #logo {
     width: 10rem;
     height: auto;
+    transition: all 0.5s;
 }
 
+.scrolled #logo{
+    width: 7rem;
+    height: auto;
+}
 
 /*----------------FOOTER----------------*/
 .coloreFooter {
@@ -157,6 +170,15 @@ footer a:active {
 /*----------------VEICOLI DISPONIBILI----------------*/
 .sezione {
     margin-bottom: 5rem;
+    background-color: white;
+    padding: 2rem 0;
+    border-radius: 1rem;
+    box-shadow: -2px -2px 22px -1px rgba(102,102,102,0.6)
+}
+
+.boxino{
+    border-radius: 1rem;
+    box-shadow: -2px -2px 22px -1px rgba(102,102,102,0.6)
 }
 
 .immaginina {
@@ -179,6 +201,8 @@ footer a:active {
 .noPallini{
     list-style: none;
     font-size: 13px;
+    /* border: solid;
+    border: rgb(129, 192, 243); */
 }
 
 #imgVeicolo {

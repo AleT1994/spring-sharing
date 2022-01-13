@@ -249,7 +249,7 @@ label.form-check-label.radio-lb {
     text-align: center;
 }
  
-input[type="text"],
+/* input[type="text"],
 input[type="email"] {
     padding: 8px 14px;
 }
@@ -265,7 +265,7 @@ input[type="email"]:focus {
     -moz-transition: all 0.15s ease-in-out;
     -o-transition: all 0.15s ease-in-out;
     transition: all 0.15s ease-in-out;
-}
+} */
  
 .form-check-input:checked[type=radio],
 .form-check-input:checked[type=radio]:hover,
