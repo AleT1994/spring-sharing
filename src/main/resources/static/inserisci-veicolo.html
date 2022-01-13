@@ -74,7 +74,7 @@
 
                 <div class="" id="apiMessage"></div>
 
-                <div id="form" class="was-validated">
+                <div id="form">
 
                     <div class="form-floating mb-3">
                         <select class="form-select" aria-label=".form-select-lg example" name="tipo" id="tipo" required>
@@ -92,7 +92,7 @@
 
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="nomeAuto" type="text"
+                                <input class="form-control" id="nomeVeicolo" type="text"
                                     placeholder="NISSAN Leaf e+ N-Connecta" aria-label="default input example"
                                     name="nomeAuto" required>
                                 <label for="nomeAuto">Nome</label>
@@ -102,7 +102,7 @@
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="modello" type="text" placeholder="berlina 3/5 porte"
-                                    aria-label="default input example" name="modello">
+                                    aria-label="default input example" name="modello" required>
                                 <label for="modello">Modello</label>
                             </div>
                         </div>
@@ -116,7 +116,7 @@
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="capacita" type="text" placeholder="62 kWh"
-                                    aria-label="default input example" name="capacita">
+                                    aria-label="default input example" name="capacita" required>
                                 <label for="capacita">Capacita</label>
                             </div>
                         </div>
@@ -124,7 +124,7 @@
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="potenza" type="text" placeholder="90kW (122 CV)"
-                                    aria-label="default input example" name="potenza">
+                                    aria-label="default input example" name="potenza" required>
                                 <label for="potenza">Potenza</label>
                             </div>
                         </div>
@@ -136,7 +136,7 @@
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="velocita" type="text" placeholder="157km/h"
-                                    aria-label="default input example" name="velocita">
+                                    aria-label="default input example" name="velocita" required>
                                 <label for="velocita">Velocita massima</label>
                             </div>
                         </div>
@@ -144,7 +144,7 @@
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="autonomia" type="text" placeholder="385km"
-                                    aria-label="default input example" name="autonomia">
+                                    aria-label="default input example" name="autonomia" required>
                                 <label for="autonomia">Autonomia</label>
                             </div>
                         </div>
@@ -153,8 +153,8 @@
 
                     <div class="form-floating mb-3">
                         <textarea class="form-control" id="descrizione"
-                            placeholder="Inserisci una descrizione del veicolo" name="descrizione"
-                            style="height: 100px"></textarea>
+                            placeholder="Inserisci una descrizione del veicolo" name="descrizione" style="height: 100px"
+                            required></textarea>
                         <label for="descrizione">Descrizione</label>
                     </div>
 
@@ -191,13 +191,13 @@
                     <div class="my-4">
                         <label for="image" class="form-label">Carica l'immagine del veicolo</label><br>
                         <input type="file" class="form-control" name="image" id="image"
-                            accept="image/svg, image/png, image/jpeg" class="btn btn-secondary" />
+                            accept="image/svg, image/png, image/jpeg" class="btn btn-secondary" required>
                     </div>
 
 
                     <div class="d-flex justify-content-center align-items-center mb-5">
                         <button class="btn btn-success btn-lg" onclick="postVeicolo()" value="Salva"
-                            id="post-image">Salva</button>
+                            id="postVeicolo">Salva</button>
                     </div>
 
 

@@ -308,7 +308,7 @@ function registration() {
 
     if (psw.length > 30) {
       $('#pwd1').after('<span class="error">Troppi caratteri massimo 30</span>');
-      e.preventDefault();
+      event.preventDefault();
 
     }
 

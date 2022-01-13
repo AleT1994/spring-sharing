@@ -348,7 +348,7 @@ function modificaDati(id) {
                 '</div>' +
                 '<div class="my-4">' +
                 `<label for="image" class="form-label"> Carica l'immagine del veicolo</label>` +
-                '<input type="file" class="form-control" name="image" id="newImage' + id + '" accept="image/svg, image/png, image/jpeg" class="btn btn-secondary" />' +
+                '<input type="file" class="form-control" name="image" id="newImage-' + id + '" accept="image/svg, image/png, image/jpeg" class="btn btn-secondary" />' +
                 '</div>' +
                 '<div class="d-flex justify-content-center align-items-center mb-5">' +
                 '<button class="btn btn-success btn-lg" onclick="putVeicolo(' + id + ')">Salva</button>' +
@@ -378,7 +378,7 @@ function modificaDati(id) {
             $("#newAutonomia-" + id).attr("value", oldAutonomia);
 
             var oldDescrizione = arrayObjVeicoli[i].descrizione;
-            $("#newDescrizione-" + id).attr("value", oldDescrizione);
+            $("#newDescrizione-" + id).val(oldDescrizione);
 
             var oldPosizione = arrayObjVeicoli[i].posizioneAttuale.descrizione;
             var posizioneValues = ["stazione1", "stazione2", "stazione3", "stazione4"];
@@ -397,6 +397,9 @@ function modificaDati(id) {
             } else {
                 $("#newBanner-" + id).attr("checked", false);
             }
+
+            var oldImage = arrayObjVeicoli[i].immagine;
+            $("#newDescrizione-" + id).attr("src").filename(oldImage);
         }
     }
 }
@@ -410,8 +413,130 @@ function setSelected(old, id, optionValues, oldDesc) {
     }
 }
 
+//funzione per fare un update dei dati del veicolo in DB
 function putVeicolo(id) {
+    console.log(document.getElementById("newVelocita-" + id).value);
+    const tipo = document.getElementById("newTipo-" + id).value;
 
 
+    var URL = "http://localhost:9010/sharing/api/veicoli";
+    const formData = new FormData();
+
+
+    if (tipo == "") {
+        $('#newTipo-' + id).after(`<span class="error">Seleziona la tipologia del veicolo</span>`);
+        id.preventDefault();
+    }
+
+    const nome = document.getElementById("newNome-" + id).value;
+
+    const modello = document.getElementById("newModello-" + id).value;
+    const capacita = document.getElementById("newCapacita-" + id).value;
+    const potenza = document.getElementById("newPotenza-" + id).value;
+    const velocita = document.getElementById("newVelocita-" + id).value;
+    const autonomia = document.getElementById("newAutonomia-" + id).value;
+    const descrizione = document.getElementById("newDescrizione-" + id).value;
+    const inputPosizione = document.getElementById("newPosizione-" + id).value;
+    const disponibile = document.getElementById("newDisponibile-" + id).checked;
+    const banner = document.getElementById("newBanner-" + id).checked;
+
+    /*var image = "";
+    var nomeFile = "";
+    var src = "";
+
+    if(document.getElementById("newImage-" + id).files.length > 0){
+        image = document.getElementById("newImage-" + id).files[0];
+        nomeFile = image.name;
+        src = "img/" + tipo + "/" + nomeFile;
+        URL = "http://localhost:9010/sharing/api/veicoli/file";
+        formData.append("immagine", src);
+        formData.append("image", image);
+    }else{
+        formData.append("immagine", src);  //@TODO set old values
+    }*/
+
+
+    var posizione;
+    switch (inputPosizione) {
+        case "stazione1":
+            posizione = {
+                "descrizione": "STAZIONE 1 - Corso Stati Uniti 1",
+                "latitudine": 45.0625658,
+                "longitudine": 7.6696263
+            };
+            break;
+        case "stazione2":
+            posizione = {
+                "descrizione": "STAZIONE 2 - Corso Inghilterra 47",
+                "latitudine": 45.0754338,
+                "longitudine": 7.6650673
+            };
+            break;
+        case "stazione3":
+            posizione = {
+                "descrizione": "STAZIONE 3 - Via Giudeppe Verdi 61",
+                "latitudine": 45.0665578,
+                "longitudine": 7.6972264
+            };
+            break;
+        case "stazione4":
+            posizione = {
+                "descrizione": "STAZIONE 4 - Corso Regio Parco 12",
+                "latitudine": 45.0753703,
+                "longitudine": 7.6912162
+            };
+            break;
+    }
+
+   
+    formData.append("id", id);
+    formData.append("nome", nome);
+    formData.append("tipo", tipo);
+    formData.append("modello", modello);
+    formData.append("capacita", capacita);
+    formData.append("potenza", potenza);
+    formData.append("velocitaMassima", velocita);
+    formData.append("autonomia", autonomia);
+    formData.append("descrizione", descrizione);
+    formData.append("posizioneAttuale", JSON.stringify(posizione));
+    formData.append("disponibile", disponibile);
+    formData.append("vistaBanner", banner);
+
+
+    
+
+    fetch(URL, {
+            method: 'PUT',
+            body: formData
+        })
+        .then(() => {
+            showMessage('<div class="alert alert-success" role="alert">La tua azione è andata a buon fine</div>');
+            setTimeout(hideMessage, 5000);
+        })
+        .then(() => {
+            //svuoto elementi input veicolo
+            document.getElementById("newTipo-" + id).value = "";
+            document.getElementById("newNome-" + id).value = "";
+            document.getElementById("newModello-" + id).value;
+            document.getElementById("newCapacita-" + id).value;
+            document.getElementById("newPotenza-" + id).value;
+            document.getElementById("newVelocita-" + id).value;
+            document.getElementById("newAutonomia-" + id).value;
+            document.getElementById("newDescrizione-" + id).value;
+            document.getElementById("newPosizione-" + id).value;
+            document.getElementById("newDisponibile-" + id).checked;
+            document.getElementById("newBanner-" + id).checked;
+            document.getElementById("newImage-" + id).files[0];
+
+            //@TODO fai reload della pagina
+        });
+}
+
+function showMessage(message) {
+    document.getElementById("apiMessage").innerHTML = message;
+}
+
+function hideMessage() {
+    document.getElementById("apiMessage").innerHTML = '';
 }
 //////////////////////////////FUNZIONE ACCORDION//////////////////////////////////
