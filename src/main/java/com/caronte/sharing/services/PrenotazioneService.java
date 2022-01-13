@@ -12,6 +12,7 @@ public interface PrenotazioneService {
 	List<Prenotazione> getAll();
 	List<Prenotazione> getByUtenteEmail(String utenteEmail);
 	List<Prenotazione> getByVeicoloId(int veicoloId);
+	List<Prenotazione> getByStato(String stato);
 	void closePrenotazione(Prenotazione prenotazione);
 	void updatePrenotazioneData(Prenotazione prenotazione);
 	void deletePrenotazione(int id);

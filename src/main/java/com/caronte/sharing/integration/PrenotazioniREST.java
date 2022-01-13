@@ -41,6 +41,13 @@ public class PrenotazioniREST {
 		return prenotazioneService.getAll();
 	}
 	
+	@GetMapping("stato/{stato}")
+	public List<Prenotazione> getPrenotazioneByStato(@PathVariable ("stato") String stato) {
+		return prenotazioneService.getByStato(stato);
+		
+	}
+	
+	
 	@GetMapping("id/{id}")
 	public Prenotazione getPrenotazione(@PathVariable ("id") int id) {
 			return prenotazioneService.getOne(id);

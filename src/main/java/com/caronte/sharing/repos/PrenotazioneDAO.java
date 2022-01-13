@@ -10,5 +10,6 @@ public interface PrenotazioneDAO extends JpaRepository<Prenotazione, Integer> {
 
 	List<Prenotazione> findByUtenteEmail(String utenteEmail);
 	List<Prenotazione> findByVeicoloId(int veicoloId);
-	
+	List<Prenotazione> findByStato(String stato);
+
 }
