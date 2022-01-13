@@ -45,7 +45,9 @@ public class PrenotazioneServiceImpl implements PrenotazioneService {
 
 	@Override
 	public void updatePrenotazione(Prenotazione prenotazione) {
-
+		LocalDateTime now = LocalDateTime.now();  
+		prenotazione.setFinePrenotazione(now);
+		prenotazione.setStato("conclusa");
 		this.repoPrenotazione.save(prenotazione);
 	}
 

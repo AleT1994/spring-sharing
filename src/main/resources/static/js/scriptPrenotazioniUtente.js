@@ -1,3 +1,11 @@
+/////////////////SE TROVI QUESTO TOKEN REINDIRIZZA A VEICOLI DISPO (SERVE PER CAMBIA VEICOLO)
+if(localStorage.getItem('cambiaprenotaz')){
+
+  location.href = "veicoli-disponibili.html";
+
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //Tab Prenotazioni in corso
@@ -6,6 +14,8 @@
 var emailut = JSON.parse(localStorage.getItem("tokenLogin")).email  
 
 var divprenotazioniincorso = document.getElementById("prntcorso")
+
+var divprenotazionifinite = document.getElementById("prntfinite")
 
 var linkprenotazioni = "http://localhost:9010/sharing/api/prenotazioni/email/" + emailut
 
@@ -44,7 +54,11 @@ fetch(linkprenotazioni)
 
 /////Se ci sono dati    
 else {
+
+
     var listaveicoli1 = []
+    
+    
     for(var i=0; i < res.length; i++) {
 
 
@@ -70,7 +84,12 @@ else {
         listaveicoli1.push(veicolosingular)
 
 
-    }
+        }
+
+
+
+
+
 
         }
 
@@ -98,8 +117,9 @@ fetch(apiveicoli)
                     var idPrn = listaveicoli1[k].idprn
                     var inizioPrn = listaveicoli1[k].inizioprn.substring(0, 10).split("-").reverse().join("-")
                     var inizioCambiaV = listaveicoli1[k].inizioprn
-
                     
+
+    
                     
                     divprenotazioniincorso.innerHTML += 
                       '<div class="row sezione">' + 
@@ -107,13 +127,13 @@ fetch(apiveicoli)
                       '    <img class="immaginina" src="' +  res[j].immagine    +'">'+
                       '</div>'+
                   
-                          '<div class="col-sm-12 col-md-6 align-self-center">' +
+                          '<div class="col-sm-12 col-md-6 align-self-center" >' +
                   
                       ' <h2 class="pacific">' + res[j].nome + '</h2>'+
 
-                          '<div class="d-flex">'+
+                          '<div class="flex-column">'+
                           '<h5 class="me-2">Data di inizio prenotazione: </h5>'+
-                          '  <p>' + inizioPrn + '</p>' + 
+                          '  <p id="aggiungicalendario'+ k  +'">' + inizioPrn + '</p>' + 
                           '</div>'+
 
 
@@ -122,11 +142,10 @@ fetch(apiveicoli)
                           '<div class="d-flex justify-content-evenly">'+
 
                           
-                          '<button type="button" class="btn btn-primary" onclick="cambiaVeicolo('+ inizioCambiaV + ',' + idVeicolo + ',' + idPrn +')">Cambia Veicolo</button>'+
+                          '<button type="button" class="btn btn-primary" id="cambiaveicolobtnid'+ k +'" dammidata="'+ inizioCambiaV +'" onclick="cambiaVeicolo('+ idVeicolo + ',' + idPrn  + ', this.id )">Cambia Veicolo</button>'+
 
-                         
 
-                          '<button type="button" class="btn btn-info" onclick="cambiaData('+ idVeicolo + ',' + idPrn +')">Cambia Data</button>'+
+                          '<button type="button" class="btn btn-info" id="cambiaredatabtnid'+ k +'" dammicalendario="aggiungicalendario'+ k +'" onclick="cambiaData('+ idVeicolo + ',' + idPrn + ', this.id)">Cambia Data</button>'+
                          
                       
 
@@ -142,17 +161,15 @@ fetch(apiveicoli)
                   } 
 
 
-                    
-
-
-
-                  
-
               }
+
+           
 
               
 
   }      
+
+
 
 
   if (divprenotazioniincorso.childNodes.length == 0){
@@ -314,21 +331,226 @@ var linkveicolosingola = "http://localhost:9010/sharing/api/veicoli/id/" + veico
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
-function cambiaData(veicolo, id){
+function cambiaData(veicolo, id, calendario){
 
 
-    console.log("cambia data" + id)
+    var cale = calendario 
+
+    var calen = $("#"+cale).attr("dammicalendario")
+
+    
+    var calendariovero = 
+   
+    '<form id="formPrenotazione'+ calendario +'">'+
+                   
+    '<div class="form-group col">'+
+        '<input type="datetime-local" id="dataOraPrenotazione'+ calendario +'"'+
+            'class="form-control mt-3 ms-3" name="dataOraPrenotazione'+ calendario +'">'+
+        '</div>'+
+    '</form>';
+                    
+                    
+                       
+     $(calendariovero).insertAfter('#'+calen)
+
+
+    var date = new Date();
+    var gg = date.getDate();
+    if (gg < 10) {
+        gg = "0" + gg;
+    }
+    var mo = date.getMonth() + 1;
+    if (mo < 10) {
+        mo = "0" + mo;
+    }
+    var yyyy = date.getFullYear();
+    var hh = date.getHours();
+    var mi = date.getMinutes();
+    var today = yyyy + "-" + mo + "-" + gg + "T" + hh + ":" + mi;
+    var maxDate = (yyyy + 1) + "-" + mo + "-" + gg + "T" + hh + ":" + mi;
+
+    $('#dataOraPrenotazione'+ calendario).attr("min", today);
+    $('#dataOraPrenotazione'+ calendario).attr("max", maxDate);
+
+    $('#formPrenotazione' + calendario).validate({
+        rules: {
+            dataOraPrenotazione: {
+                required: true,
+                date: true
+            }
+        },
+        messages: {
+            dataOraPrenotazione: "Devi inserire un valore valido di tipo data e ora"
+        },
+        errorElement: "span",
+        submitHandler: function () {
+
+
+        }
+    });
+
+
+    $("#"+cale).attr("class", "btn btn-success")
+
+    $("#"+cale).html("Salva data")
+
+
+    $("#"+cale).attr("onclick", "saveDate("+ veicolo +","+ id + ", this.id )")
+
+    var formprenotazionedaeliminare = 'formPrenotazione' + calendario
+
+    var htmlButtonAnnulla = 
+    
+    '<button type="button" class="btn btn-warning" id="annullacalendario'+ calendario +'" onclick="annullaData('+ formprenotazionedaeliminare + ',' +  veicolo + ',' + id +  ',' + calendario +', this.id )">Annulla</button>';
+    
+    $(htmlButtonAnnulla).insertAfter('#' + cale);
+
+}
+
+function saveDate(veicolo,id,calendario){
+
+
+    //prendo email dallo Storage
+    var emailStorage;
+
+    if (Modernizr.localstorage) {
+
+        var utenteStorage = JSON.parse(localStorage.getItem("tokenLogin"));
+        console.log(utenteStorage);
+        emailStorage = utenteStorage.email;
+
+    }
+
+    //prendo id veicolo dalla storage
+    var idVeicoloStorage = veicolo;
+    console.log(idVeicoloStorage);
+
+    var idcalendarioperfavore = calendario
+    console.log(idcalendarioperfavore)
+
+    dataOraInput = $('#dataOraPrenotazione'+ calendario ).val();
+    console.log(dataOraInput);
+
+    var objPrenotazione = {
+        utenteEmail: emailStorage,
+        veicoloId: idVeicoloStorage,
+        inizioPrenotazione: dataOraInput
+    }
+    console.log(objPrenotazione);
+
+    const URLprenotazione = "http://localhost:9010/sharing/api/prenotazioni";
+
+    //salvo i dati su tabella prenotazioni nel DB con POST su api/prenotazioni
+    fetch(URLprenotazione, {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify(objPrenotazione)
+    });
+
+
+    //DeletePrenotazione
+
+    const URLprenotazioneDEL = "http://localhost:9010/sharing/api/prenotazioni/id/" + id
+
+    fetch(URLprenotazioneDEL, {
+      method: 'DELETE',
+     })
+     .then(ricarica => {
+
+      
+        location.reload();
+  
+  
+  })
+
+}
+
+
+function annullaData(form, veicolo, id, calendario, bottonelimina) {
+ 
+  
+  var formelimina = $(form).attr('id');
+
+  
+ var calendario1 = $(calendario).attr('id');
+
+
+
+  $('#'+ bottonelimina).remove()
+
+
+  $('#'+ formelimina).remove()
+
+
+  $("#"+calendario1).attr("class", "btn btn-info")
+  $("#"+calendario1).html("Cambia Data")
+  
+  $('#'+ calendario1).attr("onclick",  "cambiaData(" + veicolo + "," + id + ", this.id )")
+
+  
 
 
 }
 
+
+
+
 ///////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
-function cambiaVeicolo(data, veicolo, id){
+function cambiaVeicolo(veicolo, id, data){
 
 
+  var identificativobottone = data
 
-  console.log("cambia veicolo" + id)
+  var datafiera = $("#"+identificativobottone).attr("dammidata")
+  
+
+  
+  function costruttorepercambiare(){
+
+      this.data = datafiera
+
+  }
+
+      var token_percambiare = new costruttorepercambiare();
+
+      var token_percambiareJson = JSON.stringify(token_percambiare);
+
+      localStorage.setItem('cambiaprenotaz', token_percambiareJson);
+
+
+      chiudiPrenotazione(veicolo, id);
+
+  // var emailStorage;
+
+  //   if (Modernizr.localstorage) {
+
+  //     var utenteStorage = JSON.parse(localStorage.getItem("tokenLogin"));
+  //     emailStorage = utenteStorage.email;
+
+  // }
+
+  // var objPrenotazione = {
+  //     utenteEmail: emailStorage,
+  //     veicoloId: veicolo,
+  //     inizioPrenotazione: data
+  // }
+
+
+  // const URLprenotazione = "http://localhost:9010/sharing/api/prenotazioni";
+
+  // //salvo i dati su tabella prenotazioni nel DB con POST su api/prenotazioni
+  // fetch(URLprenotazione, {
+  //     headers: {
+  //         'Accept': 'application/json',
+  //         'Content-Type': 'application/json'
+  //     },
+  //     method: "POST",
+  //     body: JSON.stringify(objPrenotazione)
+  // });
 
 
 }

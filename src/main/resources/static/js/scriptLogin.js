@@ -184,9 +184,6 @@ $('#login-form').submit(function (e) {
 function loggingOut() {
 
 
-  if(sessionStorage.getItem('tokenVeicoliSingoli'))
-  {sessionStorage.removeItem('tokenVeicoliSingoli')}
-
   localStorage.removeItem('tokenLogin');
   window.location.assign("http://localhost:9010/sharing/index.html");
 
