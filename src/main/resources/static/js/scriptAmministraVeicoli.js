@@ -107,7 +107,7 @@ function addAccordions() {
 
         listaVeicoli.innerHTML += '<div id="accordion-' + idVeicolo + '" class="accordion-item">' +
             '<h2 class="accordion-header" id="heading' + i + '">' +
-            '<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse' + i + '" aria-expanded="false" aria-controls="collapse' + i + '">' + nome + '</button>' +
+            '<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse' + i + '" aria-expanded="false" aria-controls="collapse' + i + '">Veicolo n. 00' + idVeicolo + " - " + nome + '</button>' +
             '</h2>' +
             '<div id="collapse' + i + '" class="accordion-collapse collapse" aria-labelledby="heading' + i + '" data-bs-parent="#accordionExample">' +
             '<div id="dettagliVeicolo-' + idVeicolo + '" class="accordion-body">' +
@@ -125,9 +125,9 @@ function addAccordions() {
             '<tr>' + '<th>Visibile in Home</th><td>' + banner + '</td></tr>' +
             ' </tbody>' +
             '</table>' +
-            '<div class="d-flex mb-3">' +
-            '<button type="button" id="' + cancId + '" class="btn btn-danger" onclick="eliminaDati(' + idVeicolo + ')"><i class="fa fa-trash"></i></button>' +
-            '<button type="button" id="' + modifId + '" class="btn btn-primary" onclick="modificaDati(' + idVeicolo + ')"><i class="far fa-edit"></i></button>' +
+            '<div class="d-flex justify-content-between align-items-center mb-3">' +
+            '<button type="button" id="' + modifId + '" class="btn btn-primary bnl-lg" onclick="modificaDati(' + idVeicolo + ')"><i class="fas fa-edit"></i> Modifica</button>' +
+            '<button type="button" id="' + cancId + '" class="btn btn-danger bnl-lg" onclick="conferma(' + idVeicolo + ')"><i class="fas fa-trash-alt"></i> Elimina</button>' +
             '</div>' +
             '<img src="' + img + '">' +
             '</div>' +
@@ -158,7 +158,6 @@ function filter(tipo) {
         for (var i = 0; i < arrayObjVeicoli.length; i++) {
 
             if (arrayObjVeicoli[i].tipo == tipo) {
-
 
                 var nome = arrayObjVeicoli[i].nome;
                 var modello = arrayObjVeicoli[i].modello;
@@ -194,7 +193,7 @@ function filter(tipo) {
 
                 listaVeicoli.innerHTML += '<div id="accordion-' + idVeicolo + '" class="accordion-item">' +
                     '<h2 class="accordion-header" id="heading' + i + '">' +
-                    '<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse' + i + '" aria-expanded="false" aria-controls="collapse' + i + '">' + nome + '</button>' +
+                    '<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse' + i + '" aria-expanded="false" aria-controls="collapse' + i + '">Veicolo n. 00' + idVeicolo + " - " + nome + '</button>' +
                     '</h2>' +
                     '<div id="collapse' + i + '" class="accordion-collapse collapse" aria-labelledby="heading' + i + '" data-bs-parent="#accordionExample">' +
                     '<div id="dettagliVeicolo-' + idVeicolo + '" class="accordion-body">' +
@@ -212,9 +211,9 @@ function filter(tipo) {
                     '<tr>' + '<th>Visibile in Home</th><td>' + banner + '</td></tr>' +
                     ' </tbody>' +
                     '</table>' +
-                    '<div class="d-flex mb-3">' +
-                    '<button type="button" id="' + cancId + '" class="btn btn-danger" onclick="eliminaDati(' + idVeicolo + ')"><i class="fa fa-trash"></i></button>' +
-                    '<button type="button" id="' + modifId + '" class="btn btn-primary" onclick="modificaDati(' + idVeicolo + ')"><i class="far fa-edit"></i></button>' +
+                    '<div class="d-flex justify-content-between align-items-center mb-3">' +
+                    '<button type="button" id="' + modifId + '" class="btn btn-primary bnl-lg" onclick="modificaDati(' + idVeicolo + ')"><i class="fas fa-edit"></i> Modifica</button>' +
+                    '<button type="button" id="' + cancId + '" class="btn btn-danger bnl-lg" onclick="conferma(' + idVeicolo + ')"><i class="fas fa-trash-alt"></i> Elimina</button>' +
                     '</div>' +
                     '<img src="' + img + '">' +
                     '</div>' +
@@ -223,31 +222,6 @@ function filter(tipo) {
             }
         }
     }
-}
-
-
-//funzione per eliminare il veicolo dal catalogo (ovvero dal DB)
-function eliminaDati(id) {
-
-    const URL = "http://localhost:9010/sharing/api/veicoli/id/" + id;
-    fetch(URL, {
-            method: 'DELETE'
-        })
-        .then(() => {
-            //nascondo momentaneamente l'accordion del viecolo (ricaricando la pagina non ci sara più tra i dati in Storage)
-            document.getElementById("accordion-" + id).innerHTML = '';
-            showMessage('<div class="alert alert-success" role="alert">La tua azione è andata a buon fine</div>');
-            setTimeout(hideMessage, 5000);
-        });
-
-}
-
-function showMessage(message) {
-    document.getElementById("apiMessage").innerHTML = message;
-}
-
-function hideMessage() {
-    document.getElementById("apiMessage").innerHTML = '';
 }
 
 
@@ -350,9 +324,10 @@ function modificaDati(id) {
                 `<label for="image" class="form-label"> Carica l'immagine del veicolo</label>` +
                 '<input type="file" class="form-control" name="image" id="newImage-' + id + '" accept="image/svg, image/png, image/jpeg" class="btn btn-secondary" />' +
                 '</div>' +
-                '<div class="d-flex justify-content-center align-items-center mb-5">' +
-                '<button class="btn btn-success btn-lg" onclick="putVeicolo(' + id + ')">Salva</button>' +
-                '</div>'
+                '<div class="d-flex justify-content-between align-items-center mb-5">' +
+                '<button type="button" class="btn btn-success bnl-lg" onclick="putVeicolo(' + id + ')"><i class="fas fa-check"></i> Salva modifiche</button>' +
+                '<button type="button" class="btn btn-primary btn-lg" onclick="table(' + id + ')"><i class="fas fa-undo"></i> Annulla</button>' +
+                '</div>';
 
             var oldTipo = arrayObjVeicoli[i].tipo;
             var tipoValues = ["autoElettrica", "autoIbrida", "monopattino", "bicicletta", "autoBenzina_Diesel"];
@@ -399,7 +374,7 @@ function modificaDati(id) {
             }
 
             var oldImage = arrayObjVeicoli[i].immagine;
-            $("#newDescrizione-" + id).attr("src").filename(oldImage);
+            $("#newDescrizione-" + id).attr("value", oldImage);
         }
     }
 }
@@ -413,15 +388,55 @@ function setSelected(old, id, optionValues, oldDesc) {
     }
 }
 
+//funzione per ripristinare la tabella dei dati del veicolo
+function table(id) {
+
+    arrayObjVeicoli = [];
+    if (Modernizr.sessionstorage) {
+        arrayObjVeicoli = JSON.parse(sessionStorage.getItem("veicoli"));
+    }
+
+    for (var i = 0; i < arrayObjVeicoli.length; i++) {
+
+        if (arrayObjVeicoli[i].id == id) {
+
+            document.getElementById("dettagliVeicolo-" + id).innerHTML = '';
+
+            document.getElementById("dettagliVeicolo-" + id).innerHTML =
+                '<table class="table">' +
+                '<tbody>' +
+                '<tr>' + '<th>Tipologia</th><td>' + tipoVeicolo + '</td></tr>' +
+                '<tr>' + '<th>Modello</th><td>' + modello + '</td></tr>' +
+                '<tr>' + '<th>Capacità</th><td>' + capacita + '</td></tr>' +
+                '<tr>' + '<th>Potenza</th><td>' + potenza + '</td></tr>' +
+                '<tr>' + '<th>Velocità massima</th><td>' + velocita + '</td></tr>' +
+                '<tr>' + '<th>Autonomia</th><td>' + autonomia + '</td></tr>' +
+                '<tr>' + '<th>Descrizione</th><td>' + descrizione + '</td></tr>' +
+                '<tr>' + '<th>Posizione attuale</th><td>' + posizione + '</td></tr>' +
+                '<tr>' + '<th>Attualmente disponibile</th><td>' + disponibile + '</td></tr>' +
+                '<tr>' + '<th>Visibile in Home</th><td>' + banner + '</td></tr>' +
+                ' </tbody>' +
+                '</table>' +
+                '<div class="d-flex mb-3">' +
+                '<button type="button" id="' + cancId + '" class="btn btn-danger bnl-lg" onclick="conferma(' + idVeicolo + ')"><i class="fas fa-edit"></i>Modifica</button>' +
+                '<button type="button" id="' + modifId + '" class="btn btn-primary btn-lg" onclick="modificaDati(' + idVeicolo + ')"><i class="fas fa-trash-alt"></i>Elimina</button>' +
+                '</div>' +
+                '<img src="' + img + '">';
+        }
+
+    }
+}
+
 //funzione per fare un update dei dati del veicolo in DB
 function putVeicolo(id) {
-    console.log(document.getElementById("newVelocita-" + id).value);
-    const tipo = document.getElementById("newTipo-" + id).value;
-
 
     var URL = "http://localhost:9010/sharing/api/veicoli";
     const formData = new FormData();
 
+    //cancello gli span di errore quando rientro nella funzione
+    $(".error").remove();
+
+    const tipo = document.getElementById("newTipo-" + id).value;
 
     if (tipo == "") {
         $('#newTipo-' + id).after(`<span class="error">Seleziona la tipologia del veicolo</span>`);
@@ -440,20 +455,20 @@ function putVeicolo(id) {
     const disponibile = document.getElementById("newDisponibile-" + id).checked;
     const banner = document.getElementById("newBanner-" + id).checked;
 
-    /*var image = "";
+    var image = "";
     var nomeFile = "";
     var src = "";
 
-    if(document.getElementById("newImage-" + id).files.length > 0){
+    if (document.getElementById("newImage-" + id).files.length > 0) {
         image = document.getElementById("newImage-" + id).files[0];
         nomeFile = image.name;
         src = "img/" + tipo + "/" + nomeFile;
         URL = "http://localhost:9010/sharing/api/veicoli/file";
         formData.append("immagine", src);
         formData.append("image", image);
-    }else{
-        formData.append("immagine", src);  //@TODO set old values
-    }*/
+    } else {
+        formData.append("immagine", src); //@TODO set old values
+    }
 
 
     var posizione;
@@ -488,7 +503,6 @@ function putVeicolo(id) {
             break;
     }
 
-   
     formData.append("id", id);
     formData.append("nome", nome);
     formData.append("tipo", tipo);
@@ -502,41 +516,57 @@ function putVeicolo(id) {
     formData.append("disponibile", disponibile);
     formData.append("vistaBanner", banner);
 
-
-    
-
     fetch(URL, {
             method: 'PUT',
             body: formData
         })
         .then(() => {
-            showMessage('<div class="alert alert-success" role="alert">La tua azione è andata a buon fine</div>');
-            setTimeout(hideMessage, 5000);
-        })
-        .then(() => {
-            //svuoto elementi input veicolo
-            document.getElementById("newTipo-" + id).value = "";
-            document.getElementById("newNome-" + id).value = "";
-            document.getElementById("newModello-" + id).value;
-            document.getElementById("newCapacita-" + id).value;
-            document.getElementById("newPotenza-" + id).value;
-            document.getElementById("newVelocita-" + id).value;
-            document.getElementById("newAutonomia-" + id).value;
-            document.getElementById("newDescrizione-" + id).value;
-            document.getElementById("newPosizione-" + id).value;
-            document.getElementById("newDisponibile-" + id).checked;
-            document.getElementById("newBanner-" + id).checked;
-            document.getElementById("newImage-" + id).files[0];
-
-            //@TODO fai reload della pagina
+            successo()
         });
 }
 
-function showMessage(message) {
-    document.getElementById("apiMessage").innerHTML = message;
+function successo() {
+
+    $('#successoModifica').modal('toggle');
+
 }
 
-function hideMessage() {
-    document.getElementById("apiMessage").innerHTML = '';
+//funzione per prendere l'id del veicolo da eliminare e metterlo in storage
+//apre modale per chiedere conferma dell'operazione
+function conferma(id) {
+
+    if (Modernizr.sessionstorage) {
+        sessionStorage.setItem("idVeicolo", id);
+    }
+
+    $('#cancellaVeicolo').modal('toggle');
+
 }
+
+//funzione per eliminare il veicolo dal catalogo (ovvero dal DB)
+function eliminaDati() {
+
+    var id;
+    if (Modernizr.sessionstorage) {
+        id = sessionStorage.getItem("idVeicolo");
+    }
+
+    const URL = "http://localhost:9010/sharing/api/veicoli/id/" + id;
+    fetch(URL, {
+            method: 'DELETE'
+        })
+        .then(() => {
+            $('#cancellaVeicolo').modal('hide')
+            successo();
+        });
+
+}
+
+function ricaricaPagina() {
+    location.reload();
+}
+
+$('#vaiHome').click(function () {
+    window.location = "index.html";
+});
 //////////////////////////////FUNZIONE ACCORDION//////////////////////////////////

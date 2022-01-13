@@ -141,18 +141,15 @@ $('#prenota').click(function () {
 
     //prendo id veicolo dalla storage
     var idVeicoloStorage = objVeicolo.id;
-    console.log(idVeicoloStorage);
 
     dataOraInput = $('#dataOraPrenotazione').val();
-    console.log(dataOraInput);
 
     var objPrenotazione = {
         utenteEmail: emailStorage,
         veicoloId: idVeicoloStorage,
         inizioPrenotazione: dataOraInput
     }
-    console.log(objPrenotazione);
-
+    
     const URLprenotazione = "http://localhost:9010/sharing/api/prenotazioni";
 
     //salvo i dati su tabella prenotazioni nel DB con POST su api/prenotazioni

@@ -109,6 +109,9 @@ public class VeicoliREST {
 
 		Veicolo veicoloSalvato = new Veicolo();
 		veicolo.setPosizioneAttuale(extractPosizione(request));
+		
+		Veicolo oldVeicolo = this.veicoloService.getOne(veicolo.getId());
+		veicolo.setImmagine(oldVeicolo.getImmagine());
 
 		veicoloSalvato = veicoloService.updateVeicolo(veicolo);
 

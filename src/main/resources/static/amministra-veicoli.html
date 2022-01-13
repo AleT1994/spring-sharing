@@ -84,6 +84,53 @@
     <!-- BODY -->
 
 
+     <!-- Modal Successo Inserimento -->
+     <div class="modal fade" id="successoModifica" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+     <div class="modal-dialog" role="document">
+         <div class="modal-content">
+             <div class="modal-header justify-content-center align-items-center">
+                 <h5 class="modal-title" id="exampleModalLabel">Hai modificato con successo il veicolo</h5>
+             </div>
+             <div class="modal-body d-flex justify-content-center align-items-center">
+                 <span>
+                     <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_y2hxPc.json"
+                         background="transparent" speed="1" style="width: 200px; height: 200px;" loop autoplay>
+                     </lottie-player>
+                 </span>
+             </div>
+             <div class="modal-footer justify-content-center align-items-center">
+                 <button type="button" class="btn btn-success" onclick="ricaricaPagina()">Amministra altri veicoli</button>
+                 <button type="button" class="btn btn-success" id="vaiHome">Torna in Home</button>
+             </div>
+         </div>
+     </div>
+ </div>
+ <!-- Modal Successo Inserimento -->
+
+
+    <!-- Modale Elimina Veicolo -->
+    <div class="modal" tabindex="-1" id="cancellaVeicolo">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Sei sicuro di voler eliminare questo veicolo?</h5>
+            </div>
+
+            <div class="modal-body">
+                <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary float-end" onclick="ricaricaPagina()">Annulla</button>
+                <button type="submit" class="btn btn-danger float-end" onclick="eliminaDati()">Elimina</button>
+                </div>   
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    <!-- Modale Elimina Veicolo -->
+
+
     <!-- LOGIN-MODAL -->
     <div class="modal fade" id="myModal">
         <div class="modal-dialog modal-dialog-centered">
@@ -209,6 +256,10 @@
     <!-- Bootstrap-JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
     <!-- Bootstrap-JS -->
+
+    <!-- Lottie -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!-- Lottie -->
 
     <!-- Modernizr -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"

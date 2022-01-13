@@ -182,11 +182,6 @@ function postVeicolo(e) {
             body: formData
         })
         .then(() => {
-            showMessage('<div class="alert alert-success" role="alert">La tua azione è andata a buon fine</div>');
-            setTimeout(hideMessage, 5000);
-        })
-        .then(() => {
-            //svuoto elementi input veicolo
             document.getElementById("nomeVeicolo").value = "";
             document.getElementById("tipo").value = "";
             document.getElementById("modello").value = "";
@@ -199,6 +194,12 @@ function postVeicolo(e) {
             document.getElementById("disponibile").checked = true;
             document.getElementById("banner").checked = false;
             document.getElementById("image").value = "";
+        })
+        .then(() => {
+            //svuoto elementi input veicolo
+            showMessage('<div class="alert alert-success" role="alert">La tua azione è andata a buon fine</div>');
+            setTimeout(hideMessage, 5000);
+
         });
 }
 
