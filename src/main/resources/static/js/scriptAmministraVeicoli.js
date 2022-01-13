@@ -126,7 +126,7 @@ function addAccordions() {
             ' </tbody>' +
             '</table>' +
             '<div class="d-flex justify-content-between align-items-center mb-3">' +
-            '<button type="button" id="' + modifId + '" class="btn btn-primary bnl-lg" onclick="modificaDati(' + idVeicolo + ')"><i class="fas fa-edit"></i> Modifica</button>' +
+            '<button type="button" id="' + modifId + '" class="btn btn-primary me-2 bnl-lg" onclick="modificaDati(' + idVeicolo + ')"><i class="fas fa-edit"></i> Modifica</button>' +
             '<button type="button" id="' + cancId + '" class="btn btn-danger bnl-lg" onclick="conferma(' + idVeicolo + ')"><i class="fas fa-trash-alt"></i> Elimina</button>' +
             '</div>' +
             '<img src="' + img + '">' +
