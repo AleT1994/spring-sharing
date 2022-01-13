@@ -122,12 +122,12 @@ fetch(apiveicoli)
     
                     
                     divprenotazioniincorso.innerHTML += 
-                      '<div class="row sezione">' + 
+                      '<div class="row sezione g-0">' + 
                         '<div class="col-sm-12 col-md-6">' +
                       '    <img class="immaginina" src="' +  res[j].immagine    +'">'+
                       '</div>'+
                   
-                          '<div class="col-sm-12 col-md-6 align-self-center" >' +
+                          '<div class="col-sm-12 col-md-6 align-self-center px-3" >' +
                   
                       ' <h2 class="pacific">' + res[j].nome + '</h2>'+
 

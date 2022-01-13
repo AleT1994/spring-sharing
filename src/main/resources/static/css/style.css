@@ -176,6 +176,15 @@ footer a:active {
     box-shadow: -2px -2px 22px -1px rgba(102,102,102,0.6)
 }
 
+.tab-pane .sezione:first-child{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.nav-tabs .nav-link{
+    background-color: rgb(248,249,250);
+}
+
 .boxino{
     border-radius: 1rem;
     box-shadow: -2px -2px 22px -1px rgba(102,102,102,0.6)
@@ -211,10 +220,10 @@ footer a:active {
     height: auto;
 }
 
-.card {
+/* .card {
     width: 24rem;
     height: auto;
-}
+} */
 
 #map {
     width: 300px;
