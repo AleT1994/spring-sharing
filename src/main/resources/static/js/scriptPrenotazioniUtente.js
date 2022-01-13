@@ -367,33 +367,33 @@ function cambiaData(id, calendario){
         var yyyy = date.getFullYear();
         var hh = date.getHours();
         var mi = date.getMinutes();
+
+
         var today = yyyy + "-" + mo + "-" + gg + "T" + hh + ":" + mi;
         var maxDate = (yyyy + 1) + "-" + mo + "-" + gg + "T" + hh + ":" + mi;
     
         $('#dataOraPrenotazione'+ calendario).attr("min", today);
         $('#dataOraPrenotazione'+ calendario).attr("max", maxDate);
-    
-      
+
+
         
-        $('#formPrenotazione' + calendario).validate({
+        // $('#formPrenotazione' + calendario).validate({
               
-            rules: {
-                dataOraPrenotazione: {
-                    required: true,
-                    date: true
-                }
-            },
-            messages: {
-                dataOraPrenotazione: "Devi inserire un valore valido di tipo data e ora"
-            },
-            errorElement: "span",
-            submitHandler: function () {
+        //     rules: {
+        //         dataOraPrenotazione: {
+        //             required: true,
+        //             date: true
+        //         }
+        //     },
+        //     messages: {
+        //         dataOraPrenotazione: "Devi inserire un valore valido di tipo data e ora"
+        //     },
+        //     errorElement: "span",
+        //     submitHandler: function () {
     
     
-            }
-        });
-
-
+        //     }
+        // });
 
 
 
@@ -412,12 +412,45 @@ function cambiaData(id, calendario){
     
     $(htmlButtonAnnulla).insertAfter('#' + cale);
 
+    
+
 }
 
 function saveDate(id,calendario){
 
     
     
+  $(".error").remove();
+
+        var date = new Date();
+        var gg = date.getDate();
+        if (gg < 10) {
+            gg = "0" + gg;
+        }
+        var mo = date.getMonth() + 1;
+        if (mo < 10) {
+            mo = "0" + mo;
+        }
+        var yyyy = date.getFullYear();
+        var hh = date.getHours();
+        var mi = date.getMinutes();
+
+
+        var propriora = yyyy + "-" + mo + "-" + gg + "T" + hh + ":" + mi;
+    
+  if (document.getElementById("dataOraPrenotazione" + calendario).value == "") {
+   $('#dataOraPrenotazione'+ calendario).after('<span class="error">Devi inserire un valore valido di tipo data e ora</span>');
+  }
+  
+  else if (document.getElementById("dataOraPrenotazione" + calendario).value > document.getElementById("dataOraPrenotazione" + calendario).max) {
+    $('#dataOraPrenotazione'+ calendario).after('<span class="error">Puoi prenotare il veicolo entro massimo 1 anno</span>');
+  }
+  else if (document.getElementById("dataOraPrenotazione" + calendario).value < propriora ) {
+   $('#dataOraPrenotazione'+ calendario).after('<span class="error">Non puoi prenotare qualcosa nel passato</span>');
+  }
+  
+  
+  else {
 
 
     var idcalendarioperfavore = calendario
@@ -465,7 +498,7 @@ function saveDate(id,calendario){
                         
       
       
-      location.reload();
+      // location.reload();
       
 
   
@@ -515,6 +548,8 @@ function saveDate(id,calendario){
   
   
   // })
+
+}
 
 }
 
