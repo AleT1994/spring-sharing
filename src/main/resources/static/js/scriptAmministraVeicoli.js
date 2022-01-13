@@ -28,6 +28,8 @@ $().ready(function () {
             addAccordions();
         });
 
+        console.log(setTipo);
+
 });
 
 
@@ -37,6 +39,8 @@ function addFilterBtns(setTipo) {
     var divBtnFilter = document.getElementById("btnContainer");
 
     setTipo.forEach(function (tipo) {
+
+    console.log(tipo);
 
         var nomeBtn;
         switch (tipo) {
@@ -52,8 +56,11 @@ function addFilterBtns(setTipo) {
             case "autoIbrida":
                 nomeBtn = "Auto Ibrida";
                 break;
+            case "autoBenzina_Diesel":
+                nomeBtn = "Auto Benzina/Diesel";
+                break;
         }
-
+console.log(nomeBtn);
         divBtnFilter.innerHTML += '<button class="btn me-1" id="btn-' + tipo + '" >' + nomeBtn + '</button>';
         $('#btn-' + tipo).attr('onclick', 'filter("' + tipo + '")');
     })
@@ -98,6 +105,9 @@ function addAccordions() {
                 break;
             case "autoIbrida":
                 tipoVeicolo = "Auto Ibrida";
+                break;
+            case "autoBenzina_Diesel":
+                tipoVeicolo = "Auto Benzina/Diesel";
                 break;
         }
 
@@ -185,6 +195,9 @@ function filter(tipo) {
                     case "autoIbrida":
                         tipoVeicolo = "Auto Ibrida";
                         break;
+                    case "autoBenzina_Diesel":
+                        tipoVeicolo = "Auto Benzina/Diesel";
+                        break;
                 }
 
                 var idVeicolo = arrayObjVeicoli[i].id;
@@ -242,7 +255,7 @@ function modificaDati(id) {
             document.getElementById("dettagliVeicolo-" + id).innerHTML =
                 '<div class="form-floating mb-3">' +
                 '<select class="form-select" aria-label=".form-select-lg example" name="tipo" id="newTipo-' + id + '">' +
-                '<option selected></option>' +
+                '<option></option>' +
                 '<option value="autoElettrica">Auto Elettrica</option>' +
                 '<option value="autoIbrida">Auto Ibrida</option>' +
                 '<option value="autoBenzina_Diesel">Auto Diesel/Benzina</option>' +
@@ -299,6 +312,7 @@ function modificaDati(id) {
                 '</div>' +
                 '<div class="form-floating mb-3">' +
                 '<select class="form-select" aria-label=".form-select-lg example" name="posizione" id="newPosizione-' + id + '">' +
+                '<option></option>' +
                 '<option value="stazione1">STAZIONE 1 - Corso Stati Uniti 1</option>' +
                 '<option value="stazione2">STAZIONE 2 - Corso Inghilterra 47</option>' +
                 '<option value="stazione3">STAZIONE 3 - Via Giudeppe Verdi 61</option>' +
@@ -400,6 +414,40 @@ function table(id) {
 
         if (arrayObjVeicoli[i].id == id) {
 
+            var modello = arrayObjVeicoli[i].modello;
+            var capacita = arrayObjVeicoli[i].capacita;
+            var potenza = arrayObjVeicoli[i].potenza;
+            var velocita = arrayObjVeicoli[i].velocitaMassima;
+            var autonomia = arrayObjVeicoli[i].autonomia;
+            var descrizione = arrayObjVeicoli[i].descrizione;
+            var posizione = arrayObjVeicoli[i].posizioneAttuale.descrizione;
+            var disponibile = arrayObjVeicoli[i].disponibile;
+            var banner = arrayObjVeicoli[i].vistaBanner;
+            var img = arrayObjVeicoli[i].immagine;
+
+            var tipoVeicolo;
+            switch (arrayObjVeicoli[i].tipo) {
+                case "bicicletta":
+                    tipoVeicolo = "Bicicletta";
+                    break;
+                case "monopattino":
+                    tipoVeicolo = "Monopattino";
+                    break;
+                case "autoElettrica":
+                    tipoVeicolo = "Auto Elettrica";
+                    break;
+                case "autoIbrida":
+                    tipoVeicolo = "Auto Ibrida";
+                    break;
+                case "autoBenzina_Diesel":
+                    tipoVeicolo = "Auto Benzina/Diesel";
+                    break;
+            }
+
+            var idVeicolo = arrayObjVeicoli[i].id;
+            var cancId = "btnCancella-" + idVeicolo;
+            var modifId = "btnModifica-" + idVeicolo;
+
             document.getElementById("dettagliVeicolo-" + id).innerHTML = '';
 
             document.getElementById("dettagliVeicolo-" + id).innerHTML =
@@ -417,9 +465,9 @@ function table(id) {
                 '<tr>' + '<th>Visibile in Home</th><td>' + banner + '</td></tr>' +
                 ' </tbody>' +
                 '</table>' +
-                '<div class="d-flex mb-3">' +
-                '<button type="button" id="' + cancId + '" class="btn btn-danger bnl-lg" onclick="conferma(' + idVeicolo + ')"><i class="fas fa-edit"></i>Modifica</button>' +
-                '<button type="button" id="' + modifId + '" class="btn btn-primary btn-lg" onclick="modificaDati(' + idVeicolo + ')"><i class="fas fa-trash-alt"></i>Elimina</button>' +
+                '<div class="d-flex justify-content-between align-items-center mb-3">' +
+                '<button type="button" id="' + modifId + '" class="btn btn-primary bnl-lg" onclick="modificaDati(' + idVeicolo + ')"><i class="fas fa-edit"></i> Modifica</button>' +
+                '<button type="button" id="' + cancId + '" class="btn btn-danger bnl-lg" onclick="conferma(' + idVeicolo + ')"><i class="fas fa-trash-alt"></i> Elimina</button>' +
                 '</div>' +
                 '<img src="' + img + '">';
         }
@@ -436,8 +484,8 @@ function putVeicolo(id) {
     //cancello gli span di errore quando rientro nella funzione
     $(".error").remove();
 
+    //controllo i campi del form
     const tipo = document.getElementById("newTipo-" + id).value;
-
     if (tipo == "") {
         $('#newTipo-' + id).after(`<span class="error">Seleziona la tipologia del veicolo</span>`);
         id.preventDefault();
@@ -484,7 +532,7 @@ function putVeicolo(id) {
         $("#newCapacita-" + id).after(`<span class="error">La capacita del veicolo è troppo lunga</span>`);
         id.preventDefault();
     }
-    
+
     const potenza = document.getElementById("newPotenza-" + id).value;
     if (potenza == "") {
         $("#newPotenza-" + id).after(`<span class="error">Inserisci la potenza del veicolo</span>`);
@@ -561,7 +609,7 @@ function putVeicolo(id) {
         formData.append("immagine", src);
         formData.append("image", image);
     } else {
-        formData.append("immagine", document.getElementById("newImage-"+id).name); //@TODO set old values
+        formData.append("immagine", document.getElementById("newImage-" + id).name); //@TODO set old values
     }
 
 

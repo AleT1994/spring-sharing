@@ -25,7 +25,6 @@ function postVeicolo(e) {
         e.preventDefault();
     }
 
-
     const modello = document.getElementById("modello").value;
     if (modello == "") {
         $('#modello').after(`<span class="error">Inserisci il modello del veicolo</span>`);
@@ -116,7 +115,6 @@ function postVeicolo(e) {
         e.preventDefault();
     }
 
-
     const disponibile = document.getElementById("disponibile").checked;
     const banner = document.getElementById("banner").checked;
 
@@ -125,6 +123,7 @@ function postVeicolo(e) {
         $('#image').after(`<span class="error">Inserisci la foto del veicolo</span>`);
         e.preventDefault();
     }
+    
     const nomeFile = image.name;
     const src = "img/" + tipo + "/" + nomeFile;
 
@@ -182,6 +181,7 @@ function postVeicolo(e) {
             body: formData
         })
         .then(() => {
+            //svuoto elementi input veicolo
             document.getElementById("nomeVeicolo").value = "";
             document.getElementById("tipo").value = "";
             document.getElementById("modello").value = "";
@@ -196,10 +196,9 @@ function postVeicolo(e) {
             document.getElementById("image").value = "";
         })
         .then(() => {
-            //svuoto elementi input veicolo
+            //mostro un alert per avvisare l'amministratore che l'operazione è andata a buon fine
             showMessage('<div class="alert alert-success" role="alert">La tua azione è andata a buon fine</div>');
             setTimeout(hideMessage, 5000);
-
         });
 }
 

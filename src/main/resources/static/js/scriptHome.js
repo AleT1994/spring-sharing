@@ -82,8 +82,7 @@ fetch(URLgrafico)
     })
     .then(response => {
 
-        
-        var listaLabels = ["Bicicletta","Monopattino","A. Elettrica","A. Ibrida"]
+        var listaLabels = ["Bicicletta", "Monopattino", "A. Elettrica", "A. Ibrida", "A. Benzina/Diesel"]
 
         var idVeicoli = []
 
@@ -91,15 +90,16 @@ fetch(URLgrafico)
         var sommamonopattino = 0;
         var sommaautoele = 0;
         var sommaautoibri = 0;
+        var sommaautobenzdies = 0;
 
         for (var i = 0; i < response.length; i++) {
-            
+
             idVeicoli.push(response[i].veicoloId)
 
         }
 
-            
-            fetch("http://localhost:9010/sharing/api/veicoli")
+
+        fetch("http://localhost:9010/sharing/api/veicoli")
             .then(dati => {
                 return dati.json()
             })
@@ -107,68 +107,72 @@ fetch(URLgrafico)
 
 
 
-                for(var j=0; j < res.length; j++) {
+                for (var j = 0; j < res.length; j++) {
 
 
-                    for (var k=0; k < idVeicoli.length; k++){
+                    for (var k = 0; k < idVeicoli.length; k++) {
 
 
-                    if(res[j].id == idVeicoli[k]){
-
-                        
-                        switch (res[j].tipo) {
-                            case "bicicletta":
-                                sommabici +=  10;
-                                break;
-                            case "monopattino":
-                                sommamonopattino +=  9.5;
-                                break;
-                            case "autoElettrica":
-                                sommaautoele +=  6;
-                                break;
-                            case "autoIbrida":
-                                sommaautoibri +=  4;
-                                break;
-                        }
-
-                          
-
-                      
-                    }
-
-                        
-
-                    }
-
-    
-
-                    }
+                        if (res[j].id == idVeicoli[k]) {
 
 
-
-                    const divGrafico = document.getElementById("myChart");
-                    const myChart = new Chart(
-                        divGrafico, {
-                            type: 'doughnut',
-                            data: {
-                                labels: listaLabels,
-                                datasets: [{
-                                    label: 'Risparmio di Co2 per Km',
-                                    data: [sommabici,sommamonopattino,sommaautoele,sommaautoibri],
-                                    backgroundColor: [
-                                        'rgb(255, 89, 148)',
-                                        'rgb(255, 150, 104)',
-                                        'rgb(237, 255, 143)',
-                                        'rgb(130, 182, 255)'
-                                    ],
-                                    hoverOffset: 4
-                                }]
+                            switch (res[j].tipo) {
+                                case "bicicletta":
+                                    sommabici += 10;
+                                    break;
+                                case "monopattino":
+                                    sommamonopattino += 9.5;
+                                    break;
+                                case "autoElettrica":
+                                    sommaautoele += 6;
+                                    break;
+                                case "autoIbrida":
+                                    sommaautoibri += 4;
+                                    break;
+                                case "autoBenzina_Diesel":
+                                    sommaautobenzdies += 0.9;
+                                    break;
                             }
-                        }
-                    )
-    
 
-                
+
+
+
+                        }
+
+
+
+                    }
+
+
+
+                }
+
+
+
+                const divGrafico = document.getElementById("myChart");
+                const myChart = new Chart(
+                    divGrafico, {
+                        type: 'doughnut',
+                        data: {
+                            labels: listaLabels,
+                            datasets: [{
+                                label: 'Risparmio di Co2 per Km',
+                                data: [sommabici, sommamonopattino, sommaautoele, sommaautoibri, sommaautobenzdies],
+                                backgroundColor: [
+                                    'rgb(217, 127, 199)',
+                                    'rgb(237, 84, 68)',
+                                    'rgb(33, 172, 169)',
+                                    'rgb(117, 117, 187)',
+                                    'rgb(211, 218, 63)'
+                                ],
+                                hoverOffset: 4
+                            }]
+                        }
+                    }
+                )
+
+
+
             })
-        });
+    });
 ///////////////////////FUNZIONE GRAFICO DINAMICO///////////////////////////

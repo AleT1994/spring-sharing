@@ -23,6 +23,7 @@ fetch(url)
 
         if (correzionetipo == "autoElettrica"){ correzionetipo = "Auto Elettrica"}
         if (correzionetipo == "autoIbrida"){ correzionetipo = "Auto Ibrida"}
+        if (correzionetipo == "autoBenzina_Diesel"){ correzionetipo = "Auto Benzina/Diesel"}
         if (correzionetipo == "monopattino"){ correzionetipo = "Monopattino"}
         if (correzionetipo == "bicicletta"){ correzionetipo = "Bicicletta"}
 
@@ -113,6 +114,7 @@ fetch(url)
       
               if (correzionetipo == "autoElettrica"){ correzionetipo = "Auto Elettrica"}
               if (correzionetipo == "autoIbrida"){ correzionetipo = "Auto Ibrida"}
+              if (correzionetipo == "autoBenzina_Diesel"){ correzionetipo = "Auto Benzina/Diesel"}
               if (correzionetipo == "monopattino"){ correzionetipo = "Monopattino"}
               if (correzionetipo == "bicicletta"){ correzionetipo = "Bicicletta"}
       
@@ -221,6 +223,7 @@ fetch(url)
                   
                           if (correzionetipo == "autoElettrica"){ correzionetipo = "Auto Elettrica"}
                           if (correzionetipo == "autoIbrida"){ correzionetipo = "Auto Ibrida"}
+                          if (correzionetipo == "autoBenzina_Diesel"){ correzionetipo = "Auto Benzina/Diesel"}
                           if (correzionetipo == "monopattino"){ correzionetipo = "Monopattino"}
                           if (correzionetipo == "bicicletta"){ correzionetipo = "Bicicletta"}
                   
