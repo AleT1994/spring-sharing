@@ -54,7 +54,7 @@ $('#image').on('change', function() {
 //Scarica i Dati per compilarli in pagina
 var emailut = JSON.parse(localStorage.getItem("tokenLogin")).email    
 
-var linkRisorsaImpostazioni = "http://localhost:9010/sharing/api/utenti/" + emailut
+var linkRisorsaImpostazioni = "http://localhost:4200/sharing/api/utenti/" + emailut
 
 fetch(linkRisorsaImpostazioni)
   .then(dati => {
@@ -264,7 +264,7 @@ function costruttore() {
 
      
 
-const URL = "http://localhost:9010/sharing/api/utenti";
+const URL = "http://localhost:4200/sharing/api/utenti";
 
 fetch(URL, {
     headers: {
@@ -277,7 +277,7 @@ fetch(URL, {
     .then(utente => {
         
         
-        const URLIMG = "http://localhost:9010/sharing/api/utenti/foto"
+        const URLIMG = "http://localhost:4200/sharing/api/utenti/foto"
                         
                         var formData = new FormData();
                         
@@ -316,7 +316,7 @@ fetch(URL, {
 e.preventDefault();
 
 var emailut = JSON.parse(localStorage.getItem("tokenLogin")).email    
-var linkRisorsaImpostazioni = "http://localhost:9010/sharing/api/utenti/" + emailut    
+var linkRisorsaImpostazioni = "http://localhost:4200/sharing/api/utenti/" + emailut    
 
 
 
@@ -329,7 +329,7 @@ var linkRisorsaImpostazioni = "http://localhost:9010/sharing/api/utenti/" + emai
 .then(esciSubito => {
 
     localStorage.removeItem('tokenLogin');
-    window.location.assign("http://localhost:9010/sharing/index.html");
+    window.location.assign("http://localhost:4200/sharing/index.html");
 
 
 

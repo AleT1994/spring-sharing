@@ -7,7 +7,7 @@ $().ready(function () {
     var setTipo = new Set();
 
     //recupero la lista completa dei veicoli in catalogo dall'api/veicoli e la salvo in Session Storage
-    var linkRisorsa = "http://localhost:9010/sharing/api/veicoli";
+    var linkRisorsa = "http://localhost:4200/sharing/api/veicoli";
     fetch(linkRisorsa)
         .then(dati => {
             return dati.json()
@@ -136,8 +136,8 @@ function addAccordions() {
             ' </tbody>' +
             '</table>' +
             '<div class="d-flex justify-content-between align-items-center mb-3">' +
-            '<button type="button" id="' + modifId + '" class="btn btn-primary me-2 bnl-lg" onclick="modificaDati(' + idVeicolo + ')"><i class="fas fa-edit"></i> Modifica</button>' +
-            '<button type="button" id="' + cancId + '" class="btn btn-danger bnl-lg" onclick="conferma(' + idVeicolo + ')"><i class="fas fa-trash-alt"></i> Elimina</button>' +
+            '<button type="button" id="' + modifId + '" class="btn btn-primary" onclick="modificaDati(' + idVeicolo + ')"><i class="fas fa-edit"></i> Modifica</button>' +
+            '<button type="button" id="' + cancId + '" class="btn btn-danger" onclick="conferma(' + idVeicolo + ')"><i class="fas fa-trash-alt"></i> Elimina</button>' +
             '</div>' +
             '<img src="' + img + '">' +
             '</div>' +
@@ -225,8 +225,8 @@ function filter(tipo) {
                     ' </tbody>' +
                     '</table>' +
                     '<div class="d-flex justify-content-between align-items-center mb-3">' +
-                    '<button type="button" id="' + modifId + '" class="btn btn-primary bnl-lg" onclick="modificaDati(' + idVeicolo + ')"><i class="fas fa-edit"></i> Modifica</button>' +
-                    '<button type="button" id="' + cancId + '" class="btn btn-danger bnl-lg" onclick="conferma(' + idVeicolo + ')"><i class="fas fa-trash-alt"></i> Elimina</button>' +
+                    '<button type="button" id="' + modifId + '" class="btn btn-primary" onclick="modificaDati(' + idVeicolo + ')"><i class="fas fa-edit"></i> Modifica</button>' +
+                    '<button type="button" id="' + cancId + '" class="btn btn-danger" onclick="conferma(' + idVeicolo + ')"><i class="fas fa-trash-alt"></i> Elimina</button>' +
                     '</div>' +
                     '<img src="' + img + '">' +
                     '</div>' +
@@ -339,8 +339,8 @@ function modificaDati(id) {
                 '<input type="file" class="form-control" name="image" id="newImage-' + id + '" accept="image/svg, image/png, image/jpeg" class="btn btn-secondary" />' +
                 '</div>' +
                 '<div class="d-flex justify-content-between align-items-center mb-5">' +
-                '<button type="button" class="btn btn-success bnl-lg" onclick="putVeicolo(' + id + ')"><i class="fas fa-check"></i> Salva modifiche</button>' +
-                '<button type="button" class="btn btn-primary btn-lg" onclick="table(' + id + ')"><i class="fas fa-undo"></i> Annulla</button>' +
+                '<button type="button" class="btn btn-success" onclick="putVeicolo(' + id + ')"><i class="fas fa-check"></i> Salva modifiche</button>' +
+                '<button type="button" class="btn btn-primary" onclick="table(' + id + ')"><i class="fas fa-undo"></i> Annulla</button>' +
                 '</div>';
 
             var oldTipo = arrayObjVeicoli[i].tipo;
@@ -466,8 +466,8 @@ function table(id) {
                 ' </tbody>' +
                 '</table>' +
                 '<div class="d-flex justify-content-between align-items-center mb-3">' +
-                '<button type="button" id="' + modifId + '" class="btn btn-primary bnl-lg" onclick="modificaDati(' + idVeicolo + ')"><i class="fas fa-edit"></i> Modifica</button>' +
-                '<button type="button" id="' + cancId + '" class="btn btn-danger bnl-lg" onclick="conferma(' + idVeicolo + ')"><i class="fas fa-trash-alt"></i> Elimina</button>' +
+                '<button type="button" id="' + modifId + '" class="btn btn-primary" onclick="modificaDati(' + idVeicolo + ')"><i class="fas fa-edit"></i> Modifica</button>' +
+                '<button type="button" id="' + cancId + '" class="btn btn-danger" onclick="conferma(' + idVeicolo + ')"><i class="fas fa-trash-alt"></i> Elimina</button>' +
                 '</div>' +
                 '<img src="' + img + '">';
         }
@@ -478,7 +478,7 @@ function table(id) {
 //funzione per fare un update dei dati del veicolo in DB
 function putVeicolo(id) {
 
-    var URL = "http://localhost:9010/sharing/api/veicoli";
+    var URL = "http://localhost:4200/sharing/api/veicoli";
     const formData = new FormData();
 
     //cancello gli span di errore quando rientro nella funzione
@@ -605,7 +605,7 @@ function putVeicolo(id) {
         image = document.getElementById("newImage-" + id).files[0];
         nomeFile = image.name;
         src = "img/" + tipo + "/" + nomeFile;
-        URL = "http://localhost:9010/sharing/api/veicoli/file";
+        URL = "http://localhost:4200/sharing/api/veicoli/file";
         formData.append("immagine", src);
         formData.append("image", image);
     } else {
@@ -694,7 +694,7 @@ function eliminaDati() {
         id = sessionStorage.getItem("idVeicolo");
     }
 
-    const URL = "http://localhost:9010/sharing/api/veicoli/id/" + id;
+    const URL = "http://localhost:4200/sharing/api/veicoli/id/" + id;
     fetch(URL, {
             method: 'DELETE'
         })

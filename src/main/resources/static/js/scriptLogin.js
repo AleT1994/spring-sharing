@@ -101,7 +101,7 @@ $('#login-form').submit(function (e) {
 
 
 
-    linkRisorsa = "http://localhost:9010/sharing/api/utenti/"
+    linkRisorsa = "http://localhost:4200/sharing/api/utenti/"
     linkRisorsa += email;
 
 
@@ -185,7 +185,7 @@ function loggingOut() {
 
 
   localStorage.removeItem('tokenLogin');
-  window.location.assign("http://localhost:9010/sharing/index.html");
+  window.location.assign("http://localhost:4200/sharing/index.html");
 
 
 
@@ -320,7 +320,7 @@ function registration() {
 
 
     //Controllo se la mail esiste già
-    linkRisorsa = "http://localhost:9010/sharing/api/utenti/"
+    linkRisorsa = "http://localhost:4200/sharing/api/utenti/"
     linkRisorsa += email;
 
 
@@ -348,7 +348,7 @@ function registration() {
 
 
 
-          linkApiAdd = "http://localhost:9010/sharing/api/utenti"
+          linkApiAdd = "http://localhost:4200/sharing/api/utenti"
 
 
 

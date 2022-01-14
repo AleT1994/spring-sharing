@@ -183,7 +183,7 @@ $('#prenota').click(function () {
         inizioPrenotazione: dataOraInput
     }
     
-    const URLprenotazione = "http://localhost:9010/sharing/api/prenotazioni";
+    const URLprenotazione = "http://localhost:4200/sharing/api/prenotazioni";
 
     //salvo i dati su tabella prenotazioni nel DB con POST su api/prenotazioni
     fetch(URLprenotazione, {
@@ -195,7 +195,7 @@ $('#prenota').click(function () {
         body: JSON.stringify(objPrenotazione)
     });
 
-    location.href = "index.html"
+    window.location = "index.html";
 
 })
 ///////////////////////FUNZIONE FORM PRENOTAZIONE///////////////////////////

@@ -174,7 +174,7 @@ function postVeicolo(e) {
     formData.append("immagine", src);
     formData.append("image", image);
 
-    const URL = "http://localhost:9010/sharing/api/veicoli";
+    const URL = "http://localhost:4200/sharing/api/veicoli";
 
     fetch(URL, {
             method: 'POST',

@@ -6,7 +6,7 @@
     
   var divprenotazionifinite = document.getElementById("prntfinite")
   
-  var linkprenotazioni = "http://localhost:9010/sharing/api/prenotazioni/email/" + emailut
+  var linkprenotazioni = "http://localhost:4200/sharing/api/prenotazioni/email/" + emailut
   
   
   //////////////////////////////
@@ -57,7 +57,7 @@
   
           }
   
-          var apiveicoli = "http://localhost:9010/sharing/api/veicoli"
+          var apiveicoli = "http://localhost:4200/sharing/api/veicoli"
   
 
 

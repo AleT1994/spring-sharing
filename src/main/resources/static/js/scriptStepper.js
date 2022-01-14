@@ -51,14 +51,14 @@ nextBtn.addEventListener('click', function () {
     return
     }
 
-    else if (document.getElementById("dataOraPrenotazione").value > document.getElementById("dataOraPrenotazione").max) {
+    /*else if (document.getElementById("dataOraPrenotazione").value > document.getElementById("dataOraPrenotazione").max) {
     $('#dataOraPrenotazione').after('<span class="error">Puoi prenotare il veicolo entro massimo 1 anno</span>');
     return
     }
     else if (document.getElementById("dataOraPrenotazione").value < propriora ) {
     $('#dataOraPrenotazione').after('<span class="error">Non puoi prenotare qualcosa nel passato</span>');
     return
-    }
+    }*/
 
     else {
    

@@ -17,7 +17,7 @@ var divprenotazioniincorso = document.getElementById("prntcorso")
 
 var divprenotazionifinite = document.getElementById("prntfinite")
 
-var linkprenotazioni = "http://localhost:9010/sharing/api/prenotazioni/email/" + emailut
+var linkprenotazioni = "http://localhost:4200/sharing/api/prenotazioni/email/" + emailut
 
 
 //////////////////////////////
@@ -93,7 +93,7 @@ else {
 
         }
 
-        var apiveicoli = "http://localhost:9010/sharing/api/veicoli"
+        var apiveicoli = "http://localhost:4200/sharing/api/veicoli"
 
 
 ////Recupero i dati dei veicoli
@@ -208,7 +208,7 @@ fetch(apiveicoli)
 function chiudiPrenotazione(veicolo, id){
 //////////////////////////////////////////////////////////
 
-    var linkprenotazionesingola = "http://localhost:9010/sharing/api/prenotazioni/id/" + id
+    var linkprenotazionesingola = "http://localhost:4200/sharing/api/prenotazioni/id/" + id
 
    
 
@@ -219,7 +219,7 @@ function chiudiPrenotazione(veicolo, id){
       .then(res => {
 
 
-        linkApiAdd = "http://localhost:9010/sharing/api/prenotazioni"
+        linkApiAdd = "http://localhost:4200/sharing/api/prenotazioni"
 
 
 
@@ -396,7 +396,7 @@ function saveDate(id,calendario){
     console.log(dataOraInput)
     // console.log(dataOraInput);
 
-    fetch("http://localhost:9010/sharing/api/prenotazioni/id/" + id)
+    fetch("http://localhost:4200/sharing/api/prenotazioni/id/" + id)
   .then(dati1 => {
     return dati1.json()
   })
@@ -422,7 +422,7 @@ function saveDate(id,calendario){
     var prenotazionedataJSON = JSON.stringify(prenotazionedata);
 
   
-    fetch("http://localhost:9010/sharing/api/prenotazioni/data", {
+    fetch("http://localhost:4200/sharing/api/prenotazioni/data", {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -526,7 +526,7 @@ function cambiaVeicolo(veicolo, id, data){
   // }
 
 
-  // const URLprenotazione = "http://localhost:9010/sharing/api/prenotazioni";
+  // const URLprenotazione = "http://localhost:4200/sharing/api/prenotazioni";
 
   // //salvo i dati su tabella prenotazioni nel DB con POST su api/prenotazioni
   // fetch(URLprenotazione, {

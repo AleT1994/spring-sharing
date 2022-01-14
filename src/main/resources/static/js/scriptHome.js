@@ -18,7 +18,7 @@ const swiper = new Swiper(".mySwiper", {
 //prendo i dati dei veicoli dall'api/veicoli/banner/true e li stampo nella pagina
 $().ready(function () {
 
-    const URLbanner = "http://localhost:9010/sharing/api/veicoli/banner/true";
+    const URLbanner = "http://localhost:4200/sharing/api/veicoli/banner/true";
     var divSwiper = document.getElementById("swiper");
 
 
@@ -74,7 +74,7 @@ function getDati(id) {
 ///////////////////////FUNZIONE GRAFICO DINAMICO///////////////////////////
 
 //recupero i dati da api/tipo/somma per rendere grafico dinamico in base a DB
-const URLgrafico = "http://localhost:9010/sharing/api/prenotazioni/stato/conclusa";
+const URLgrafico = "http://localhost:4200/sharing/api/prenotazioni/stato/conclusa";
 
 fetch(URLgrafico)
     .then(dati => {
@@ -99,7 +99,7 @@ fetch(URLgrafico)
         }
 
 
-        fetch("http://localhost:9010/sharing/api/veicoli")
+        fetch("http://localhost:4200/sharing/api/veicoli")
             .then(dati => {
                 return dati.json()
             })

@@ -7,7 +7,7 @@
 
 
 ///////////////////////////////////////////
-var url = 'http://localhost:9010/sharing/api/veicoli/disponibile/true'
+var url = 'http://localhost:4200/sharing/api/veicoli/disponibile/true'
 
 var divveico = document.getElementById("veicolidisposez");
 
@@ -362,7 +362,7 @@ function getDati(id) {
     }
     console.log(objPrenotazione);
 
-    const URLprenotazione = "http://localhost:9010/sharing/api/prenotazioni";
+    const URLprenotazione = "http://localhost:4200/sharing/api/prenotazioni";
 
     //salvo i dati su tabella prenotazioni nel DB con POST su api/prenotazioni
     fetch(URLprenotazione, {
