@@ -1,0 +1,6 @@
+-Creare un DB chiamato "sharing"
+-Nelle applications properties mettere i propri username e password legati al db
+-Usare registrazione.sql per creare le tabelle
+-Usare insert.sql per inserire i dati
+
+!ATTENZIONE!: All'avvio il grafico a ciambella risulterà vuoto perchè fa riferimento alle prenotazioni concluse.

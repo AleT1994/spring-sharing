@@ -11,6 +11,7 @@ var potenzaVeicolo = document.getElementById("potenzaVeicolo");
 var capacitaVeicolo = document.getElementById("capacitaVeicolo");
 var velMaxVeicolo = document.getElementById("velMaxVeicolo");
 var posizioneVeicolo = document.getElementById("posizioneVeicolo");
+var descrizioneVeicolo = document.getElementById("descrizioneVeicolo");
 
 //creo un oggetto per salvare i dati dalla Session Storage
 var objVeicolo = {};
@@ -44,6 +45,7 @@ modelloVeicolo.innerHTML="<h4>Modello:</h4> " + "<p>" + objVeicolo.modello+ "</p
 potenzaVeicolo.innerHTML="<h4>Potenza:</h4> " + "<p>" + objVeicolo.potenza+ "</p>" ;
 capacitaVeicolo.innerHTML="<h4>Velocità massima:</h4> " + "<p>" + objVeicolo.velocitaMassima+ "</p>" ;
 posizioneVeicolo.innerHTML="<h4>Posizione attuale:</h4> " + "<p>" + JSON.stringify(objVeicolo.posizioneAttuale.descrizione)+ "</p>" ;
+descrizioneVeicolo.innerHTML="<h4>Descrizione:</h4> " + "<p>" + objVeicolo.descrizione + "</p>" ;
 
 
 ///////////////////////FUNZIONE PRENDI DATI///////////////////////////
