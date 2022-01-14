@@ -87,6 +87,11 @@ public class VeicoloServiceImpl implements VeicoloService {
 	}
 	
 	@Override
+	public List<Veicolo> getByDisponibileTipo(String tipo) {
+		return this.repoVeicoli.findByDisponibileTipo(tipo);
+	}
+	
+	@Override
 	public List<GraficoVeicolo> sumTipo() {
 
 		List<Map<String, Integer>> respDB = this.repoVeicoli.sumTipoGroupByTipo();

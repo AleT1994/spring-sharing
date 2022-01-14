@@ -16,6 +16,7 @@ public interface VeicoloService {
 	List<Veicolo> getByTipo(String tipo);
 	List<Veicolo> getByBanner(String banner);
 	List<Veicolo> getByDisponibile(String disponibile);
+	List<Veicolo> getByDisponibileTipo(String tipo);
 	List<GraficoVeicolo> sumTipo();
 	Veicolo updateVeicolo(Veicolo veicolo);
 	Veicolo updateVeicolo(Veicolo veicolo,MultipartFile multipartFile);

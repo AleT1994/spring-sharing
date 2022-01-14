@@ -90,6 +90,12 @@ public class VeicoliREST {
 	public List<Veicolo> getVeicoliByDisponibile(@PathVariable("disponibile") String disponibile) {
 		return veicoloService.getByDisponibile(disponibile);
 	}
+	
+	@GetMapping("/ordina/{tipo}")
+	public List<Veicolo> getVeicoliByDispoTipo(@PathVariable("tipo") String tipo) {
+		return veicoloService.getByDisponibileTipo(tipo);
+	}
+	
 
 	@PutMapping("/file")
 	public ResponseEntity<Veicolo> modificaVeicolo(Veicolo veicolo, BindingResult result, HttpServletRequest request,
