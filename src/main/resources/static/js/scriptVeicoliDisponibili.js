@@ -176,7 +176,7 @@ fetch(url)
               '  <p>' + data[bugnpagstart].posizioneAttuale.descrizione + '</p>' + 
               '</div>'+
               
-              '<button type="button" id="' + tastoId + '" class="btn btn-primary" onclick="getDati(' + bugnpagstart + ')">Prenota</button>' +
+              '<button type="button" id="' + tastoId + '" class="btn btn-success" onclick="getDati(' + bugnpagstart + ')">Prenota</button>' +
               '</a>' +
               '</div>' +
               '</div>';
@@ -285,7 +285,7 @@ fetch(url)
                           '  <p>' + data[elementinpagstart].posizioneAttuale.descrizione + '</p>' + 
                           '</div>'+
                           
-                          '<button type="button" id="' + tastoId + '" class="btn btn-primary" onclick="getDati(' + elementinpagstart + ')">Prenota</button>' +
+                          '<button type="button" id="' + tastoId + '" class="btn btn-success" onclick="getDati(' + elementinpagstart + ')">Prenota</button>' +
 
                           '</div>' +
                           '</div>';
