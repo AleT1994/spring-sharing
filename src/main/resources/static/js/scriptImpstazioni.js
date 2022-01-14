@@ -94,7 +94,7 @@ fetch(linkRisorsaImpostazioni)
 
 
  //Salva modifiche dell'utente
- function postUtente(e) {
+ function postUtente() {
 
 
 
@@ -136,92 +136,87 @@ var src = "";
     var vecchio = new Date();
     var dd = today.getDate();
     var mm = today.getMonth() + 1;
+    var mm1 = "0" + mm;
     var yyyy = today.getFullYear() - 18;
-    var yyyr = today.getFullYear() - 18;
-    var oldy = yyyy - 120;
+    var yyyr = today.getFullYear();
+    var oldy = today.getFullYear() - 120;
 
 
     today = yyyy + '-' + mm + '-' + dd;
-    todayreal = yyyr + '-' + mm + '-' + dd;
+    todayreal = yyyr + '-' + mm1 + '-' + dd;
+
+
+    
     vecchio = oldy + '-' + mm + '-' + dd;
+
+
+
     document.getElementById("nascitaimpodown").setAttribute("max", today);
     document.getElementById("nascitaimpodown").setAttribute("min", vecchio);
-
-
-
 
 
 $(".error").remove();
 
 if (nome.length < 1) {
   $('#nomeimpodown').after('<span class="error">Inserisci un nome</span>');
-  e.preventDefault();
 
 }
 
-if (nome.length > 40) {
+else if (nome.length > 40) {
   $('#nomeimpodown').after('<span class="error">Troppi caratteri massimo 40</span>');
-  e.preventDefault();
 
 }
 
-if (cognome.length < 1) {
+else if (cognome.length < 1) {
   $('#cognomeimpodown').after('<span class="error">Inserisci un cognome</span>');
-  e.preventDefault();
 
 }
 
-if (cognome.length > 40) {
+
+else if (cognome.length > 40) {
   $('#cognomeimpodown').after('<span class="error">Troppi caratteri massimo 40</span>');
-  e.preventDefault();
 
 }
 
-if (nascita > todayreal) {
+
+else if (nascita > todayreal) {
   $('#nascitaimpodown').after('<span class="error">Vieni dal futuro, non hai niente da fare qui</span>');
-  e.preventDefault();
 
 }
 
-if (nascita > document.getElementById("nascitaimpodown").max) {
+else if (nascita > document.getElementById("nascitaimpodown").max) {
   $('#nascitaimpodown').after('<span class="error">Non sei maggiorenne</span>');
-  e.preventDefault();
 }
 
 
-if (nascita < document.getElementById("nascitaimpodown").min) {
+else if (nascita < document.getElementById("nascitaimpodown").min) {
   $('#nascitaimpodown').after('<span class="error">Sei già morto</span>');
-  e.preventDefault();
 
 }
 
 
-if (nascita.length == "") {
+else if (nascita.length == "") {
     $('#nascitaimpodown').after('<span class="error">Inserisci una data di nascita</span>');
-  e.preventDefault();
 
 }
 
 
-if (pwd.length < 1) {
+else if (pwd.length < 1) {
   $('#pwdimpo').after('<span class="error">Inserisci una password</span>');
-  e.preventDefault();
 
 }
 
-if (pwd.length > 30) {
+else if (pwd.length > 30) {
   $('#pwdimpo').after('<span class="error">Troppi caratteri massimo 30</span>');
-  e.preventDefault();
 
 }
 
-if (pat.length != 10) {
+else if (pat.length != 10) {
   $('#patimpo').after('<span class="error">Inserisci un codice valido per la patente</span>');
-  e.preventDefault();
 
 }
 
-
+else {
 
 if (document.getElementById("image").files[0] == null) { 
         
@@ -321,7 +316,7 @@ fetch(URL, {
 
 
 
-
+  }
 
 
 } 

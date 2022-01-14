@@ -202,13 +202,17 @@ function registration() {
   var vecchio = new Date();
   var dd = today.getDate();
   var mm = today.getMonth() + 1;
+  var mm1 = "0" + mm;
   var yyyy = today.getFullYear() - 18;
-  var yyyr = today.getFullYear() - 18;
-  var oldy = yyyy - 120;
+  var yyyr = today.getFullYear();
+  var oldy = today.getFullYear() - 120;
 
 
   today = yyyy + '-' + mm + '-' + dd;
-  todayreal = yyyr + '-' + mm + '-' + dd;
+  todayreal = yyyr + '-' + mm1 + '-' + dd;
+
+
+  
   vecchio = oldy + '-' + mm + '-' + dd;
   document.getElementById("nascita").setAttribute("max", today);
   document.getElementById("nascita").setAttribute("min", vecchio);
