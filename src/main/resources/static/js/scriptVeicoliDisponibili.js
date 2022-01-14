@@ -458,7 +458,7 @@ function filter(tipo) {
   switch (tipo) {
 
     case "tutti":
-        sveglia();
+        location.reload();
         break;
     case "bicicletta":
         svegliatipo(tipo);
