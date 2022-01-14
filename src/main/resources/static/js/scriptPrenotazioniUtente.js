@@ -118,7 +118,13 @@ fetch(apiveicoli)
                     var inizioPrn = listaveicoli1[k].inizioprn.substring(0, 10).split("-").reverse().join("-")
                     var inizioCambiaV = listaveicoli1[k].inizioprn
                     
+                    var correzionetipo = res[j].tipo
 
+                    if (correzionetipo == "autoElettrica"){ correzionetipo = "Auto Elettrica"}
+                    if (correzionetipo == "autoIbrida"){ correzionetipo = "Auto Ibrida"}
+                    if (correzionetipo == "autoBenzina_Diesel"){ correzionetipo = "Auto Benzina/Diesel"}
+                    if (correzionetipo == "monopattino"){ correzionetipo = "Monopattino"}
+                    if (correzionetipo == "bicicletta"){ correzionetipo = "Bicicletta"}
     
                     
                     divprenotazioniincorso.innerHTML += 
@@ -130,6 +136,7 @@ fetch(apiveicoli)
                           '<div class="col-sm-12 col-md-6 align-self-center px-3" >' +
                   
                       ' <h2 class="pacific">' + res[j].nome + '</h2>'+
+                      ' <p>' + correzionetipo + '</p>'+
 
                           '<div class="flex-column">'+
                           '<h5 class="me-2">Data di inizio prenotazione: </h5>'+

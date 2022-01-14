@@ -36,9 +36,9 @@
               this.inizioprn =  res[i].inizioPrenotazione
               
               this.fineprn =  res[i].finePrenotazione
-  
     
               this.idprn = res[i].id
+              
             
             
             }
@@ -82,8 +82,15 @@
   
                     var inizioPrn = listaveicoli11[y].inizioprn.substring(0, 10).split("-").reverse().join("-")
                     var finePrn = listaveicoli11[y].fineprn.substring(0, 10).split("-").reverse().join("-")
+
+                    var correzionetipo = res[t].tipo
+
+                    if (correzionetipo == "autoElettrica"){ correzionetipo = "Auto Elettrica"}
+                    if (correzionetipo == "autoIbrida"){ correzionetipo = "Auto Ibrida"}
+                    if (correzionetipo == "autoBenzina_Diesel"){ correzionetipo = "Auto Benzina/Diesel"}
+                    if (correzionetipo == "monopattino"){ correzionetipo = "Monopattino"}
+                    if (correzionetipo == "bicicletta"){ correzionetipo = "Bicicletta"}
       
-                    
                     
                     divprenotazionifinite.innerHTML += 
                       '<div class="row sezione">' + 
@@ -94,6 +101,7 @@
                           '<div class="col-sm-12 col-md-6 align-self-center" >' +
                   
                       ' <h2 class="pacific">' + res[t].nome + '</h2>'+
+                      '  <p>' + correzionetipo + '</p>' + 
   
                           '<div class="flex-column">'+
                           '<h5 class="me-2">Data di inizio prenotazione: </h5>'+

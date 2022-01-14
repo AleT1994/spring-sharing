@@ -15,7 +15,6 @@ var posizioneVeicolo = document.getElementById("posizioneVeicolo");
 //creo un oggetto per salvare i dati dalla Session Storage
 var objVeicolo = {};
 
-console.log("ciao");
 if (Modernizr.sessionstorage) {
     objVeicolo = JSON.parse(sessionStorage.getItem("datiVeicolo"));
 }
@@ -36,7 +35,7 @@ switch (objVeicolo.tipo) {
     case "autoIbrida":
         tipoVeicolo.innerHTML = "<h4>Tipologia:</h4>"+ "<p>Auto Ibrida</p>";
         break;
-    case "autoBenzinaDiesel":
+    case "autoBenzina_Diesel":
         tipoVeicolo.innerHTML = "<h4>Tipologia:</h4>"+ "<p>Auto Benzina/Diesel</p>";
         break;
 }
@@ -78,7 +77,7 @@ switch (objVeicolo.tipo) {
     case "autoIbrida":
         URLIcona = "img/iconeMappa/auto.svg";
         break;
-    case "autoBenzinaDiesel":
+    case "autoBenzina_Diesel":
         URLIcona = "img/iconeMappa/auto.svg";
         break;
 }

@@ -6,7 +6,6 @@ if(JSON.parse(localStorage.getItem("tokenLogin")).ruolo == "amministratore")
   $('#tastocestino').remove();
 
 
-
 }
 
 
@@ -96,6 +95,28 @@ fetch(linkRisorsaImpostazioni)
 
  //Salva modifiche dell'utente
  function postUtente(e) {
+
+
+
+
+  if(JSON.parse(localStorage.getItem("tokenLogin")).ruolo == "amministratore")
+  {
+  
+    var ruolo = "amministratore"
+    
+  
+  }
+
+  if(JSON.parse(localStorage.getItem("tokenLogin")).ruolo == "utente")
+  {
+  
+    var ruolo = "utente"
+    
+  
+  }
+    
+
+
 
 const email = document.getElementById("emailimpoup").textContent;
 
@@ -226,7 +247,7 @@ if (document.getElementById("image").files[0] == null) {
 function costruttore() {
         this.email = email;
         this.password = pwd;
-        this.ruolo = "utente";
+        this.ruolo = ruolo;
         this.nome = nome;
         this.cognome = cognome
         this.nascita = nascita.split("-").reverse().join("-");
@@ -242,7 +263,7 @@ function costruttore() {
                             
                             this.email = email;
                             this.nome = nome;
-                            this.ruolo = "utente";
+                            this.ruolo = ruolo;
                             this.fotoProfilo = src;
                         
                         }

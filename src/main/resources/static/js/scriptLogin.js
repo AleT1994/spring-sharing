@@ -85,11 +85,11 @@ $('#login-form').submit(function (e) {
     $('#email').after('<span class="error">Non hai inserito la mail</span>');
   }
 
-  if (!email.match(regEx)) {
+  else if (!email.match(regEx)) {
     $('#email').after('<span class="error">Inserisci una mail valida!</span>');
   }
 
-  if (psw.length < 1) {
+  else if (psw.length < 1) {
     $('#pwd').after('<span class="error">Inserisci una password</span>');
   }
 
@@ -97,7 +97,7 @@ $('#login-form').submit(function (e) {
 
 
 
-  if ((email.length > 0) && (psw.length > 0) && (email.match(regEx))) {
+  else if ((email.length > 0) && (psw.length > 0) && (email.match(regEx))) {
 
 
 
@@ -232,92 +232,80 @@ function registration() {
     
 
 
+
     //Validazione Reg_Form
     $(".error").remove();
 
     if (nascita > todayreal) {
       $('#nascita').after('<span class="error">Vieni dal futuro, non hai niente da fare qui</span>');
-      e.preventDefault();
 
     }
-    if (nascita > document.getElementById("nascita").max) {
+    else if (nascita > document.getElementById("nascita").max) {
       $('#nascita').after('<span class="error">Non sei maggiorenne</span>');
-      e.preventDefault();
     }
     
 
-    if (nascita < document.getElementById("nascita").min) {
+    else if (nascita < document.getElementById("nascita").min) {
       $('#nascita').after('<span class="error">Sei già morto</span>');
-      e.preventDefault();
 
     }
 
-    if (nome.length < 1) {
+    else if (nome.length < 1) {
       $('#nome').after('<span class="error">Inserisci un nome</span>');
-      e.preventDefault();
 
     }
 
-    if (nome.length > 40) {
+    else if (nome.length > 40) {
       $('#nome').after('<span class="error">Troppi caratteri massimo 40</span>');
-      e.preventDefault();
 
     }
 
-    if (cognome.length < 1) {
+    else if (cognome.length < 1) {
       $('#cognome').after('<span class="error">Inserisci un cognome</span>');
-      e.preventDefault();
 
     }
 
-    if (cognome.length > 40) {
+    else if (cognome.length > 40) {
       $('#cognome').after('<span class="error">Troppi caratteri massimo 40</span>');
-      e.preventDefault();
 
     }
 
-    if (nascita.length == "") {
+    else if (nascita.length == "") {
       $('#nascita').after('<span class="error">Inserisci una data di nascita</span>');
-      e.preventDefault();
 
     }
 
-    if (email.length < 1) {
+    else if (email.length < 1) {
       $('#email1').after('<span class="error">Non hai inserito la mail</span>');
-      e.preventDefault();
 
     }
 
-    if (email.length > 30) {
+    else if (email.length > 30) {
       $('#email1').after('<span class="error">Troppi caratteri massimo 30</span>');
-      e.preventDefault();
 
     }
 
-    if (!email.match(regEx)) {
+    else if (!email.match(regEx)) {
       $('#email1').after('<span class="error">Inserisci una mail valida!</span>');
-      e.preventDefault();
 
     }
 
-    if (psw.length < 1) {
+    else if (psw.length < 1) {
       $('#pwd1').after('<span class="error">Inserisci una password</span>');
-      e.preventDefault();
 
     }
 
-    if (psw.length > 30) {
+    else if (psw.length > 30) {
       $('#pwd1').after('<span class="error">Troppi caratteri massimo 30</span>');
-      event.preventDefault();
 
     }
 
-    if (pat.length != 10) {
+    else if (pat.length != 10) {
       $('#pat').after('<span class="error">Inserisci un codice valido per la patente</span>');
-      e.preventDefault();
 
     }
 
+    else {
 
     //Controllo se la mail esiste già
     linkRisorsa = "http://localhost:9010/sharing/api/utenti/"
@@ -399,8 +387,11 @@ function registration() {
 
       })
 
+    }
 
   });
+
+
 
 }
 

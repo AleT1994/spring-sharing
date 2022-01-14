@@ -82,7 +82,7 @@ fetch(URLgrafico)
     })
     .then(response => {
 
-        var listaLabels = ["Bicicletta", "Monopattino", "A. Elettrica", "A. Ibrida"]
+        var listaLabels = ["Bicicletta", "Monopattino", "A. Elettrica", "A. Ibrida", "A. Benzina/Diesel"]
 
         var idVeicoli = []
 
