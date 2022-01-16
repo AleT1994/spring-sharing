@@ -203,6 +203,15 @@ function registration() {
   var dd = today.getDate();
   var mm = today.getMonth() + 1;
   var mm1 = "0" + mm;
+
+    if (mm > 9) {
+
+      mm1 = mm;
+
+
+    }
+
+
   var yyyy = today.getFullYear() - 18;
   var yyyr = today.getFullYear();
   var oldy = today.getFullYear() - 120;
