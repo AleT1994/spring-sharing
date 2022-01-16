@@ -217,12 +217,12 @@ function registration() {
   var oldy = today.getFullYear() - 120;
 
 
-  today = yyyy + '-' + mm + '-' + dd;
+  today = yyyy + '-' + mm1 + '-' + dd;
   todayreal = yyyr + '-' + mm1 + '-' + dd;
 
 
   
-  vecchio = oldy + '-' + mm + '-' + dd;
+  vecchio = oldy + '-' + mm1 + '-' + dd;
   document.getElementById("nascita").setAttribute("max", today);
   document.getElementById("nascita").setAttribute("min", vecchio);
   document.getElementById("nascita").setAttribute("value", "2000-01-01");

@@ -152,12 +152,12 @@ var src = "";
     var oldy = today.getFullYear() - 120;
 
 
-    today = yyyy + '-' + mm + '-' + dd;
+    today = yyyy + '-' + mm1 + '-' + dd;
     todayreal = yyyr + '-' + mm1 + '-' + dd;
 
 
     
-    vecchio = oldy + '-' + mm + '-' + dd;
+    vecchio = oldy + '-' + mm1 + '-' + dd;
 
 
 
